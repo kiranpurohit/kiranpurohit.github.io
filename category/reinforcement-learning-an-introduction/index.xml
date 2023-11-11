@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reinforcement Learning-An Introduction | Anurag Roy</title>
-    <link>https://ranarag.github.io/category/reinforcement-learning-an-introduction/</link>
-      <atom:link href="https://ranarag.github.io/category/reinforcement-learning-an-introduction/index.xml" rel="self" type="application/rss+xml" />
+    <title>Reinforcement Learning-An Introduction | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/</link>
+      <atom:link href="https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/index.xml" rel="self" type="application/rss+xml" />
     <description>Reinforcement Learning-An Introduction</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Nov 2017 16:36:20 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Reinforcement Learning-An Introduction</title>
-      <link>https://ranarag.github.io/category/reinforcement-learning-an-introduction/</link>
+      <link>https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/</link>
     </image>
     
     <item>
       <title>Multi-Armed Bandits</title>
-      <link>https://ranarag.github.io/post/rl_chapter2/</link>
+      <link>https://kiranpurohit.github.io/post/rl_chapter2/</link>
       <pubDate>Thu, 09 Nov 2017 16:36:20 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/rl_chapter2/</guid>
+      <guid>https://kiranpurohit.github.io/post/rl_chapter2/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning is different from other machine learning in the aspect that it &lt;em&gt;evaluates&lt;/em&gt; the actions rather than instructing than &lt;em&gt;instructing&lt;/em&gt; the correct actions.&lt;/p&gt;
 &lt;ol&gt;
@@ -129,9 +129,9 @@ H_{t+1}(a)  &amp; = H_t(a) - \alpha(R_t - \bar R_t)(\pi_{t}(a))  \text{   } \for
     
     <item>
       <title>What is Reinforcement Learning?</title>
-      <link>https://ranarag.github.io/post/rl_chapter1/</link>
+      <link>https://kiranpurohit.github.io/post/rl_chapter1/</link>
       <pubDate>Thu, 09 Nov 2017 12:47:09 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/rl_chapter1/</guid>
+      <guid>https://kiranpurohit.github.io/post/rl_chapter1/</guid>
       <description>&lt;p&gt;Reinforcement Learning refers to a class of problems which involve learning what to do, i.e. how to map situations to actions so as to maximize a numerical signal.In an essential way these are closed-loop problems because the learning system&amp;rsquo;s actions influence its later inputs. Moreover, unlike supervised learning it is not shown exmaples of desired behaviors,but instead it discovers and learns actions which would yield the maximum reward.Reinforcement learning is also different from unsupervised learning,because the goal of a reinforcement learning problem is to maximize a reward signal and not to find a hidden structure from the data as in supervised learning.&lt;/p&gt;
 &lt;p&gt;One of the challenges exclusive to reinforcement learning problems, is the trade-off between &lt;strong&gt;exploitation&lt;/strong&gt; and &lt;strong&gt;exploration&lt;/strong&gt;.
 To obtain a lot of reward, a reinforcement learning agent must prefer actions that it has tried in the past and found to be effective in producing reward. But to discover such actions it has to explore new actions.In exploring there is always a risk of failing at the task.So neither exploitation nor exploration can be performed exclusively without failing.&lt;/p&gt;
