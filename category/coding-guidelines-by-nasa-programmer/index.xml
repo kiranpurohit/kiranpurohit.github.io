@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>coding guidelines by NASA programmer | Anurag Roy</title>
-    <link>https://ranarag.github.io/category/coding-guidelines-by-nasa-programmer/</link>
-      <atom:link href="https://ranarag.github.io/category/coding-guidelines-by-nasa-programmer/index.xml" rel="self" type="application/rss+xml" />
+    <title>coding guidelines by NASA programmer | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/category/coding-guidelines-by-nasa-programmer/</link>
+      <atom:link href="https://kiranpurohit.github.io/category/coding-guidelines-by-nasa-programmer/index.xml" rel="self" type="application/rss+xml" />
     <description>coding guidelines by NASA programmer</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 03 Sep 2016 10:04:25 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>coding guidelines by NASA programmer</title>
-      <link>https://ranarag.github.io/category/coding-guidelines-by-nasa-programmer/</link>
+      <link>https://kiranpurohit.github.io/category/coding-guidelines-by-nasa-programmer/</link>
     </image>
     
     <item>
       <title>Programming Guidelines</title>
-      <link>https://ranarag.github.io/post/programming_guidelines/</link>
+      <link>https://kiranpurohit.github.io/post/programming_guidelines/</link>
       <pubDate>Sat, 03 Sep 2016 10:04:25 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/programming_guidelines/</guid>
+      <guid>https://kiranpurohit.github.io/post/programming_guidelines/</guid>
       <description>&lt;p&gt;In the paper 
 &lt;a href=&#34;http://spinroot.com/gerard/pdf/P10.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Power of Ten-Rules for Developing Safety Critical Code&lt;/a&gt;
 the author has stated 10 rules adhering to which will make one a good programmer.&lt;/p&gt;
