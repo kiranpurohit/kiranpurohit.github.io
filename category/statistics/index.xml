@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>statistics | Anurag Roy</title>
-    <link>https://ranarag.github.io/category/statistics/</link>
-      <atom:link href="https://ranarag.github.io/category/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <title>statistics | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/category/statistics/</link>
+      <atom:link href="https://kiranpurohit.github.io/category/statistics/index.xml" rel="self" type="application/rss+xml" />
     <description>statistics</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 04 Dec 2019 19:50:36 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>statistics</title>
-      <link>https://ranarag.github.io/category/statistics/</link>
+      <link>https://kiranpurohit.github.io/category/statistics/</link>
     </image>
     
     <item>
       <title>Stats 101</title>
-      <link>https://ranarag.github.io/post/stat-101/</link>
+      <link>https://kiranpurohit.github.io/post/stat-101/</link>
       <pubDate>Wed, 04 Dec 2019 19:50:36 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/stat-101/</guid>
+      <guid>https://kiranpurohit.github.io/post/stat-101/</guid>
       <description>&lt;h1 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h1&gt;
 &lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
 getting the entire population is intractable.
@@ -55,9 +55,9 @@ The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose val
     
     <item>
       <title>Sampling Theory and Distributions</title>
-      <link>https://ranarag.github.io/post/sampling_theory_and_dist/</link>
+      <link>https://kiranpurohit.github.io/post/sampling_theory_and_dist/</link>
       <pubDate>Tue, 05 Nov 2019 19:50:36 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/sampling_theory_and_dist/</guid>
+      <guid>https://kiranpurohit.github.io/post/sampling_theory_and_dist/</guid>
       <description>&lt;h2 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h2&gt;
 &lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
 getting the entire population is intractable.
