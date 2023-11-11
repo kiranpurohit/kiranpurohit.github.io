@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>0 | Anurag Roy</title>
-    <link>https://ranarag.github.io/publication-type/0/</link>
-      <atom:link href="https://ranarag.github.io/publication-type/0/index.xml" rel="self" type="application/rss+xml" />
+    <title>0 | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/publication-type/0/</link>
+      <atom:link href="https://kiranpurohit.github.io/publication-type/0/index.xml" rel="self" type="application/rss+xml" />
     <description>0</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 13 Jan 2018 17:36:22 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>0</title>
-      <link>https://ranarag.github.io/publication-type/0/</link>
+      <link>https://kiranpurohit.github.io/publication-type/0/</link>
     </image>
     
     <item>
       <title>Retrieving Information from Multiple Sources</title>
-      <link>https://ranarag.github.io/publication/www18/</link>
+      <link>https://kiranpurohit.github.io/publication/www18/</link>
       <pubDate>Sat, 13 Jan 2018 17:36:22 +0530</pubDate>
-      <guid>https://ranarag.github.io/publication/www18/</guid>
+      <guid>https://kiranpurohit.github.io/publication/www18/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Novel Word Embedding Based Stemming Approach for Microblog Retrieval During Disasters</title>
-      <link>https://ranarag.github.io/publication/ecir17/</link>
+      <link>https://kiranpurohit.github.io/publication/ecir17/</link>
       <pubDate>Fri, 13 Jan 2017 17:33:04 +0530</pubDate>
-      <guid>https://ranarag.github.io/publication/ecir17/</guid>
+      <guid>https://kiranpurohit.github.io/publication/ecir17/</guid>
       <description></description>
     </item>
     
