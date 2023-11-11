@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts | Anurag Roy</title>
-    <link>https://ranarag.github.io/post/</link>
-      <atom:link href="https://ranarag.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <title>Posts | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/post/</link>
+      <atom:link href="https://kiranpurohit.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 31 Jul 2021 20:19:01 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
-      <link>https://ranarag.github.io/post/</link>
+      <link>https://kiranpurohit.github.io/post/</link>
     </image>
     
     <item>
       <title>Introduction to Continual Learning</title>
-      <link>https://ranarag.github.io/post/continual_learning_intro/</link>
+      <link>https://kiranpurohit.github.io/post/continual_learning_intro/</link>
       <pubDate>Sat, 31 Jul 2021 20:19:01 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/continual_learning_intro/</guid>
+      <guid>https://kiranpurohit.github.io/post/continual_learning_intro/</guid>
       <description>&lt;p&gt;In this section we will introduce you to Continual Learning&lt;/p&gt;
 &lt;h1 id=&#34;contents&#34;&gt;Contents&lt;/h1&gt;
 &lt;ul&gt;
@@ -100,9 +100,9 @@ This results in what is known as the &lt;strong&gt;stability Plasticity Dilemma&
     
     <item>
       <title>MetaSegnet</title>
-      <link>https://ranarag.github.io/post/metasegnet/</link>
+      <link>https://kiranpurohit.github.io/post/metasegnet/</link>
       <pubDate>Sat, 27 Jun 2020 19:45:20 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/metasegnet/</guid>
+      <guid>https://kiranpurohit.github.io/post/metasegnet/</guid>
       <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
 &lt;p&gt;While Existing methods on few-shot image segmentation focus on 1-way segmentation, this paper focuses on k-way segmentation tasks.&lt;/p&gt;
 &lt;h2 id=&#34;existing-few-shot-learning-algorithms-suffer-from&#34;&gt;Existing Few-shot learning algorithms suffer from:&lt;/h2&gt;
@@ -153,9 +153,9 @@ This results in what is known as the &lt;strong&gt;stability Plasticity Dilemma&
     
     <item>
       <title>From CPP to Java</title>
-      <link>https://ranarag.github.io/post/cpp_to_java/</link>
+      <link>https://kiranpurohit.github.io/post/cpp_to_java/</link>
       <pubDate>Thu, 30 Apr 2020 12:01:04 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/cpp_to_java/</guid>
+      <guid>https://kiranpurohit.github.io/post/cpp_to_java/</guid>
       <description>&lt;p&gt;Some differences between c++ and java:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -216,9 +216,9 @@ All classes are subclasses of this root class.&lt;/p&gt;
     
     <item>
       <title>Stats 101</title>
-      <link>https://ranarag.github.io/post/stat-101/</link>
+      <link>https://kiranpurohit.github.io/post/stat-101/</link>
       <pubDate>Wed, 04 Dec 2019 19:50:36 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/stat-101/</guid>
+      <guid>https://kiranpurohit.github.io/post/stat-101/</guid>
       <description>&lt;h1 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h1&gt;
 &lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
 getting the entire population is intractable.
@@ -257,9 +257,9 @@ The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose val
     
     <item>
       <title>Sampling Theory and Distributions</title>
-      <link>https://ranarag.github.io/post/sampling_theory_and_dist/</link>
+      <link>https://kiranpurohit.github.io/post/sampling_theory_and_dist/</link>
       <pubDate>Tue, 05 Nov 2019 19:50:36 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/sampling_theory_and_dist/</guid>
+      <guid>https://kiranpurohit.github.io/post/sampling_theory_and_dist/</guid>
       <description>&lt;h2 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h2&gt;
 &lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
 getting the entire population is intractable.
@@ -295,9 +295,9 @@ The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose val
     
     <item>
       <title>How to Install Packages Locally in Linux</title>
-      <link>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</link>
+      <link>https://kiranpurohit.github.io/post/how_to_install_packages_locally_in_linux/</link>
       <pubDate>Thu, 12 Sep 2019 20:41:53 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</guid>
+      <guid>https://kiranpurohit.github.io/post/how_to_install_packages_locally_in_linux/</guid>
       <description>&lt;h2 id=&#34;some-prerequisites&#34;&gt;Some Prerequisites&lt;/h2&gt;
 &lt;h3 id=&#34;what-is-a-variable&#34;&gt;What is a variable?&lt;/h3&gt;
 &lt;p&gt;A variable is a storage location for a value. Linux has environment variables. It can store strings, numbers , etc. just like the variables in C, C++, python, or any other programming language. It even has a scope, just like the variables in other programming languages! Based on scopes Linux environments variables can be classified into 2 different categories:&lt;/p&gt;
@@ -342,15 +342,15 @@ This sequence of lookup is necessary to understand because if you have two diffe
 &lt;li&gt;Download the package from this 
 &lt;a href=&#34;https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; and extract it using &lt;code&gt;tar -xf aspell-0.60.7.tar.gz&lt;/code&gt; command.&lt;/li&gt;
 &lt;li&gt;Go inside the directory and type &lt;code&gt;./configure --help&lt;/code&gt;. This will list the options for changing the default setup locations among other things. Have a look at the options, especially the &lt;code&gt;--prefix&lt;/code&gt;, &lt;code&gt;--exec-prefix&lt;/code&gt; , &lt;code&gt;--oldincludedir&lt;/code&gt; and &lt;code&gt;--datadir&lt;/code&gt; options. We will be using these.&lt;/li&gt;
-&lt;li&gt;Now run configure with the options containing the locations you desire. As an example let me share what I have done: &lt;code&gt;./configure --prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --exec-prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --oldincludedir=&#39;/home/anuragroy/local_install_dirs/include/&#39; --datadir=&#39;/home/anuragroy/local_install_dirs/data/aspell/&#39;&lt;/code&gt;. Here anuragroy is my username and local_install_dirs can be thought of as a substitute for the &lt;code&gt;/usr/local&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;Now run configure with the options containing the locations you desire. As an example let me share what I have done: &lt;code&gt;./configure --prefix=&#39;/home/kiranpurohit/local_install_dirs/&#39; --exec-prefix=&#39;/home/kiranpurohit/local_install_dirs/&#39; --oldincludedir=&#39;/home/kiranpurohit/local_install_dirs/include/&#39; --datadir=&#39;/home/kiranpurohit/local_install_dirs/data/aspell/&#39;&lt;/code&gt;. Here kiranpurohit is my username and local_install_dirs can be thought of as a substitute for the &lt;code&gt;/usr/local&lt;/code&gt; directory.&lt;/li&gt;
 &lt;li&gt;After the configuration is done type: {%highlight bash %} make; make clean ``` to install the package.&lt;/li&gt;
 &lt;li&gt;What now remains is to set the required environment variables in the &lt;strong&gt;.bashrc&lt;/strong&gt; file. I have added the following lines:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;/home/anuragroy/local_install_dirs/bin:$PATH&amp;quot;
-export LD_LIBRARY_PATH=&amp;quot;/home/anuragroy/local_install_dirs/lib:$LD_LIBRARY_PATH&amp;quot;
-export C_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$C_INCLUDE_PATH&amp;quot;
-export CPLUS_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$CPLUS_INCLUDE_PATH&amp;quot;
-export MANPATH=&amp;quot;/home/anuragroy/local_install_dirs/data/aspell/man:$MANPATH&amp;quot;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;/home/kiranpurohit/local_install_dirs/bin:$PATH&amp;quot;
+export LD_LIBRARY_PATH=&amp;quot;/home/kiranpurohit/local_install_dirs/lib:$LD_LIBRARY_PATH&amp;quot;
+export C_INCLUDE_PATH=&amp;quot;/home/kiranpurohit/local_install_dirs/include:$C_INCLUDE_PATH&amp;quot;
+export CPLUS_INCLUDE_PATH=&amp;quot;/home/kiranpurohit/local_install_dirs/include:$CPLUS_INCLUDE_PATH&amp;quot;
+export MANPATH=&amp;quot;/home/kiranpurohit/local_install_dirs/data/aspell/man:$MANPATH&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And now aspell is installed!!! 😄&lt;/p&gt;
 &lt;p&gt;Note: Python packages relying on local libraries(for example libraries located in ~/local_install_dirs/lib), headers(for example libraries located in ~/local_install_dirs/include) will return a &lt;em&gt;cannot find..&lt;/em&gt; error.There is a way around though &amp;mdash;clone the repository of the package and modify the relevant variables accordingly(like &lt;strong&gt;library_dirs&lt;/strong&gt; for libraries and &lt;strong&gt;include_dirs&lt;/strong&gt; for headers).&lt;/p&gt;
@@ -360,9 +360,9 @@ export MANPATH=&amp;quot;/home/anuragroy/local_install_dirs/data/aspell/man:$MAN
     
     <item>
       <title>Multi-Armed Bandits</title>
-      <link>https://ranarag.github.io/post/rl_chapter2/</link>
+      <link>https://kiranpurohit.github.io/post/rl_chapter2/</link>
       <pubDate>Thu, 09 Nov 2017 16:36:20 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/rl_chapter2/</guid>
+      <guid>https://kiranpurohit.github.io/post/rl_chapter2/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning is different from other machine learning in the aspect that it &lt;em&gt;evaluates&lt;/em&gt; the actions rather than instructing than &lt;em&gt;instructing&lt;/em&gt; the correct actions.&lt;/p&gt;
 &lt;ol&gt;
@@ -475,9 +475,9 @@ H_{t+1}(a)  &amp; = H_t(a) - \alpha(R_t - \bar R_t)(\pi_{t}(a))  \text{   } \for
     
     <item>
       <title>What is Reinforcement Learning?</title>
-      <link>https://ranarag.github.io/post/rl_chapter1/</link>
+      <link>https://kiranpurohit.github.io/post/rl_chapter1/</link>
       <pubDate>Thu, 09 Nov 2017 12:47:09 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/rl_chapter1/</guid>
+      <guid>https://kiranpurohit.github.io/post/rl_chapter1/</guid>
       <description>&lt;p&gt;Reinforcement Learning refers to a class of problems which involve learning what to do, i.e. how to map situations to actions so as to maximize a numerical signal.In an essential way these are closed-loop problems because the learning system&amp;rsquo;s actions influence its later inputs. Moreover, unlike supervised learning it is not shown exmaples of desired behaviors,but instead it discovers and learns actions which would yield the maximum reward.Reinforcement learning is also different from unsupervised learning,because the goal of a reinforcement learning problem is to maximize a reward signal and not to find a hidden structure from the data as in supervised learning.&lt;/p&gt;
 &lt;p&gt;One of the challenges exclusive to reinforcement learning problems, is the trade-off between &lt;strong&gt;exploitation&lt;/strong&gt; and &lt;strong&gt;exploration&lt;/strong&gt;.
 To obtain a lot of reward, a reinforcement learning agent must prefer actions that it has tried in the past and found to be effective in producing reward. But to discover such actions it has to explore new actions.In exploring there is always a risk of failing at the task.So neither exploitation nor exploration can be performed exclusively without failing.&lt;/p&gt;
@@ -509,9 +509,9 @@ otherwise the agent may change the problem altogether in its favour.
     
     <item>
       <title>TensorBoard Basics</title>
-      <link>https://ranarag.github.io/post/tensorboard_basics/</link>
+      <link>https://kiranpurohit.github.io/post/tensorboard_basics/</link>
       <pubDate>Wed, 08 Nov 2017 15:09:44 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/tensorboard_basics/</guid>
+      <guid>https://kiranpurohit.github.io/post/tensorboard_basics/</guid>
       <description>&lt;h2 id=&#34;what-is-tensorboard&#34;&gt;What is TensorBoard?&lt;/h2&gt;
 &lt;p&gt;TensorBoard is a module of Tensorflow that provides a suite of visualisation tools that help in understanding, debugging and optimize the model created in Tensorflow.&lt;/p&gt;
 &lt;h2 id=&#34;installing-tensorboard&#34;&gt;Installing TensorBoard&lt;/h2&gt;
@@ -561,9 +561,9 @@ tensorboard --logdir=./graphs
     
     <item>
       <title>Tensorflow Basics</title>
-      <link>https://ranarag.github.io/post/tensorflow_basics/</link>
+      <link>https://kiranpurohit.github.io/post/tensorflow_basics/</link>
       <pubDate>Wed, 05 Jul 2017 21:25:58 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/tensorflow_basics/</guid>
+      <guid>https://kiranpurohit.github.io/post/tensorflow_basics/</guid>
       <description>&lt;h1 id=&#34;what-is-tensorflow&#34;&gt;What is Tensorflow?&lt;/h1&gt;
 &lt;p&gt;Tensorflow is an open source software for machine learning developed by Google.Tensorflow, as one can get from its name, mainly handles matrices(or tensors), its mathematical operations and differentiation efficiently.It is just like Theano but with some extra features like  it can be used on distributed systems.&lt;/p&gt;
 &lt;h2 id=&#34;installing-tensorflow&#34;&gt;Installing Tensorflow&lt;/h2&gt;
@@ -619,9 +619,9 @@ name=&#39;b&#39;, trainable=False)
     
     <item>
       <title>Programming Guidelines</title>
-      <link>https://ranarag.github.io/post/programming_guidelines/</link>
+      <link>https://kiranpurohit.github.io/post/programming_guidelines/</link>
       <pubDate>Sat, 03 Sep 2016 10:04:25 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/programming_guidelines/</guid>
+      <guid>https://kiranpurohit.github.io/post/programming_guidelines/</guid>
       <description>&lt;p&gt;In the paper 
 &lt;a href=&#34;http://spinroot.com/gerard/pdf/P10.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Power of Ten-Rules for Developing Safety Critical Code&lt;/a&gt;
 the author has stated 10 rules adhering to which will make one a good programmer.&lt;/p&gt;
@@ -767,9 +767,9 @@ prove absence of recursion.&lt;/p&gt;
     
     <item>
       <title>How to determine the Endianness of your PC</title>
-      <link>https://ranarag.github.io/post/endianness_of_your_pc/</link>
+      <link>https://kiranpurohit.github.io/post/endianness_of_your_pc/</link>
       <pubDate>Sun, 28 Aug 2016 14:54:27 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/endianness_of_your_pc/</guid>
+      <guid>https://kiranpurohit.github.io/post/endianness_of_your_pc/</guid>
       <description>&lt;p&gt;While studying networks I came across two system calls namely&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;ntoh(s/l)&lt;/li&gt;
