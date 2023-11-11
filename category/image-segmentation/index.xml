@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>image segmentation | Anurag Roy</title>
-    <link>https://ranarag.github.io/category/image-segmentation/</link>
-      <atom:link href="https://ranarag.github.io/category/image-segmentation/index.xml" rel="self" type="application/rss+xml" />
+    <title>image segmentation | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/category/image-segmentation/</link>
+      <atom:link href="https://kiranpurohit.github.io/category/image-segmentation/index.xml" rel="self" type="application/rss+xml" />
     <description>image segmentation</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 27 Jun 2020 19:45:20 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>image segmentation</title>
-      <link>https://ranarag.github.io/category/image-segmentation/</link>
+      <link>https://kiranpurohit.github.io/category/image-segmentation/</link>
     </image>
     
     <item>
       <title>MetaSegnet</title>
-      <link>https://ranarag.github.io/post/metasegnet/</link>
+      <link>https://kiranpurohit.github.io/post/metasegnet/</link>
       <pubDate>Sat, 27 Jun 2020 19:45:20 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/metasegnet/</guid>
+      <guid>https://kiranpurohit.github.io/post/metasegnet/</guid>
       <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
 &lt;p&gt;While Existing methods on few-shot image segmentation focus on 1-way segmentation, this paper focuses on k-way segmentation tasks.&lt;/p&gt;
 &lt;h2 id=&#34;existing-few-shot-learning-algorithms-suffer-from&#34;&gt;Existing Few-shot learning algorithms suffer from:&lt;/h2&gt;
