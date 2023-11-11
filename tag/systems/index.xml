@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>systems | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/systems/</link>
+      <atom:link href="https://ranarag.github.io/tag/systems/index.xml" rel="self" type="application/rss+xml" />
+    <description>systems</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 12 Sep 2019 20:41:53 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>systems</title>
+      <link>https://ranarag.github.io/tag/systems/</link>
+    </image>
+    
+    <item>
+      <title>How to Install Packages Locally in Linux</title>
+      <link>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</link>
+      <pubDate>Thu, 12 Sep 2019 20:41:53 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</guid>
+      <description>&lt;h2 id=&#34;some-prerequisites&#34;&gt;Some Prerequisites&lt;/h2&gt;
+&lt;h3 id=&#34;what-is-a-variable&#34;&gt;What is a variable?&lt;/h3&gt;
+&lt;p&gt;A variable is a storage location for a value. Linux has environment variables. It can store strings, numbers , etc. just like the variables in C, C++, python, or any other programming language. It even has a scope, just like the variables in other programming languages! Based on scopes Linux environments variables can be classified into 2 different categories:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Local Variables&lt;/li&gt;
+&lt;li&gt;Global Variable&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;local-variables&#34;&gt;Local Variables&lt;/h4&gt;
+&lt;p&gt;Local variables are set by typing  &amp;lt;variable_name&amp;gt;= &amp;lt;variable_value&amp;gt; (i.e without the export command).
+Local variables can only be accessed by the terminal where it is declared and not by any program even if it is run from the terminal itself.&lt;/p&gt;
+&lt;h4 id=&#34;global-variables&#34;&gt;Global Variables&lt;/h4&gt;
+&lt;p&gt;Global variables are set by typing export  &amp;lt;variable_name&amp;gt;= &amp;lt;variable_value&amp;gt;. The export command ensures that the variable be exported to any child process forked from that terminal. In short, it ensure that the variable set is global.&lt;/p&gt;
+&lt;h4 id=&#34;understanding-the-difference&#34;&gt;Understanding the Difference&lt;/h4&gt;
+&lt;p&gt;There is a simple way to understand the difference between local and global environmnent variables.&lt;/p&gt;
+&lt;p&gt;Open a terminal&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export global_var=&amp;quot;This is a global variable&amp;quot;
+local_var = &amp;quot;This is a local variable&amp;quot;
+echo $global_var
+echo $local_var
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now open tmuxa tmux session. Inside the session, type:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo $global_var
+echo $local_var
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You would notice that the local variable inside the tmux session contains no value whereas the global variable outputs the value that it has been assigned.
+You can see all the variables defined using the command &amp;lsquo;env&amp;rsquo;.
+A variable is unset by typing unset &amp;lt;variable_name&amp;gt;&lt;/p&gt;
+&lt;h4 id=&#34;some-important-paths-in-linux&#34;&gt;Some Important Paths in Linux:&lt;/h4&gt;
+&lt;p&gt;In this journey of learning how to install  packages locally in linux, we need to about two very important global environment variables:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;PATH&lt;/li&gt;
+&lt;li&gt;LD_LIBRARY_PATH&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;what-is-path&#34;&gt;what is PATH?&lt;/h3&gt;
+&lt;p&gt;PATH is a list of colon separated directories in which the system looks for executable files. When we type a command the system looks for the executable binaries in each of these directories and executes them if found or else returns an error stating &amp;lsquo;command not found&amp;rsquo;. This lookup by the system occurs in a left-to-right fashion. That is,the system first looks for the executable in the left-most directory in the colon separated list and proceeds on to the next if not found.
+This sequence of lookup is necessary to understand because if you have two different executable files with the same name but at different locations(obviously!!), say /usr/local/bin/python and ./anaconda/bin/python , and you want to execute the ./anaconda/bin/python ,then you would have to put ./anaconda/bin(absolute location is preferred, this is a relative location) to the left of /usr/bin in the colon separated list of PATH.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-ld_library_path&#34;&gt;What is LD_LIBRARY_PATH?&lt;/h3&gt;
+&lt;p&gt;Similar to PATH, LD_LIBRARY_PATH stores the  colon separated list of  directories where the system should search for libraries first, before the standard set of directories. Just like PATH, the lookup in the LD_LIBRARY_PATH also occurs in a left-to-right manner.&lt;/p&gt;
+&lt;h3 id=&#34;hands-on&#34;&gt;Hands On!!!&lt;/h3&gt;
+&lt;p&gt;In this demo we will be installing GNU-aspell locally.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the package from this 
+&lt;a href=&#34;https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; and extract it using &lt;code&gt;tar -xf aspell-0.60.7.tar.gz&lt;/code&gt; command.&lt;/li&gt;
+&lt;li&gt;Go inside the directory and type &lt;code&gt;./configure --help&lt;/code&gt;. This will list the options for changing the default setup locations among other things. Have a look at the options, especially the &lt;code&gt;--prefix&lt;/code&gt;, &lt;code&gt;--exec-prefix&lt;/code&gt; , &lt;code&gt;--oldincludedir&lt;/code&gt; and &lt;code&gt;--datadir&lt;/code&gt; options. We will be using these.&lt;/li&gt;
+&lt;li&gt;Now run configure with the options containing the locations you desire. As an example let me share what I have done: &lt;code&gt;./configure --prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --exec-prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --oldincludedir=&#39;/home/anuragroy/local_install_dirs/include/&#39; --datadir=&#39;/home/anuragroy/local_install_dirs/data/aspell/&#39;&lt;/code&gt;. Here anuragroy is my username and local_install_dirs can be thought of as a substitute for the &lt;code&gt;/usr/local&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;After the configuration is done type: {%highlight bash %} make; make clean ``` to install the package.&lt;/li&gt;
+&lt;li&gt;What now remains is to set the required environment variables in the &lt;strong&gt;.bashrc&lt;/strong&gt; file. I have added the following lines:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;/home/anuragroy/local_install_dirs/bin:$PATH&amp;quot;
+export LD_LIBRARY_PATH=&amp;quot;/home/anuragroy/local_install_dirs/lib:$LD_LIBRARY_PATH&amp;quot;
+export C_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$C_INCLUDE_PATH&amp;quot;
+export CPLUS_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$CPLUS_INCLUDE_PATH&amp;quot;
+export MANPATH=&amp;quot;/home/anuragroy/local_install_dirs/data/aspell/man:$MANPATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now aspell is installed!!! 😄&lt;/p&gt;
+&lt;p&gt;Note: Python packages relying on local libraries(for example libraries located in ~/local_install_dirs/lib), headers(for example libraries located in ~/local_install_dirs/include) will return a &lt;em&gt;cannot find..&lt;/em&gt; error.There is a way around though &amp;mdash;clone the repository of the package and modify the relevant variables accordingly(like &lt;strong&gt;library_dirs&lt;/strong&gt; for libraries and &lt;strong&gt;include_dirs&lt;/strong&gt; for headers).&lt;/p&gt;
+&lt;!-- (Not yet Finished!! :P) --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

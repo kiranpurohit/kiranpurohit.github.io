@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coding | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/coding/</link>
+      <atom:link href="https://ranarag.github.io/tag/coding/index.xml" rel="self" type="application/rss+xml" />
+    <description>coding</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2020 12:01:04 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>coding</title>
+      <link>https://ranarag.github.io/tag/coding/</link>
+    </image>
+    
+    <item>
+      <title>From CPP to Java</title>
+      <link>https://ranarag.github.io/post/cpp_to_java/</link>
+      <pubDate>Thu, 30 Apr 2020 12:01:04 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/cpp_to_java/</guid>
+      <description>&lt;p&gt;Some differences between c++ and java:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Java compiled code is platform independent whereas c++ compiled code is
+platform dependent&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java interpreter reports the run-time error that caused the execution to halt
+unlike in c/c++ programs which may simply crash&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ do not have strict sizes for the fundamental datatypes(varies from
+machine to machine) whereas Java defines strict sizes for their datatypes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java has additional positive and negative zeros, positive and neagtive infinites and &amp;ldquo;nan&amp;rdquo;(not a number values)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ has functions while Java has methods.In c/c++ functions can be defined outside a class
+Java doesnot allow methods to be defined outside a class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++  arrays, Java arrays are objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, strings are immutable in Java.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While in c++ classes &amp;ldquo;public&amp;rdquo;, &amp;ldquo;private&amp;rdquo; and &amp;ldquo;protected&amp;rdquo; are labels , in Java they are modifiers. Each member has its own access modifier. Java also has a no-modifier(a.k.a package-private) option which makes
+the member visible only within its own package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, Java method definitions do not have
+semicolon at the end of their closing brackets.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java uses the &amp;ldquo;extends&amp;rdquo; keyword while inherting features of a class to specify the superclass.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java 
+&lt;a href=&#34;http://www.programmerinterview.com/index.php/java-questions/multiple-inheritance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;does not support multiple inheritance but supports multiple interfaces&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has 
+&lt;a href=&#34;www.javatpoint.com/difference-between-abstract-class-and-interface&#34;&gt;interfaces which is a bit different from abstract class&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In Java superclass constructors are callled using the keyword &amp;ldquo;super&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has class hierarchy. The  &amp;ldquo;Object&amp;rdquo; class is the root of this hierarchy.
+All classes are subclasses of this root class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;there-are-many-other-differences-also-but-these-basic-differences-will-help-you-get-your-hands-dirty-with-java--&#34;&gt;There are many other differences also but these basic differences will help you get your hands dirty with Java !! :)&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programming Guidelines</title>
+      <link>https://ranarag.github.io/post/programming_guidelines/</link>
+      <pubDate>Sat, 03 Sep 2016 10:04:25 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/programming_guidelines/</guid>
+      <description>&lt;p&gt;In the paper 
+&lt;a href=&#34;http://spinroot.com/gerard/pdf/P10.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Power of Ten-Rules for Developing Safety Critical Code&lt;/a&gt;
+the author has stated 10 rules adhering to which will make one a good programmer.&lt;/p&gt;
+&lt;p&gt;The author chosed C as the language for writing safety critical code because of the extensive tool support for this language including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Strong source code analyzers like 
+&lt;a href=&#34;http://valgrind.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;valgrind&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;debuggers like gdb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;stable compilers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test support tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Following are the 10 rules the author wants to emphasize upon:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Restrict all code to very simple control flow constructs – do not use goto
+statements, setjmp or longjmp constructs, and direct or indirect recursion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The author says to restrict all code to very simple control flow constructs because
+it enhances code clarity. Now asking not to use recursion might look suprising but
+this is also used to improve code clarity.(Remember that every recursive solution has an
+equivalent iterative solution.)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: All loops must have a fixed upper-bound. It must be trivially possible for a
+checking tool to prove statically that a preset upper-bound on the number of iterations
+of a loop cannot be exceeded. If the loop-bound cannot be proven statically, the rule
+is considered violated.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think this rule does not need any explanations except for the fact that this rule is not applicable to iterations that
+are non-terminating(e.g. in a  process scheduler).In those cases we need to statistically prove that no upper-bound exists for such a problem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Do not use dynamic memory allocation after initialization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule is given because memory allocators and garbage collectors often have unpredictable behaviour which might cause a coding error.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: No function should be longer than what can be printed on a single sheet of
+paper in a standard reference format with one line per statement and one line per
+declaration. Typically, this means no more than about 60 lines of code per function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule is given to ensure modularity and enhance readability. The author states in his rationale
+that &amp;ldquo;excessively long functions are often a sign of poorly structured code.&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The assertion density of the code should average to a minimum of two
+assertions per function. Assertions are used to check for anomalous conditions that
+should never happen in real-life executions. Assertions must always be side-effect
+free and should be defined as Boolean tests. When an assertion fails, an explicit
+recovery action must be taken, e.g., by returning an error condition to the caller of the
+function that executes the failing assertion. Any assertion for which a static checking
+tool can prove that it can never fail or never hold violates this rule. (I.e., it is not
+possible to satisfy the rule by adding unhelpful “assert(true)” statements.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is because assertions make it easier to find bugs in the code.They are also &amp;ldquo;side effect free&amp;rdquo;
+which means that they can be selectively disabled without changing the behaviour of the code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Data objects must be declared at the smallest possible level of scope.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule uses the principle of data hiding. Many errors occur in programs because of wrong referencing
+of objects in the code. So if we reduce the scope of refer the object we will be able to find mistake in
+referencing in a lesser amount of time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The return value of non-void functions must be checked by each calling
+function, and the validity of parameters must be checked inside each function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;According to the author this is one of the most important rule because sometimes return value of a function
+helps us to find error in the code.For e.g. lets say we have problem in closing a file in C.We can do two things
+here:
+1. The time consuming one - Put various printf and assertion statements trying to find where
+he error is occurring.
+2. The time saving one - Check the return value of the function close() and lookup it&amp;rsquo;s errno.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The use of the preprocessor must be limited to the inclusion of header files and
+simple macro definitions. Token pasting, variable argument lists (ellipses), and
+recursive macro calls are not allowed. All macros must expand into complete
+syntactic units. The use of conditional compilation directives is often also dubious,
+but cannot always be avoided. This means that there should rarely be justification for
+more than one or two conditional compilation directives even in large software
+development efforts, beyond the standard boilerplate that avoids multiple inclusion of
+the same header file. Each such use should be flagged by a tool-based checker and
+justified in the code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The use of pointers should be restricted. Specifically, no more than one level of
+dereferencing is allowed. Pointer dereference operations may not be hidden in macro
+definitions or inside typedef declarations. Function pointers are not permitted.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pointers often make codes hard to analyze especially by static analyzers.As the author says
+&amp;quot; Function pointers, can seriously restrict the types of checks that can be performed
+by static analyzers and should only be used if there is a strong justification for their use,
+and ideally alternate means are provided to assist tool-based checkers determine flow of
+control and function call hierarchies&amp;rdquo;.Function pointers make it impossible for a tool to
+prove absence of recursion.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Rule: All code must be compiled, from the first day of development, with all
+&amp;gt; compiler warnings enabled at the compiler’s most pedantic setting. All code must
+&amp;gt; compile with these setting without any warnings. All code must be checked daily with
+&amp;gt; at least one, but preferably more than one, state-of-the-art static source code analyzer
+&amp;gt; and should pass the analyses with zero warnings.&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

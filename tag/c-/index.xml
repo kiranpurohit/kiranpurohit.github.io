@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c&#43;&#43; | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/c-/</link>
+      <atom:link href="https://ranarag.github.io/tag/c-/index.xml" rel="self" type="application/rss+xml" />
+    <description>c&#43;&#43;</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 28 Aug 2016 14:54:27 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>c&#43;&#43;</title>
+      <link>https://ranarag.github.io/tag/c-/</link>
+    </image>
+    
+    <item>
+      <title>How to determine the Endianness of your PC</title>
+      <link>https://ranarag.github.io/post/endianness_of_your_pc/</link>
+      <pubDate>Sun, 28 Aug 2016 14:54:27 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/endianness_of_your_pc/</guid>
+      <description>&lt;p&gt;While studying networks I came across two system calls namely&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ntoh(s/l)&lt;/li&gt;
+&lt;li&gt;hton(s/l)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Both of the above are related to byte ordering done in the network layer&lt;/p&gt;
+&lt;h2 id=&#34;ntohsl&#34;&gt;ntoh(s/l)&lt;/h2&gt;
+&lt;p&gt;It is used by host to convert a packet from network byte order to host byte order.
+(s for short and l for long).&lt;/p&gt;
+&lt;h2 id=&#34;htonsl&#34;&gt;hton(s/l)&lt;/h2&gt;
+&lt;p&gt;It is used by host before sending a packet to the network.
+This function converts a packet in host byte order to network byte order.
+(s for short and l for long).&lt;/p&gt;
+&lt;p&gt;I am not writing the example syntaxes of the above functions because you can easilly get them
+in the internet.&lt;/p&gt;
+&lt;h2 id=&#34;what-will-happen-if-i-do-not-use-the-above-functions&#34;&gt;What will happen if I do not use the above functions?&lt;/h2&gt;
+&lt;p&gt;Well this depends upon the endianess of  your machine.
+If your machine follows Big Endian then you can do away with the functions,
+but if your pc follows little endian then you may get erroneous results.
+This is because almost all network protocols follow big endian.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-check-endianness-of-your-pc&#34;&gt;How to check endianness of your pc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You can either use the following command&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;lscpu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and check the endianness of your pc&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can also use the following cpp code to check the endianness of your pc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;# include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+   unsigned long i = 1;
+   int *c = (int*)&amp;amp;i;
+   if (c[0]==1)    
+       printf(&amp;quot;Little endian\n&amp;quot;);
+   else if(c[1]==1)
+       printf(&amp;quot;Big endian\n&amp;quot;);
+   else
+    printf(&amp;quot;Unknown Endianness\n&amp;quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

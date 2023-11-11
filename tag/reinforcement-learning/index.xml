@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reinforcement Learning | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/reinforcement-learning/</link>
+      <atom:link href="https://ranarag.github.io/tag/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reinforcement Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Nov 2017 16:36:20 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Reinforcement Learning</title>
+      <link>https://ranarag.github.io/tag/reinforcement-learning/</link>
+    </image>
+    
+    <item>
+      <title>Multi-Armed Bandits</title>
+      <link>https://ranarag.github.io/post/rl_chapter2/</link>
+      <pubDate>Thu, 09 Nov 2017 16:36:20 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/rl_chapter2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Reinforcement Learning is different from other machine learning in the aspect that it &lt;em&gt;evaluates&lt;/em&gt; the actions rather than instructing than &lt;em&gt;instructing&lt;/em&gt; the correct actions.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Purely evaluative feedback indicates how good an action is , but not whether it is best or worst action possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Purely instructive feedback indicates the correct action to take independent of the action already taken.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;k-armed-bandit-problem&#34;&gt;K-Armed Bandit Problem&lt;/h2&gt;
+&lt;p&gt;The k-armed bandit problem is similar to one-armed bandits, except that it has k levers instead of one.
+Here we are faced repeatedly with a choice among k different levers, or actions. Here the rewards are the payoffs for hitting the jackpot.&lt;/p&gt;
+&lt;p&gt;In the problem, each of the k actions has an expected or mean reward given that that action is selected;
+let us call this the value of that action.We denote the action selected on time step t as $A_t$ ,
+and the corresponding reward as $R_t$. The value then of an arbitrary action $a$, denoted $q_∗(a)$, is the expected reward given
+that a is selected:&lt;/p&gt;
+&lt;p&gt;$q_∗(a) = E[R_t | A_t = a]$&lt;/p&gt;
+&lt;p&gt;We denote the estimated value of action $a$ at time $t$ as $Q_t(a) \approx q_*(a)$   .&lt;/p&gt;
+&lt;p&gt;Actions whose $Q_t$ value is the highest at time $t$, are called,  &lt;em&gt;greedy&lt;/em&gt; actions.All the other actions at time $t$ are called &lt;em&gt;non-greedy&lt;/em&gt; actions.Selecting a greedy action is said to be &lt;em&gt;exploitation&lt;/em&gt; whereas selecting a non-greedy action is said to be &lt;em&gt;evaluation&lt;/em&gt;.Exploitation is the right thing to do to maximize the expected on the one step, but exploration may produce greater total reward in the long run.&lt;/p&gt;
+&lt;h2 id=&#34;action-value-methods&#34;&gt;Action Value Methods&lt;/h2&gt;
+&lt;p&gt;So now we know that the true value of an action is the  mean reward when the action is chosen.There can be many ways of calcuate this, one way can be:&lt;/p&gt;
+&lt;p&gt;$$Q_t(a) = \frac{\text{sum of rewards when a is taken prior to t}}{\text{number of times a is taken prior to t}} = \frac{\sum_{i=0}^{t-1} R_i \cdot 1_{A_i = a}}{\sum_{i=0}^{t-1} 1_{A_i = a}}$$&lt;/p&gt;
+&lt;p&gt;where $1_predicate$ denotes the random variable that is $1$ if $predicate$ is true and $0$ if it is not. If the denominator is zero, then we instead denote $Q_t(a)$ as some default value,
+such as $Q_1(a) = 0$ .
+As the denominator goes to infnity, by the law of large numbers, $Q_t(a)$ converges to $q_*(a)$.
+We call this the *sample-average* method for estimating action values because each *estimate* is an average of the *sample* of relevant rewards.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;greedy&lt;/em&gt; actions selection method (a.k.a exploitation) can be represented as:&lt;/p&gt;
+&lt;p&gt;$A_t = \underset{x}{\operatorname{argmax}}Q_t(a)$&lt;/p&gt;
+&lt;p&gt;Where $argmax_a$ denotes the value of $a$ at which the expressio that follows is maximized(with ties broken arbitrarily).
+A simple alternative to this purely greedy approach is a &lt;em&gt;$\varepsilon-greedy$&lt;/em&gt; approach where with probability $\varepsilon$ ,
+select an action from the set of &lt;em&gt;non-greedy&lt;/em&gt; actions unformly and randomly.&lt;/p&gt;
+&lt;h2 id=&#34;incremental-implementation&#34;&gt;Incremental Implementation&lt;/h2&gt;
+&lt;p&gt;We would now dive into the implementation of the above formulae to reinforcement learning problems.
+Lets concentrate on a single action $a$. Let $R_i$ denote the reward received after the $ith$ selection of this action.Let $Q_n$ denote the estimate of this action after it has been selected &lt;em&gt;n-1&lt;/em&gt; times. Then we can write:&lt;/p&gt;
+&lt;p&gt;$$Q_n(a) = \frac{R_1 + R_2 +&amp;hellip;+ R_{n-1}}{n-1}$$&lt;/p&gt;
+&lt;p&gt;Keeping a record of all the rewards will be inefficient in terms of memory, so we would tweak the formula a little bit:&lt;/p&gt;
+&lt;div&gt;
+$$
+\begin{align}
+Q_{n+1} &amp; = \frac{1}{n}\sum_{i=1}^{n} R_i \\
+&amp; = \frac{1}{n}\bigl(R_n + \sum_{i=1}^{n-1} R_i\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + (n-1)\frac{1}{n-1}\sum_{i=1}^{n-1} R_i\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + (n-1)Q_n\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + nQ_n - Q_n\bigr) \\
+&amp; = Q_n + \frac{1}{n}[R_n - Q_n]
+\end{align}
+$$
+&lt;/div&gt;
+&lt;h2 id=&#34;a-simple-bandit-algorithm&#34;&gt;A Simple Bandit Algorithm&lt;/h2&gt;
+&lt;div&gt;
+$$ 
+\begin{align}
+&amp; \text{Initialize, for a } = 1 \text{ to k}: \\
+&amp; \quad Q(a) \leftarrow 0 \\
+&amp; \quad N(a) \leftarrow 0 \\
+&amp; \text{Repeat Forever:} \\
+&amp; \quad A \leftarrow \begin{cases} 
+                \underset{a}{\operatorname{argmax}}Q(a)  \text{ with probability 1-} \varepsilon \text{ (breaking ties randomly)} \\
+                \text{ a random action with probability } \varepsilon \\
+                \end{cases} \\
+&amp; R \leftarrow bandit(a) \\
+&amp; N(A) \leftarrow N(A) + 1 \\
+&amp; Q(A) \leftarrow Q(A) + \frac{1}{N(A)}[R - Q(A)]
+\end{align}
+$$
+&lt;/div&gt;
+&lt;p&gt;The  $\frac{1}{N(A)}$ parameter (a.k.a &lt;em&gt;StepSize&lt;/em&gt;) changes from time step to time step and can also be written as
+$\alpha_{t}(a)$.&lt;/p&gt;
+&lt;p&gt;$\alpha_{t}(a)$ is any function that satisfies the following conditions :&lt;/p&gt;
+&lt;p&gt;$\sum_{t=1}^{\infty}\alpha_{t}(a) = \infty  \text{   and   }  \sum_{t=1}^{\infty} \alpha_{t}^2(a) \lt \infty $&lt;/p&gt;
+&lt;p&gt;For the time-being let us consider $\alpha_t$ to be a constant (say $\alpha \epsilon (0,1]$ ).
+We can also write $Q_{n+1}$ in terms of $Q_1$:&lt;/p&gt;
+&lt;div&gt;
+$$\begin{align}
+Q_{n+1} &amp; = Q_n + \alpha [R_n - Q_n] \\
+&amp; = \alpha R_n + (1 - \alpha)Q_n \\
+&amp; = \alpha R_n + (1 - \alpha)[\alpha R_n + (1 - \alpha)Q_{n-1}] \\
+&amp; = \alpha R_n + (1 - \alpha)[\alpha R_n + (1 - \alpha)Q_{n-1}] \\
+&amp; = \alpha R_n + (1 - \alpha)\alpha R_{n-1} + (1 - \alpha)^2 Q_{n-1} \\
+&amp; = \alpha R_n + (1 - \alpha)\alpha R_{n-1} + (1 - \alpha)^2 \alpha R_{n-2} + \\
+&amp; ... + (1 - \alpha)^{n-1}\alpha R_1 + (1 - \alpha)^n Q_1 \\
+&amp; = (1 - \alpha)^n Q_1 + \sum_{i=1}^{n} \alpha(1 - \alpha)^{n-i}R_i \\
+\end{align}$$ 
+&lt;/div&gt;
+Choosing a positive $Q_1(a)$ value helps the model to explore more and thus learn better in the long run.
+&lt;h2 id=&#34;upper-confidence-bound-action-selection-method&#34;&gt;Upper-Confidence-Bound Action Selection Method&lt;/h2&gt;
+&lt;p&gt;$\varepsilon$-greedy action selection method forces the non-greedy actions to be tried, but indiscriminately, with no preference to those that are nearly greedy. It would be better to select among the non-greedy actions according to their potential for actually being optimal, taking into account both how close their estimates are to being maximal and the uncertanities in those estimates.&lt;/p&gt;
+&lt;p&gt;One effective way of doing this is to select action as:&lt;/p&gt;
+&lt;p&gt;$A_t = \underset{a}{\operatorname{argmax}}\Bigl[Qt(a) +  \sqrt[\leftroot{-2}\uproot{2}c]{\tfrac{\log t}{N_t(a)}} \Bigr]$&lt;/p&gt;
+&lt;p&gt;where $\log t$ denotes the natural logarithm of $t$ , $N_t(a)$ denotes the number of times that action $a$ has been selected prior to time $t$ and the number  $ c \gt 0$ controls the degree of exploration. If $N_t(a) = 0$, then $a$ is considered to be a maximizing action.&lt;/p&gt;
+&lt;p&gt;The idea of this method is that the square-root term is a measure of the uncertainity or variance in the measure of $a$&#39;s value.Each time action $a$ is selected $N_t(a)$ increases by one and the contribution of the square-root term in selecting action $A_t$ is decreased.That means that if $a$ is chosen a lot of times then chances of it being selected depends mostly on $Q_t$, which should be the behaviour of our model, logically.&lt;/p&gt;
+&lt;h2 id=&#34;gradient-bandit-algorithms&#34;&gt;Gradient Bandit Algorithms&lt;/h2&gt;
+&lt;p&gt;In this section we consider learning a numerical preference $H_t(a)$ for each action $a$. The larger the preference more often that action is tken, but the preference has no interpretation in terms of reward.Since the relative preference is important we take softmax over all the preferences at time $t$ which we denote as $\pi_{t}(a)$.&lt;/p&gt;
+&lt;p&gt;$Pr{A_t=a} = \frac{\varepsilon^{H_t(a)}}{\sum_{b=1}^{k} \varepsilon^{H_t(b)}} = \pi_{t}(a)$&lt;/p&gt;
+&lt;p&gt;There is a natural learning algorithm for this setting based on the idea of stochastic gradient ascent.On each step, after selecting the action $A_t$ and receiving the reward $R_t$, the preferences are updated by:&lt;/p&gt;
+&lt;div&gt;
+$$\begin{align}
+H_{t+1}(A_t) &amp; = H_t(A_t) + \alpha(R_t - \bar R_t)(1 - \pi_{t}(A_t)),   \text{             and    } \\
+H_{t+1}(a)  &amp; = H_t(a) - \alpha(R_t - \bar R_t)(\pi_{t}(a))  \text{   } \forall a \neq A_t \\
+\end{align}$$
+&lt;/div&gt;
+&lt;p&gt;where $\alpha \gt 0$ is step-size parameter, and $\bar R_t \in \mathbb R$ is the average of all the rewards up throught and including time $t$, which can be computed incrementally.The $\bar R_t$ serves as the baseline with which the reward is compared. If the reward is higher than the baseline, then the probability of taking $A_t$ in the future is increased, and if the reward is below baseline, then the probability is decreased.The non-selected actions move in the opposite direction.&lt;/p&gt;
+&lt;p&gt;For the represenation of the Bandit Gradient Algorithm as Stochastic Gradient Ascent please refer section-2.8(page 29) of the 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;book&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;note-this-a-summarization-of-chapter-2-of-the-book-reinforcement-learning-an-introductionhttpincompleteideasnetsuttonbookbookdraft2017nov5pdf&#34;&gt;Note: This a summarization of Chapter 2 of the book: 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reinforcement Learning: An Introduction&lt;/a&gt;&lt;/h4&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is Reinforcement Learning?</title>
+      <link>https://ranarag.github.io/post/rl_chapter1/</link>
+      <pubDate>Thu, 09 Nov 2017 12:47:09 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/rl_chapter1/</guid>
+      <description>&lt;p&gt;Reinforcement Learning refers to a class of problems which involve learning what to do, i.e. how to map situations to actions so as to maximize a numerical signal.In an essential way these are closed-loop problems because the learning system&amp;rsquo;s actions influence its later inputs. Moreover, unlike supervised learning it is not shown exmaples of desired behaviors,but instead it discovers and learns actions which would yield the maximum reward.Reinforcement learning is also different from unsupervised learning,because the goal of a reinforcement learning problem is to maximize a reward signal and not to find a hidden structure from the data as in supervised learning.&lt;/p&gt;
+&lt;p&gt;One of the challenges exclusive to reinforcement learning problems, is the trade-off between &lt;strong&gt;exploitation&lt;/strong&gt; and &lt;strong&gt;exploration&lt;/strong&gt;.
+To obtain a lot of reward, a reinforcement learning agent must prefer actions that it has tried in the past and found to be effective in producing reward. But to discover such actions it has to explore new actions.In exploring there is always a risk of failing at the task.So neither exploitation nor exploration can be performed exclusively without failing.&lt;/p&gt;
+&lt;h2 id=&#34;key-elements&#34;&gt;Key Elements&lt;/h2&gt;
+&lt;p&gt;A reinforcement learning system consists of the following main elements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt;: A policy defines the learning agent&amp;rsquo;s way of behaving at a given time.Put simply, a policy is a mapping from perceived states of the environment to actions to be taken when in those states.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reward Signal&lt;/strong&gt;: A reward signal is a numeric value which the environment sends to the agent at each step.
+In reinforcement learning an agent&amp;rsquo;s sole objective is to maximize this reward signal over the long run.Reward signals may be stochastic functions of the state of the environment and the actions taken.
+{% highlight note %}
+Note: The processes that generate reward signal must be un-alterable by the agent,
+otherwise the agent may change the problem altogether in its favour.
+{% endhighlight %}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt;: The Value function generates the value of a state. Value of a state is the total amount of reward an agent can expect to accumulate over the future , starting from that state.Values are different from rewards in the sense that rewards are generated directly by the environment, but values must be estimated and re-estimated from the sequences of observation an agent makes over its entire lifetime. Actions are chosen that bring about states of highest value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; : Here model refers to a model of the environment.This is something that mimics the behavior of the environment.Reinforcement learining methods that use models are called model based methods, as opposed to model-free methods that are explicitly trial and error learners viewed as almost the opposite of planning.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;note-this-a-summarization-of-chapter-1-of-the-book-reinforcement-learning-an-introductionhttpincompleteideasnetsuttonbookbookdraft2017nov5pdf&#34;&gt;Note: This a summarization of Chapter 1 of the book: 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reinforcement Learning: An Introduction&lt;/a&gt;&lt;/h4&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

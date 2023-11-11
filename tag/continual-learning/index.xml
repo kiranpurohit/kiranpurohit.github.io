@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continual Learning | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/continual-learning/</link>
+      <atom:link href="https://ranarag.github.io/tag/continual-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Continual Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 31 Jul 2021 20:19:01 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Continual Learning</title>
+      <link>https://ranarag.github.io/tag/continual-learning/</link>
+    </image>
+    
+    <item>
+      <title>Introduction to Continual Learning</title>
+      <link>https://ranarag.github.io/post/continual_learning_intro/</link>
+      <pubDate>Sat, 31 Jul 2021 20:19:01 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/continual_learning_intro/</guid>
+      <description>&lt;p&gt;In this section we will introduce you to Continual Learning&lt;/p&gt;
+&lt;h1 id=&#34;contents&#34;&gt;Contents&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#contents&#34;&gt;Contents&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#definition&#34;&gt;Definition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#overwiew&#34;&gt;Overwiew&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#features&#34;&gt;Features&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#catastrophic-forgetting&#34;&gt;Catastrophic Forgetting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#stability-plasticity-dilemma&#34;&gt;Stability-Plasticity Dilemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#approaches&#34;&gt;Approaches&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#regularization-based&#34;&gt;Regularization Based&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#dynamic-architectures&#34;&gt;Dynamic Architectures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#memory-replay&#34;&gt;Memory Replay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;A continual learning system can be defined as an &lt;strong&gt;adaptive algorithm&lt;/strong&gt; capable of learning from a &lt;strong&gt;continuous stream of information&lt;/strong&gt;, with such &lt;strong&gt;information becoming progressively
+available&lt;/strong&gt; over time and where the &lt;strong&gt;number of tasks learned are not pre-defined&lt;/strong&gt;. Critically, the accomodation of new information should occur without &lt;strong&gt;catastrophic forgetting or interference&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;overwiew&#34;&gt;Overwiew&lt;/h2&gt;
+&lt;p&gt;Basically Continual Learning Involves:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ability to continually acquire, fine-tune, and transfer new knowledge and skills&lt;/li&gt;
+&lt;li&gt;Higher and realistic time scale where data(and tasks) become available only with time.&lt;/li&gt;
+&lt;li&gt;Minimal or no access to previously encountered data.&lt;/li&gt;
+&lt;li&gt;Constrained computation and Memory resources.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;p&gt;In continual learning the learning envrionment is non-stationary, divided into a sequence of learnable tasks available over time.&lt;/p&gt;
+&lt;p&gt;There are many variations:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tasks transitions can be smooth or discrete&lt;/li&gt;
+&lt;li&gt;Length of tasks can vary and tasks might repeat as well.&lt;/li&gt;
+&lt;li&gt;Type of incoming tasks can vary.&lt;/li&gt;
+&lt;li&gt;There can be scenarios where tasks may not be well-defined.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;catastrophic-forgetting&#34;&gt;Catastrophic Forgetting&lt;/h2&gt;
+&lt;p&gt;Artifical Neural Networks(ANN) tend to forget the previously learned information upon learning new information. This tendency of ANNs is called &lt;em&gt;catastrophic forgetting&lt;/em&gt;, catastrophic since this hampers the model&amp;rsquo;s performance to a great extent. A naive way to prevent this from happening is by clubbing the previous training with the new training data every time the model is to be trained for a new task. This  clubbing of new training data with the old one renders the old knowledge gathered by the model useless simultaneously increasing the training time of the model.&lt;/p&gt;
+&lt;p&gt;For overcoming catastrophic forgetting, learning systems, must on one hand, show the ability to acquire new knowledge and refine existing knowledge on the basis of continuous input and, on the other hand, prevent novel input from significantly interfereing with the existing knowledge.
+This results in what is known as the &lt;strong&gt;stability Plasticity Dilemma&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;stability-plasticity-dilemma&#34;&gt;Stability-Plasticity Dilemma&lt;/h2&gt;
+&lt;p&gt;The extent to which a system must be &lt;em&gt;plastic&lt;/em&gt; in order to integrate novel information and &lt;em&gt;stable&lt;/em&gt; in order not to catastrophically interefere with consolidate knowledge is known as the &lt;em&gt;stability-plasticity&lt;/em&gt; dilemma.&lt;/p&gt;
+&lt;h2 id=&#34;approaches&#34;&gt;Approaches&lt;/h2&gt;
+&lt;p&gt;Existing Continual Learning Approaches can be broadly classified into three categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Regularization Based&lt;/li&gt;
+&lt;li&gt;Dynamic Architectures&lt;/li&gt;
+&lt;li&gt;Complementary Learning System and Memory Replay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;regularization-based&#34;&gt;Regularization Based&lt;/h3&gt;
+&lt;p&gt;Regularization based approaches alleviate catastrophic forgetting by imposing constraints on the update of the parameters of the neural networks. In case of over-parameterized neural networks, such approaches usually exploit the previously unused parameters to learn a new task.&lt;/p&gt;
+&lt;h3 id=&#34;dynamic-architectures&#34;&gt;Dynamic Architectures&lt;/h3&gt;
+&lt;p&gt;These approaches change the architectural property of the network to accomodate new information.&lt;/p&gt;
+&lt;h3 id=&#34;memory-replay&#34;&gt;Memory Replay&lt;/h3&gt;
+&lt;p&gt;These approaches make use of a small fixed size memory of instances of previous tasks which it replays along with the new instances during training a new task. This helps in interplay of an epoisodic memory(specific experience) of the current task and a semantic memory (general structure knowledge) from the instances of previous tasks stored in the memory to consolidate knowledge.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://arxiv.org/pdf/1802.07569.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Continual Lifelong Learning with Neural Networks:A Review&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://youtu.be/QIV3qgOVvDQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Continual Learning in Computer Vision Workshop @ CVPR 2021 (Part 1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>samples | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/samples/</link>
+      <atom:link href="https://ranarag.github.io/tag/samples/index.xml" rel="self" type="application/rss+xml" />
+    <description>samples</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 04 Dec 2019 19:50:36 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>samples</title>
+      <link>https://ranarag.github.io/tag/samples/</link>
+    </image>
+    
+    <item>
+      <title>Stats 101</title>
+      <link>https://ranarag.github.io/post/stat-101/</link>
+      <pubDate>Wed, 04 Dec 2019 19:50:36 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/stat-101/</guid>
+      <description>&lt;h1 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h1&gt;
+&lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
+getting the entire population is intractable.
+This process of drawing samples is called &lt;em&gt;sampling&lt;/em&gt;. There are different kinds of sampling , few of which are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random sampling&lt;/li&gt;
+&lt;li&gt;Clustered sampling&lt;/li&gt;
+&lt;li&gt;Stratified sampling&lt;/li&gt;
+&lt;li&gt;Systematic sampling
+You can read about them over 
+&lt;a href=&#34;https://medcraveonline.com/BBIJ/BBIJ-05-00149.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+The drawing of conclusions or &lt;em&gt;inference&lt;/em&gt; about the population from the samples is called &lt;em&gt;statistical inference&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this section we will consider two different types of samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling with Replacement&lt;/li&gt;
+&lt;li&gt;Sampling without Replacement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;random-sampling-with-replacement&#34;&gt;Random Sampling with Replacement&lt;/h2&gt;
+&lt;p&gt;As the name suggests, this is a type of sampling where each member of the population may be included more than once.
+It&amp;rsquo;s like picking a ball from an urn and then putting it back into the urn.&lt;/p&gt;
+&lt;h2 id=&#34;random-sampling-without-replacement&#34;&gt;Random Sampling without Replacement&lt;/h2&gt;
+&lt;p&gt;In this type of sampling, each member of the population can be included atmost once.
+A similar example for this type of sampling would be picking a ball from the urn and not putting it back inside the urn.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-statistics&#34;&gt;Sampling statistics&lt;/h2&gt;
+&lt;p&gt;A quantity obtained from the sample for the purpose estimating a population parameter is called a &lt;em&gt;sample statistic&lt;/em&gt; or briefly &lt;em&gt;statistic&lt;/em&gt;.
+Mathematically, a sample statistic for a sample of size $n$ can be defined as a function of the random variables $X_1, X_2,&amp;hellip;,X_n$ i.e., $g(X_1, X_2,&amp;hellip;,X_n)$.
+The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose values can be represented by $g(x_1, x_2,&amp;hellip;,x_n)$.&lt;/p&gt;
+&lt;h4 id=&#34;more-info-coming-soon--&#34;&gt;More info coming soon :-)&lt;/h4&gt;
+&lt;!-- ## Sampling Distributions --&gt;
+&lt;h4 id=&#34;note-this-chapter-has-sections-taken-from-the-book-and-statistical-methods-course-offered-at-iit-kharagpur&#34;&gt;Note: This chapter has sections taken from the book and Statistical Methods course offered at IIT Kharagpur&lt;/h4&gt;
+&lt;h1 id=&#34;comments&#34;&gt;Comments&lt;/h1&gt;
+&lt;p&gt;Please feel free to comment in the comment section below&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sampling Theory and Distributions</title>
+      <link>https://ranarag.github.io/post/sampling_theory_and_dist/</link>
+      <pubDate>Tue, 05 Nov 2019 19:50:36 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/sampling_theory_and_dist/</guid>
+      <description>&lt;h2 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h2&gt;
+&lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
+getting the entire population is intractable.
+This process of drawing samples is called &lt;em&gt;sampling&lt;/em&gt;. There are different kinds of sampling , few of which are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random sampling&lt;/li&gt;
+&lt;li&gt;Clustered sampling&lt;/li&gt;
+&lt;li&gt;Stratified sampling&lt;/li&gt;
+&lt;li&gt;Systematic sampling
+You can read about them over 
+&lt;a href=&#34;https://medcraveonline.com/BBIJ/BBIJ-05-00149.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+The drawing of conclusions or &lt;em&gt;inference&lt;/em&gt; about the population from the samples is called &lt;em&gt;statistical inference&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this section we will consider two different types of samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling with Replacement&lt;/li&gt;
+&lt;li&gt;Sampling without Replacement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;random-sampling-with-replacement&#34;&gt;Random Sampling with Replacement&lt;/h2&gt;
+&lt;p&gt;As the name suggests, this is a type of sampling where each member of the population may be included more than once.
+It&amp;rsquo;s like picking a ball from an urn and then putting it back into the urn.&lt;/p&gt;
+&lt;h2 id=&#34;random-sampling-without-replacement&#34;&gt;Random Sampling without Replacement&lt;/h2&gt;
+&lt;p&gt;In this type of sampling, each member of the population can be included atmost once.
+A similar example for this type of sampling would be picking a ball from the urn and not putting it back inside the urn.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-statistics&#34;&gt;Sampling statistics&lt;/h2&gt;
+&lt;p&gt;A quantity obtained from the sample for the purpose estimating a population parameter is called a &lt;em&gt;sample statistic&lt;/em&gt; or briefly &lt;em&gt;statistic&lt;/em&gt;.
+Mathematically, a sample statistic for a sample of size $n$ can be defined as a function of the random variables $X_1, X_2,&amp;hellip;,X_n$ i.e., $g(X_1, X_2,&amp;hellip;,X_n)$.
+The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose values can be represented by $g(x_1, x_2,&amp;hellip;,x_n)$.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-distributions&#34;&gt;Sampling Distributions&lt;/h2&gt;
+&lt;h4 id=&#34;note-this-chapter-has-sections-taken-from-the-book-and-statistical-methods-course-offered-at-iit-kharagpur&#34;&gt;Note: This chapter has sections taken from the book and Statistical Methods course offered at IIT Kharagpur&lt;/h4&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

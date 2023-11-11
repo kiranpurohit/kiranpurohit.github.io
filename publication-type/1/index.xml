@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1 | Anurag Roy</title>
+    <link>https://ranarag.github.io/publication-type/1/</link>
+      <atom:link href="https://ranarag.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
+    <description>1</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 13 Jan 2021 18:26:11 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>1</title>
+      <link>https://ranarag.github.io/publication-type/1/</link>
+    </image>
+    
+    <item>
+      <title>ZSCRGAN: A GAN-based Expectation Maximization Model for Zero-Shot Retrieval of Images from Textual Descriptions</title>
+      <link>https://ranarag.github.io/publication/zscrgan/</link>
+      <pubDate>Wed, 13 Jan 2021 18:26:11 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/zscrgan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Representation of Tags for Active Zero Shot Learning [short paper]</title>
+      <link>https://ranarag.github.io/publication/cods21/</link>
+      <pubDate>Wed, 13 Jan 2021 17:35:46 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/cods21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Retrieving Information from Multiple Sources [poster]</title>
+      <link>https://ranarag.github.io/publication/www18/</link>
+      <pubDate>Sat, 13 Jan 2018 17:36:22 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/www18/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Combining Local and Global Word Embeddings for Microblog Stemming [short paper]</title>
+      <link>https://ranarag.github.io/publication/cikm17/</link>
+      <pubDate>Sat, 13 Jan 2018 17:36:01 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/cikm17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Novel Word Embedding Based Stemming Approach for Microblog Retrieval During Disasters [short paper]</title>
+      <link>https://ranarag.github.io/publication/ecir17/</link>
+      <pubDate>Fri, 13 Jan 2017 17:33:04 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/ecir17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microblog Retrieval in a Disaster Situation: A New Test Collection for Evaluation.</title>
+      <link>https://ranarag.github.io/publication/smerp17/</link>
+      <pubDate>Fri, 13 Jan 2017 17:32:55 +0530</pubDate>
+      <guid>https://ranarag.github.io/publication/smerp17/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

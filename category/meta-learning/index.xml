@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>meta learning | Anurag Roy</title>
+    <link>https://ranarag.github.io/category/meta-learning/</link>
+      <atom:link href="https://ranarag.github.io/category/meta-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>meta learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 27 Jun 2020 19:45:20 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>meta learning</title>
+      <link>https://ranarag.github.io/category/meta-learning/</link>
+    </image>
+    
+    <item>
+      <title>MetaSegnet</title>
+      <link>https://ranarag.github.io/post/metasegnet/</link>
+      <pubDate>Sat, 27 Jun 2020 19:45:20 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/metasegnet/</guid>
+      <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;While Existing methods on few-shot image segmentation focus on 1-way segmentation, this paper focuses on k-way segmentation tasks.&lt;/p&gt;
+&lt;h2 id=&#34;existing-few-shot-learning-algorithms-suffer-from&#34;&gt;Existing Few-shot learning algorithms suffer from:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Distribution Divergence:&lt;/strong&gt; Most existing methods require to be pre-trained on ImageNet. However, there can be cases where the segmentation task might be very different from ImageNet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hard to Extend:&lt;/strong&gt; Most existing models perform few-shot segmentation by utilizing metric learning methods to measure one-to-one similarity between train and test images in the 1-way setting. Such methods cannot be directly adapted to the K-way setting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Difficult to train:&lt;/strong&gt; Existing methods employ complex embedding models which are hard to optimize.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;what-this-paper-proposes&#34;&gt;What this paper proposes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A new architecture called &lt;strong&gt;MetaSegNet&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A Linear base learner&lt;/li&gt;
+&lt;li&gt;The model is capable of performing K-way N-shot semantic segmentation&lt;/li&gt;
+&lt;li&gt;The model does this by extracting global and local information&lt;/li&gt;
+&lt;li&gt;The model  does not require any prior knowledge for performing the task&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture:&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/image1.png&#34; alt=&#34;/static/metasegnet/image1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Figure showing the pipeline of MetaSegNet for 2-way semantic segmentation. The support set(Dtrain)  is used to train a linear classification model, and meta-loss is used to train an embedding model(meta learner), which can generalize across all tasks. The novel embedding model branches to extract local and global features for pixel-level classification.&lt;/p&gt;
+&lt;h3 id=&#34;embedding-network&#34;&gt;Embedding Network&lt;/h3&gt;
+&lt;p&gt;The embedding network consists of two submodules— the feature extractor and the feature fusion module. Feature extractor extracts the local and global features whiles the feature fusion module fuses those features to perform the segmentation task.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For the feature extraction module, a ResNet-9 architecture is used with some minor changes. To handle the conflicting demands of multi-scale reasoning and full-resolution dense prediction, the max-pooling layers behind blocks 3 and 4 and use dilated convolution. Also an additional branch is added to extract global context. Two max pooling layers are added ahead and behind block-5 to expand the receptive field.&lt;/li&gt;
+&lt;li&gt;In the feature fusion module, the global feature is first unpooled to the same size as the local feature map spatially and then concatenated together. Since the two types of features have different scales and norms, l2 norm is applied in each channel for normalization. After normalization, combined feature map is reshaped to pixel feature map for pixel-wise classification(i.e segmentation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;differentiable-linear-base-learner&#34;&gt;Differentiable Linear Base Learner:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why a linear base learner?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is very difficult to calculate the analytic or optimal solution of the base learner if the base learner is a complex model with many non linearities in it. Such an assurance is required so as to ensure that the base learner is trained well, so as to train the meta learner well. Therefore, a differentiable linear model is chosen as the base learner.&lt;/p&gt;
+&lt;p&gt;$$\Lambda = \underset{w}{\operatorname{argmin}}| Xw - y |^{2} + \lambda |w|^{2} $$&lt;/p&gt;
+&lt;p&gt;where X is a pixel feature matrix obtained from the embedding network and y is the label for each pixel.&lt;/p&gt;
+&lt;p&gt;The closed form solution for this is as follows:&lt;/p&gt;
+&lt;p&gt;$$w = \big(X^TX +\lambda I \big)^{-1}X^Ty$$&lt;/p&gt;
+&lt;p&gt;This closed-form solution makes it easy to backpropagate through the meta-learning loss which is defined as:&lt;/p&gt;
+&lt;p&gt;$$\mathcal{L}^{meta}\left( \mathcal{D^{test}} ; w; \varphi, \lambda \right) = -\frac{1}{\left|\mathcal{T}\right|. \left|D_i^{test}\right|\left|\mathcal{I}\right|}\sum_{i \in \mathcal{T}}\sum_{(x,y) \in \mathcal{D_i^{test}}}\sum_{p \in \mathcal{I}}\log(S_{py_p})$$&lt;/p&gt;
+&lt;p&gt;where I is the set of pixels in the image and let $S_{pc}$ is the score of pixel $p$ in class $c$, then  $S_{pc} = exp(s_{pc}) / \sum_{k=1}^{N} exp(s_{pk})$ represents the softmax probability of class $c$ at pixel $p$.&lt;/p&gt;
+&lt;h3 id=&#34;experiments&#34;&gt;Experiments&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Datasets used:&lt;/strong&gt; 2 datasets have been used — COCO and PASCAL VOC.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Results:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/res1.png&#34; alt=&#34;metasegnet/res1.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                        Result on COCO dataset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/res2.png&#34; alt=&#34;metasegnet/res2.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                        Result on PASCAL-5i dataset&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

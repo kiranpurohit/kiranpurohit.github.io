@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CPP | Anurag Roy</title>
+    <link>https://ranarag.github.io/tag/cpp/</link>
+      <atom:link href="https://ranarag.github.io/tag/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <description>CPP</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2020 12:01:04 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>CPP</title>
+      <link>https://ranarag.github.io/tag/cpp/</link>
+    </image>
+    
+    <item>
+      <title>From CPP to Java</title>
+      <link>https://ranarag.github.io/post/cpp_to_java/</link>
+      <pubDate>Thu, 30 Apr 2020 12:01:04 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/cpp_to_java/</guid>
+      <description>&lt;p&gt;Some differences between c++ and java:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Java compiled code is platform independent whereas c++ compiled code is
+platform dependent&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java interpreter reports the run-time error that caused the execution to halt
+unlike in c/c++ programs which may simply crash&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ do not have strict sizes for the fundamental datatypes(varies from
+machine to machine) whereas Java defines strict sizes for their datatypes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java has additional positive and negative zeros, positive and neagtive infinites and &amp;ldquo;nan&amp;rdquo;(not a number values)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ has functions while Java has methods.In c/c++ functions can be defined outside a class
+Java doesnot allow methods to be defined outside a class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++  arrays, Java arrays are objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, strings are immutable in Java.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While in c++ classes &amp;ldquo;public&amp;rdquo;, &amp;ldquo;private&amp;rdquo; and &amp;ldquo;protected&amp;rdquo; are labels , in Java they are modifiers. Each member has its own access modifier. Java also has a no-modifier(a.k.a package-private) option which makes
+the member visible only within its own package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, Java method definitions do not have
+semicolon at the end of their closing brackets.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java uses the &amp;ldquo;extends&amp;rdquo; keyword while inherting features of a class to specify the superclass.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java 
+&lt;a href=&#34;http://www.programmerinterview.com/index.php/java-questions/multiple-inheritance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;does not support multiple inheritance but supports multiple interfaces&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has 
+&lt;a href=&#34;www.javatpoint.com/difference-between-abstract-class-and-interface&#34;&gt;interfaces which is a bit different from abstract class&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In Java superclass constructors are callled using the keyword &amp;ldquo;super&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has class hierarchy. The  &amp;ldquo;Object&amp;rdquo; class is the root of this hierarchy.
+All classes are subclasses of this root class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;there-are-many-other-differences-also-but-these-basic-differences-will-help-you-get-your-hands-dirty-with-java--&#34;&gt;There are many other differences also but these basic differences will help you get your hands dirty with Java !! :)&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

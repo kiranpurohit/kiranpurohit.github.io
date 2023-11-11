@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Anurag Roy</title>
+    <link>https://ranarag.github.io/post/</link>
+      <atom:link href="https://ranarag.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 31 Jul 2021 20:19:01 +0530</lastBuildDate>
+    <image>
+      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>https://ranarag.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>Introduction to Continual Learning</title>
+      <link>https://ranarag.github.io/post/continual_learning_intro/</link>
+      <pubDate>Sat, 31 Jul 2021 20:19:01 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/continual_learning_intro/</guid>
+      <description>&lt;p&gt;In this section we will introduce you to Continual Learning&lt;/p&gt;
+&lt;h1 id=&#34;contents&#34;&gt;Contents&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#contents&#34;&gt;Contents&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#definition&#34;&gt;Definition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#overwiew&#34;&gt;Overwiew&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#features&#34;&gt;Features&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#catastrophic-forgetting&#34;&gt;Catastrophic Forgetting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#stability-plasticity-dilemma&#34;&gt;Stability-Plasticity Dilemma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#approaches&#34;&gt;Approaches&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;#regularization-based&#34;&gt;Regularization Based&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#dynamic-architectures&#34;&gt;Dynamic Architectures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#memory-replay&#34;&gt;Memory Replay&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;A continual learning system can be defined as an &lt;strong&gt;adaptive algorithm&lt;/strong&gt; capable of learning from a &lt;strong&gt;continuous stream of information&lt;/strong&gt;, with such &lt;strong&gt;information becoming progressively
+available&lt;/strong&gt; over time and where the &lt;strong&gt;number of tasks learned are not pre-defined&lt;/strong&gt;. Critically, the accomodation of new information should occur without &lt;strong&gt;catastrophic forgetting or interference&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;overwiew&#34;&gt;Overwiew&lt;/h2&gt;
+&lt;p&gt;Basically Continual Learning Involves:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ability to continually acquire, fine-tune, and transfer new knowledge and skills&lt;/li&gt;
+&lt;li&gt;Higher and realistic time scale where data(and tasks) become available only with time.&lt;/li&gt;
+&lt;li&gt;Minimal or no access to previously encountered data.&lt;/li&gt;
+&lt;li&gt;Constrained computation and Memory resources.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;p&gt;In continual learning the learning envrionment is non-stationary, divided into a sequence of learnable tasks available over time.&lt;/p&gt;
+&lt;p&gt;There are many variations:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tasks transitions can be smooth or discrete&lt;/li&gt;
+&lt;li&gt;Length of tasks can vary and tasks might repeat as well.&lt;/li&gt;
+&lt;li&gt;Type of incoming tasks can vary.&lt;/li&gt;
+&lt;li&gt;There can be scenarios where tasks may not be well-defined.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;catastrophic-forgetting&#34;&gt;Catastrophic Forgetting&lt;/h2&gt;
+&lt;p&gt;Artifical Neural Networks(ANN) tend to forget the previously learned information upon learning new information. This tendency of ANNs is called &lt;em&gt;catastrophic forgetting&lt;/em&gt;, catastrophic since this hampers the model&amp;rsquo;s performance to a great extent. A naive way to prevent this from happening is by clubbing the previous training with the new training data every time the model is to be trained for a new task. This  clubbing of new training data with the old one renders the old knowledge gathered by the model useless simultaneously increasing the training time of the model.&lt;/p&gt;
+&lt;p&gt;For overcoming catastrophic forgetting, learning systems, must on one hand, show the ability to acquire new knowledge and refine existing knowledge on the basis of continuous input and, on the other hand, prevent novel input from significantly interfereing with the existing knowledge.
+This results in what is known as the &lt;strong&gt;stability Plasticity Dilemma&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;stability-plasticity-dilemma&#34;&gt;Stability-Plasticity Dilemma&lt;/h2&gt;
+&lt;p&gt;The extent to which a system must be &lt;em&gt;plastic&lt;/em&gt; in order to integrate novel information and &lt;em&gt;stable&lt;/em&gt; in order not to catastrophically interefere with consolidate knowledge is known as the &lt;em&gt;stability-plasticity&lt;/em&gt; dilemma.&lt;/p&gt;
+&lt;h2 id=&#34;approaches&#34;&gt;Approaches&lt;/h2&gt;
+&lt;p&gt;Existing Continual Learning Approaches can be broadly classified into three categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Regularization Based&lt;/li&gt;
+&lt;li&gt;Dynamic Architectures&lt;/li&gt;
+&lt;li&gt;Complementary Learning System and Memory Replay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;regularization-based&#34;&gt;Regularization Based&lt;/h3&gt;
+&lt;p&gt;Regularization based approaches alleviate catastrophic forgetting by imposing constraints on the update of the parameters of the neural networks. In case of over-parameterized neural networks, such approaches usually exploit the previously unused parameters to learn a new task.&lt;/p&gt;
+&lt;h3 id=&#34;dynamic-architectures&#34;&gt;Dynamic Architectures&lt;/h3&gt;
+&lt;p&gt;These approaches change the architectural property of the network to accomodate new information.&lt;/p&gt;
+&lt;h3 id=&#34;memory-replay&#34;&gt;Memory Replay&lt;/h3&gt;
+&lt;p&gt;These approaches make use of a small fixed size memory of instances of previous tasks which it replays along with the new instances during training a new task. This helps in interplay of an epoisodic memory(specific experience) of the current task and a semantic memory (general structure knowledge) from the instances of previous tasks stored in the memory to consolidate knowledge.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://arxiv.org/pdf/1802.07569.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Continual Lifelong Learning with Neural Networks:A Review&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://youtu.be/QIV3qgOVvDQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Continual Learning in Computer Vision Workshop @ CVPR 2021 (Part 1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MetaSegnet</title>
+      <link>https://ranarag.github.io/post/metasegnet/</link>
+      <pubDate>Sat, 27 Jun 2020 19:45:20 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/metasegnet/</guid>
+      <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;While Existing methods on few-shot image segmentation focus on 1-way segmentation, this paper focuses on k-way segmentation tasks.&lt;/p&gt;
+&lt;h2 id=&#34;existing-few-shot-learning-algorithms-suffer-from&#34;&gt;Existing Few-shot learning algorithms suffer from:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Distribution Divergence:&lt;/strong&gt; Most existing methods require to be pre-trained on ImageNet. However, there can be cases where the segmentation task might be very different from ImageNet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hard to Extend:&lt;/strong&gt; Most existing models perform few-shot segmentation by utilizing metric learning methods to measure one-to-one similarity between train and test images in the 1-way setting. Such methods cannot be directly adapted to the K-way setting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Difficult to train:&lt;/strong&gt; Existing methods employ complex embedding models which are hard to optimize.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;what-this-paper-proposes&#34;&gt;What this paper proposes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A new architecture called &lt;strong&gt;MetaSegNet&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A Linear base learner&lt;/li&gt;
+&lt;li&gt;The model is capable of performing K-way N-shot semantic segmentation&lt;/li&gt;
+&lt;li&gt;The model does this by extracting global and local information&lt;/li&gt;
+&lt;li&gt;The model  does not require any prior knowledge for performing the task&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture:&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/image1.png&#34; alt=&#34;/static/metasegnet/image1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Figure showing the pipeline of MetaSegNet for 2-way semantic segmentation. The support set(Dtrain)  is used to train a linear classification model, and meta-loss is used to train an embedding model(meta learner), which can generalize across all tasks. The novel embedding model branches to extract local and global features for pixel-level classification.&lt;/p&gt;
+&lt;h3 id=&#34;embedding-network&#34;&gt;Embedding Network&lt;/h3&gt;
+&lt;p&gt;The embedding network consists of two submodules— the feature extractor and the feature fusion module. Feature extractor extracts the local and global features whiles the feature fusion module fuses those features to perform the segmentation task.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For the feature extraction module, a ResNet-9 architecture is used with some minor changes. To handle the conflicting demands of multi-scale reasoning and full-resolution dense prediction, the max-pooling layers behind blocks 3 and 4 and use dilated convolution. Also an additional branch is added to extract global context. Two max pooling layers are added ahead and behind block-5 to expand the receptive field.&lt;/li&gt;
+&lt;li&gt;In the feature fusion module, the global feature is first unpooled to the same size as the local feature map spatially and then concatenated together. Since the two types of features have different scales and norms, l2 norm is applied in each channel for normalization. After normalization, combined feature map is reshaped to pixel feature map for pixel-wise classification(i.e segmentation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;differentiable-linear-base-learner&#34;&gt;Differentiable Linear Base Learner:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Why a linear base learner?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is very difficult to calculate the analytic or optimal solution of the base learner if the base learner is a complex model with many non linearities in it. Such an assurance is required so as to ensure that the base learner is trained well, so as to train the meta learner well. Therefore, a differentiable linear model is chosen as the base learner.&lt;/p&gt;
+&lt;p&gt;$$\Lambda = \underset{w}{\operatorname{argmin}}| Xw - y |^{2} + \lambda |w|^{2} $$&lt;/p&gt;
+&lt;p&gt;where X is a pixel feature matrix obtained from the embedding network and y is the label for each pixel.&lt;/p&gt;
+&lt;p&gt;The closed form solution for this is as follows:&lt;/p&gt;
+&lt;p&gt;$$w = \big(X^TX +\lambda I \big)^{-1}X^Ty$$&lt;/p&gt;
+&lt;p&gt;This closed-form solution makes it easy to backpropagate through the meta-learning loss which is defined as:&lt;/p&gt;
+&lt;p&gt;$$\mathcal{L}^{meta}\left( \mathcal{D^{test}} ; w; \varphi, \lambda \right) = -\frac{1}{\left|\mathcal{T}\right|. \left|D_i^{test}\right|\left|\mathcal{I}\right|}\sum_{i \in \mathcal{T}}\sum_{(x,y) \in \mathcal{D_i^{test}}}\sum_{p \in \mathcal{I}}\log(S_{py_p})$$&lt;/p&gt;
+&lt;p&gt;where I is the set of pixels in the image and let $S_{pc}$ is the score of pixel $p$ in class $c$, then  $S_{pc} = exp(s_{pc}) / \sum_{k=1}^{N} exp(s_{pk})$ represents the softmax probability of class $c$ at pixel $p$.&lt;/p&gt;
+&lt;h3 id=&#34;experiments&#34;&gt;Experiments&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Datasets used:&lt;/strong&gt; 2 datasets have been used — COCO and PASCAL VOC.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Results:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/res1.png&#34; alt=&#34;metasegnet/res1.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                        Result on COCO dataset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;metasegnet/res2.png&#34; alt=&#34;metasegnet/res2.png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                        Result on PASCAL-5i dataset&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>From CPP to Java</title>
+      <link>https://ranarag.github.io/post/cpp_to_java/</link>
+      <pubDate>Thu, 30 Apr 2020 12:01:04 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/cpp_to_java/</guid>
+      <description>&lt;p&gt;Some differences between c++ and java:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Java compiled code is platform independent whereas c++ compiled code is
+platform dependent&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java interpreter reports the run-time error that caused the execution to halt
+unlike in c/c++ programs which may simply crash&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ do not have strict sizes for the fundamental datatypes(varies from
+machine to machine) whereas Java defines strict sizes for their datatypes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java has additional positive and negative zeros, positive and neagtive infinites and &amp;ldquo;nan&amp;rdquo;(not a number values)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c/c++ has functions while Java has methods.In c/c++ functions can be defined outside a class
+Java doesnot allow methods to be defined outside a class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++  arrays, Java arrays are objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, strings are immutable in Java.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While in c++ classes &amp;ldquo;public&amp;rdquo;, &amp;ldquo;private&amp;rdquo; and &amp;ldquo;protected&amp;rdquo; are labels , in Java they are modifiers. Each member has its own access modifier. Java also has a no-modifier(a.k.a package-private) option which makes
+the member visible only within its own package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++, Java method definitions do not have
+semicolon at the end of their closing brackets.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java uses the &amp;ldquo;extends&amp;rdquo; keyword while inherting features of a class to specify the superclass.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Java 
+&lt;a href=&#34;http://www.programmerinterview.com/index.php/java-questions/multiple-inheritance/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;does not support multiple inheritance but supports multiple interfaces&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has 
+&lt;a href=&#34;www.javatpoint.com/difference-between-abstract-class-and-interface&#34;&gt;interfaces which is a bit different from abstract class&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In Java superclass constructors are callled using the keyword &amp;ldquo;super&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unlike c++ Java has class hierarchy. The  &amp;ldquo;Object&amp;rdquo; class is the root of this hierarchy.
+All classes are subclasses of this root class.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;there-are-many-other-differences-also-but-these-basic-differences-will-help-you-get-your-hands-dirty-with-java--&#34;&gt;There are many other differences also but these basic differences will help you get your hands dirty with Java !! :)&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stats 101</title>
+      <link>https://ranarag.github.io/post/stat-101/</link>
+      <pubDate>Wed, 04 Dec 2019 19:50:36 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/stat-101/</guid>
+      <description>&lt;h1 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h1&gt;
+&lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
+getting the entire population is intractable.
+This process of drawing samples is called &lt;em&gt;sampling&lt;/em&gt;. There are different kinds of sampling , few of which are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random sampling&lt;/li&gt;
+&lt;li&gt;Clustered sampling&lt;/li&gt;
+&lt;li&gt;Stratified sampling&lt;/li&gt;
+&lt;li&gt;Systematic sampling
+You can read about them over 
+&lt;a href=&#34;https://medcraveonline.com/BBIJ/BBIJ-05-00149.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+The drawing of conclusions or &lt;em&gt;inference&lt;/em&gt; about the population from the samples is called &lt;em&gt;statistical inference&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this section we will consider two different types of samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling with Replacement&lt;/li&gt;
+&lt;li&gt;Sampling without Replacement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;random-sampling-with-replacement&#34;&gt;Random Sampling with Replacement&lt;/h2&gt;
+&lt;p&gt;As the name suggests, this is a type of sampling where each member of the population may be included more than once.
+It&amp;rsquo;s like picking a ball from an urn and then putting it back into the urn.&lt;/p&gt;
+&lt;h2 id=&#34;random-sampling-without-replacement&#34;&gt;Random Sampling without Replacement&lt;/h2&gt;
+&lt;p&gt;In this type of sampling, each member of the population can be included atmost once.
+A similar example for this type of sampling would be picking a ball from the urn and not putting it back inside the urn.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-statistics&#34;&gt;Sampling statistics&lt;/h2&gt;
+&lt;p&gt;A quantity obtained from the sample for the purpose estimating a population parameter is called a &lt;em&gt;sample statistic&lt;/em&gt; or briefly &lt;em&gt;statistic&lt;/em&gt;.
+Mathematically, a sample statistic for a sample of size $n$ can be defined as a function of the random variables $X_1, X_2,&amp;hellip;,X_n$ i.e., $g(X_1, X_2,&amp;hellip;,X_n)$.
+The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose values can be represented by $g(x_1, x_2,&amp;hellip;,x_n)$.&lt;/p&gt;
+&lt;h4 id=&#34;more-info-coming-soon--&#34;&gt;More info coming soon :-)&lt;/h4&gt;
+&lt;!-- ## Sampling Distributions --&gt;
+&lt;h4 id=&#34;note-this-chapter-has-sections-taken-from-the-book-and-statistical-methods-course-offered-at-iit-kharagpur&#34;&gt;Note: This chapter has sections taken from the book and Statistical Methods course offered at IIT Kharagpur&lt;/h4&gt;
+&lt;h1 id=&#34;comments&#34;&gt;Comments&lt;/h1&gt;
+&lt;p&gt;Please feel free to comment in the comment section below&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sampling Theory and Distributions</title>
+      <link>https://ranarag.github.io/post/sampling_theory_and_dist/</link>
+      <pubDate>Tue, 05 Nov 2019 19:50:36 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/sampling_theory_and_dist/</guid>
+      <description>&lt;h2 id=&#34;sampling-theory&#34;&gt;Sampling Theory&lt;/h2&gt;
+&lt;p&gt;Data scientists are required to draw conclusions about a group, a.k.a &lt;em&gt;population&lt;/em&gt; from a few &lt;em&gt;samples&lt;/em&gt; of it because
+getting the entire population is intractable.
+This process of drawing samples is called &lt;em&gt;sampling&lt;/em&gt;. There are different kinds of sampling , few of which are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random sampling&lt;/li&gt;
+&lt;li&gt;Clustered sampling&lt;/li&gt;
+&lt;li&gt;Stratified sampling&lt;/li&gt;
+&lt;li&gt;Systematic sampling
+You can read about them over 
+&lt;a href=&#34;https://medcraveonline.com/BBIJ/BBIJ-05-00149.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+The drawing of conclusions or &lt;em&gt;inference&lt;/em&gt; about the population from the samples is called &lt;em&gt;statistical inference&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this section we will consider two different types of samples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sampling with Replacement&lt;/li&gt;
+&lt;li&gt;Sampling without Replacement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;random-sampling-with-replacement&#34;&gt;Random Sampling with Replacement&lt;/h2&gt;
+&lt;p&gt;As the name suggests, this is a type of sampling where each member of the population may be included more than once.
+It&amp;rsquo;s like picking a ball from an urn and then putting it back into the urn.&lt;/p&gt;
+&lt;h2 id=&#34;random-sampling-without-replacement&#34;&gt;Random Sampling without Replacement&lt;/h2&gt;
+&lt;p&gt;In this type of sampling, each member of the population can be included atmost once.
+A similar example for this type of sampling would be picking a ball from the urn and not putting it back inside the urn.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-statistics&#34;&gt;Sampling statistics&lt;/h2&gt;
+&lt;p&gt;A quantity obtained from the sample for the purpose estimating a population parameter is called a &lt;em&gt;sample statistic&lt;/em&gt; or briefly &lt;em&gt;statistic&lt;/em&gt;.
+Mathematically, a sample statistic for a sample of size $n$ can be defined as a function of the random variables $X_1, X_2,&amp;hellip;,X_n$ i.e., $g(X_1, X_2,&amp;hellip;,X_n)$.
+The function $g(X_1, X_2,&amp;hellip;,X_n)$ is another random variable whose values can be represented by $g(x_1, x_2,&amp;hellip;,x_n)$.&lt;/p&gt;
+&lt;h2 id=&#34;sampling-distributions&#34;&gt;Sampling Distributions&lt;/h2&gt;
+&lt;h4 id=&#34;note-this-chapter-has-sections-taken-from-the-book-and-statistical-methods-course-offered-at-iit-kharagpur&#34;&gt;Note: This chapter has sections taken from the book and Statistical Methods course offered at IIT Kharagpur&lt;/h4&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Install Packages Locally in Linux</title>
+      <link>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</link>
+      <pubDate>Thu, 12 Sep 2019 20:41:53 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/how_to_install_packages_locally_in_linux/</guid>
+      <description>&lt;h2 id=&#34;some-prerequisites&#34;&gt;Some Prerequisites&lt;/h2&gt;
+&lt;h3 id=&#34;what-is-a-variable&#34;&gt;What is a variable?&lt;/h3&gt;
+&lt;p&gt;A variable is a storage location for a value. Linux has environment variables. It can store strings, numbers , etc. just like the variables in C, C++, python, or any other programming language. It even has a scope, just like the variables in other programming languages! Based on scopes Linux environments variables can be classified into 2 different categories:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Local Variables&lt;/li&gt;
+&lt;li&gt;Global Variable&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;local-variables&#34;&gt;Local Variables&lt;/h4&gt;
+&lt;p&gt;Local variables are set by typing  &amp;lt;variable_name&amp;gt;= &amp;lt;variable_value&amp;gt; (i.e without the export command).
+Local variables can only be accessed by the terminal where it is declared and not by any program even if it is run from the terminal itself.&lt;/p&gt;
+&lt;h4 id=&#34;global-variables&#34;&gt;Global Variables&lt;/h4&gt;
+&lt;p&gt;Global variables are set by typing export  &amp;lt;variable_name&amp;gt;= &amp;lt;variable_value&amp;gt;. The export command ensures that the variable be exported to any child process forked from that terminal. In short, it ensure that the variable set is global.&lt;/p&gt;
+&lt;h4 id=&#34;understanding-the-difference&#34;&gt;Understanding the Difference&lt;/h4&gt;
+&lt;p&gt;There is a simple way to understand the difference between local and global environmnent variables.&lt;/p&gt;
+&lt;p&gt;Open a terminal&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export global_var=&amp;quot;This is a global variable&amp;quot;
+local_var = &amp;quot;This is a local variable&amp;quot;
+echo $global_var
+echo $local_var
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now open tmuxa tmux session. Inside the session, type:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo $global_var
+echo $local_var
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You would notice that the local variable inside the tmux session contains no value whereas the global variable outputs the value that it has been assigned.
+You can see all the variables defined using the command &amp;lsquo;env&amp;rsquo;.
+A variable is unset by typing unset &amp;lt;variable_name&amp;gt;&lt;/p&gt;
+&lt;h4 id=&#34;some-important-paths-in-linux&#34;&gt;Some Important Paths in Linux:&lt;/h4&gt;
+&lt;p&gt;In this journey of learning how to install  packages locally in linux, we need to about two very important global environment variables:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;PATH&lt;/li&gt;
+&lt;li&gt;LD_LIBRARY_PATH&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;what-is-path&#34;&gt;what is PATH?&lt;/h3&gt;
+&lt;p&gt;PATH is a list of colon separated directories in which the system looks for executable files. When we type a command the system looks for the executable binaries in each of these directories and executes them if found or else returns an error stating &amp;lsquo;command not found&amp;rsquo;. This lookup by the system occurs in a left-to-right fashion. That is,the system first looks for the executable in the left-most directory in the colon separated list and proceeds on to the next if not found.
+This sequence of lookup is necessary to understand because if you have two different executable files with the same name but at different locations(obviously!!), say /usr/local/bin/python and ./anaconda/bin/python , and you want to execute the ./anaconda/bin/python ,then you would have to put ./anaconda/bin(absolute location is preferred, this is a relative location) to the left of /usr/bin in the colon separated list of PATH.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-ld_library_path&#34;&gt;What is LD_LIBRARY_PATH?&lt;/h3&gt;
+&lt;p&gt;Similar to PATH, LD_LIBRARY_PATH stores the  colon separated list of  directories where the system should search for libraries first, before the standard set of directories. Just like PATH, the lookup in the LD_LIBRARY_PATH also occurs in a left-to-right manner.&lt;/p&gt;
+&lt;h3 id=&#34;hands-on&#34;&gt;Hands On!!!&lt;/h3&gt;
+&lt;p&gt;In this demo we will be installing GNU-aspell locally.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the package from this 
+&lt;a href=&#34;https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; and extract it using &lt;code&gt;tar -xf aspell-0.60.7.tar.gz&lt;/code&gt; command.&lt;/li&gt;
+&lt;li&gt;Go inside the directory and type &lt;code&gt;./configure --help&lt;/code&gt;. This will list the options for changing the default setup locations among other things. Have a look at the options, especially the &lt;code&gt;--prefix&lt;/code&gt;, &lt;code&gt;--exec-prefix&lt;/code&gt; , &lt;code&gt;--oldincludedir&lt;/code&gt; and &lt;code&gt;--datadir&lt;/code&gt; options. We will be using these.&lt;/li&gt;
+&lt;li&gt;Now run configure with the options containing the locations you desire. As an example let me share what I have done: &lt;code&gt;./configure --prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --exec-prefix=&#39;/home/anuragroy/local_install_dirs/&#39; --oldincludedir=&#39;/home/anuragroy/local_install_dirs/include/&#39; --datadir=&#39;/home/anuragroy/local_install_dirs/data/aspell/&#39;&lt;/code&gt;. Here anuragroy is my username and local_install_dirs can be thought of as a substitute for the &lt;code&gt;/usr/local&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;After the configuration is done type: {%highlight bash %} make; make clean ``` to install the package.&lt;/li&gt;
+&lt;li&gt;What now remains is to set the required environment variables in the &lt;strong&gt;.bashrc&lt;/strong&gt; file. I have added the following lines:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;/home/anuragroy/local_install_dirs/bin:$PATH&amp;quot;
+export LD_LIBRARY_PATH=&amp;quot;/home/anuragroy/local_install_dirs/lib:$LD_LIBRARY_PATH&amp;quot;
+export C_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$C_INCLUDE_PATH&amp;quot;
+export CPLUS_INCLUDE_PATH=&amp;quot;/home/anuragroy/local_install_dirs/include:$CPLUS_INCLUDE_PATH&amp;quot;
+export MANPATH=&amp;quot;/home/anuragroy/local_install_dirs/data/aspell/man:$MANPATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now aspell is installed!!! 😄&lt;/p&gt;
+&lt;p&gt;Note: Python packages relying on local libraries(for example libraries located in ~/local_install_dirs/lib), headers(for example libraries located in ~/local_install_dirs/include) will return a &lt;em&gt;cannot find..&lt;/em&gt; error.There is a way around though &amp;mdash;clone the repository of the package and modify the relevant variables accordingly(like &lt;strong&gt;library_dirs&lt;/strong&gt; for libraries and &lt;strong&gt;include_dirs&lt;/strong&gt; for headers).&lt;/p&gt;
+&lt;!-- (Not yet Finished!! :P) --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multi-Armed Bandits</title>
+      <link>https://ranarag.github.io/post/rl_chapter2/</link>
+      <pubDate>Thu, 09 Nov 2017 16:36:20 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/rl_chapter2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Reinforcement Learning is different from other machine learning in the aspect that it &lt;em&gt;evaluates&lt;/em&gt; the actions rather than instructing than &lt;em&gt;instructing&lt;/em&gt; the correct actions.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Purely evaluative feedback indicates how good an action is , but not whether it is best or worst action possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Purely instructive feedback indicates the correct action to take independent of the action already taken.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;k-armed-bandit-problem&#34;&gt;K-Armed Bandit Problem&lt;/h2&gt;
+&lt;p&gt;The k-armed bandit problem is similar to one-armed bandits, except that it has k levers instead of one.
+Here we are faced repeatedly with a choice among k different levers, or actions. Here the rewards are the payoffs for hitting the jackpot.&lt;/p&gt;
+&lt;p&gt;In the problem, each of the k actions has an expected or mean reward given that that action is selected;
+let us call this the value of that action.We denote the action selected on time step t as $A_t$ ,
+and the corresponding reward as $R_t$. The value then of an arbitrary action $a$, denoted $q_∗(a)$, is the expected reward given
+that a is selected:&lt;/p&gt;
+&lt;p&gt;$q_∗(a) = E[R_t | A_t = a]$&lt;/p&gt;
+&lt;p&gt;We denote the estimated value of action $a$ at time $t$ as $Q_t(a) \approx q_*(a)$   .&lt;/p&gt;
+&lt;p&gt;Actions whose $Q_t$ value is the highest at time $t$, are called,  &lt;em&gt;greedy&lt;/em&gt; actions.All the other actions at time $t$ are called &lt;em&gt;non-greedy&lt;/em&gt; actions.Selecting a greedy action is said to be &lt;em&gt;exploitation&lt;/em&gt; whereas selecting a non-greedy action is said to be &lt;em&gt;evaluation&lt;/em&gt;.Exploitation is the right thing to do to maximize the expected on the one step, but exploration may produce greater total reward in the long run.&lt;/p&gt;
+&lt;h2 id=&#34;action-value-methods&#34;&gt;Action Value Methods&lt;/h2&gt;
+&lt;p&gt;So now we know that the true value of an action is the  mean reward when the action is chosen.There can be many ways of calcuate this, one way can be:&lt;/p&gt;
+&lt;p&gt;$$Q_t(a) = \frac{\text{sum of rewards when a is taken prior to t}}{\text{number of times a is taken prior to t}} = \frac{\sum_{i=0}^{t-1} R_i \cdot 1_{A_i = a}}{\sum_{i=0}^{t-1} 1_{A_i = a}}$$&lt;/p&gt;
+&lt;p&gt;where $1_predicate$ denotes the random variable that is $1$ if $predicate$ is true and $0$ if it is not. If the denominator is zero, then we instead denote $Q_t(a)$ as some default value,
+such as $Q_1(a) = 0$ .
+As the denominator goes to infnity, by the law of large numbers, $Q_t(a)$ converges to $q_*(a)$.
+We call this the *sample-average* method for estimating action values because each *estimate* is an average of the *sample* of relevant rewards.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;greedy&lt;/em&gt; actions selection method (a.k.a exploitation) can be represented as:&lt;/p&gt;
+&lt;p&gt;$A_t = \underset{x}{\operatorname{argmax}}Q_t(a)$&lt;/p&gt;
+&lt;p&gt;Where $argmax_a$ denotes the value of $a$ at which the expressio that follows is maximized(with ties broken arbitrarily).
+A simple alternative to this purely greedy approach is a &lt;em&gt;$\varepsilon-greedy$&lt;/em&gt; approach where with probability $\varepsilon$ ,
+select an action from the set of &lt;em&gt;non-greedy&lt;/em&gt; actions unformly and randomly.&lt;/p&gt;
+&lt;h2 id=&#34;incremental-implementation&#34;&gt;Incremental Implementation&lt;/h2&gt;
+&lt;p&gt;We would now dive into the implementation of the above formulae to reinforcement learning problems.
+Lets concentrate on a single action $a$. Let $R_i$ denote the reward received after the $ith$ selection of this action.Let $Q_n$ denote the estimate of this action after it has been selected &lt;em&gt;n-1&lt;/em&gt; times. Then we can write:&lt;/p&gt;
+&lt;p&gt;$$Q_n(a) = \frac{R_1 + R_2 +&amp;hellip;+ R_{n-1}}{n-1}$$&lt;/p&gt;
+&lt;p&gt;Keeping a record of all the rewards will be inefficient in terms of memory, so we would tweak the formula a little bit:&lt;/p&gt;
+&lt;div&gt;
+$$
+\begin{align}
+Q_{n+1} &amp; = \frac{1}{n}\sum_{i=1}^{n} R_i \\
+&amp; = \frac{1}{n}\bigl(R_n + \sum_{i=1}^{n-1} R_i\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + (n-1)\frac{1}{n-1}\sum_{i=1}^{n-1} R_i\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + (n-1)Q_n\bigr) \\
+&amp; = \frac{1}{n}\bigl(R_n + nQ_n - Q_n\bigr) \\
+&amp; = Q_n + \frac{1}{n}[R_n - Q_n]
+\end{align}
+$$
+&lt;/div&gt;
+&lt;h2 id=&#34;a-simple-bandit-algorithm&#34;&gt;A Simple Bandit Algorithm&lt;/h2&gt;
+&lt;div&gt;
+$$ 
+\begin{align}
+&amp; \text{Initialize, for a } = 1 \text{ to k}: \\
+&amp; \quad Q(a) \leftarrow 0 \\
+&amp; \quad N(a) \leftarrow 0 \\
+&amp; \text{Repeat Forever:} \\
+&amp; \quad A \leftarrow \begin{cases} 
+                \underset{a}{\operatorname{argmax}}Q(a)  \text{ with probability 1-} \varepsilon \text{ (breaking ties randomly)} \\
+                \text{ a random action with probability } \varepsilon \\
+                \end{cases} \\
+&amp; R \leftarrow bandit(a) \\
+&amp; N(A) \leftarrow N(A) + 1 \\
+&amp; Q(A) \leftarrow Q(A) + \frac{1}{N(A)}[R - Q(A)]
+\end{align}
+$$
+&lt;/div&gt;
+&lt;p&gt;The  $\frac{1}{N(A)}$ parameter (a.k.a &lt;em&gt;StepSize&lt;/em&gt;) changes from time step to time step and can also be written as
+$\alpha_{t}(a)$.&lt;/p&gt;
+&lt;p&gt;$\alpha_{t}(a)$ is any function that satisfies the following conditions :&lt;/p&gt;
+&lt;p&gt;$\sum_{t=1}^{\infty}\alpha_{t}(a) = \infty  \text{   and   }  \sum_{t=1}^{\infty} \alpha_{t}^2(a) \lt \infty $&lt;/p&gt;
+&lt;p&gt;For the time-being let us consider $\alpha_t$ to be a constant (say $\alpha \epsilon (0,1]$ ).
+We can also write $Q_{n+1}$ in terms of $Q_1$:&lt;/p&gt;
+&lt;div&gt;
+$$\begin{align}
+Q_{n+1} &amp; = Q_n + \alpha [R_n - Q_n] \\
+&amp; = \alpha R_n + (1 - \alpha)Q_n \\
+&amp; = \alpha R_n + (1 - \alpha)[\alpha R_n + (1 - \alpha)Q_{n-1}] \\
+&amp; = \alpha R_n + (1 - \alpha)[\alpha R_n + (1 - \alpha)Q_{n-1}] \\
+&amp; = \alpha R_n + (1 - \alpha)\alpha R_{n-1} + (1 - \alpha)^2 Q_{n-1} \\
+&amp; = \alpha R_n + (1 - \alpha)\alpha R_{n-1} + (1 - \alpha)^2 \alpha R_{n-2} + \\
+&amp; ... + (1 - \alpha)^{n-1}\alpha R_1 + (1 - \alpha)^n Q_1 \\
+&amp; = (1 - \alpha)^n Q_1 + \sum_{i=1}^{n} \alpha(1 - \alpha)^{n-i}R_i \\
+\end{align}$$ 
+&lt;/div&gt;
+Choosing a positive $Q_1(a)$ value helps the model to explore more and thus learn better in the long run.
+&lt;h2 id=&#34;upper-confidence-bound-action-selection-method&#34;&gt;Upper-Confidence-Bound Action Selection Method&lt;/h2&gt;
+&lt;p&gt;$\varepsilon$-greedy action selection method forces the non-greedy actions to be tried, but indiscriminately, with no preference to those that are nearly greedy. It would be better to select among the non-greedy actions according to their potential for actually being optimal, taking into account both how close their estimates are to being maximal and the uncertanities in those estimates.&lt;/p&gt;
+&lt;p&gt;One effective way of doing this is to select action as:&lt;/p&gt;
+&lt;p&gt;$A_t = \underset{a}{\operatorname{argmax}}\Bigl[Qt(a) +  \sqrt[\leftroot{-2}\uproot{2}c]{\tfrac{\log t}{N_t(a)}} \Bigr]$&lt;/p&gt;
+&lt;p&gt;where $\log t$ denotes the natural logarithm of $t$ , $N_t(a)$ denotes the number of times that action $a$ has been selected prior to time $t$ and the number  $ c \gt 0$ controls the degree of exploration. If $N_t(a) = 0$, then $a$ is considered to be a maximizing action.&lt;/p&gt;
+&lt;p&gt;The idea of this method is that the square-root term is a measure of the uncertainity or variance in the measure of $a$&#39;s value.Each time action $a$ is selected $N_t(a)$ increases by one and the contribution of the square-root term in selecting action $A_t$ is decreased.That means that if $a$ is chosen a lot of times then chances of it being selected depends mostly on $Q_t$, which should be the behaviour of our model, logically.&lt;/p&gt;
+&lt;h2 id=&#34;gradient-bandit-algorithms&#34;&gt;Gradient Bandit Algorithms&lt;/h2&gt;
+&lt;p&gt;In this section we consider learning a numerical preference $H_t(a)$ for each action $a$. The larger the preference more often that action is tken, but the preference has no interpretation in terms of reward.Since the relative preference is important we take softmax over all the preferences at time $t$ which we denote as $\pi_{t}(a)$.&lt;/p&gt;
+&lt;p&gt;$Pr{A_t=a} = \frac{\varepsilon^{H_t(a)}}{\sum_{b=1}^{k} \varepsilon^{H_t(b)}} = \pi_{t}(a)$&lt;/p&gt;
+&lt;p&gt;There is a natural learning algorithm for this setting based on the idea of stochastic gradient ascent.On each step, after selecting the action $A_t$ and receiving the reward $R_t$, the preferences are updated by:&lt;/p&gt;
+&lt;div&gt;
+$$\begin{align}
+H_{t+1}(A_t) &amp; = H_t(A_t) + \alpha(R_t - \bar R_t)(1 - \pi_{t}(A_t)),   \text{             and    } \\
+H_{t+1}(a)  &amp; = H_t(a) - \alpha(R_t - \bar R_t)(\pi_{t}(a))  \text{   } \forall a \neq A_t \\
+\end{align}$$
+&lt;/div&gt;
+&lt;p&gt;where $\alpha \gt 0$ is step-size parameter, and $\bar R_t \in \mathbb R$ is the average of all the rewards up throught and including time $t$, which can be computed incrementally.The $\bar R_t$ serves as the baseline with which the reward is compared. If the reward is higher than the baseline, then the probability of taking $A_t$ in the future is increased, and if the reward is below baseline, then the probability is decreased.The non-selected actions move in the opposite direction.&lt;/p&gt;
+&lt;p&gt;For the represenation of the Bandit Gradient Algorithm as Stochastic Gradient Ascent please refer section-2.8(page 29) of the 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;book&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;note-this-a-summarization-of-chapter-2-of-the-book-reinforcement-learning-an-introductionhttpincompleteideasnetsuttonbookbookdraft2017nov5pdf&#34;&gt;Note: This a summarization of Chapter 2 of the book: 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reinforcement Learning: An Introduction&lt;/a&gt;&lt;/h4&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is Reinforcement Learning?</title>
+      <link>https://ranarag.github.io/post/rl_chapter1/</link>
+      <pubDate>Thu, 09 Nov 2017 12:47:09 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/rl_chapter1/</guid>
+      <description>&lt;p&gt;Reinforcement Learning refers to a class of problems which involve learning what to do, i.e. how to map situations to actions so as to maximize a numerical signal.In an essential way these are closed-loop problems because the learning system&amp;rsquo;s actions influence its later inputs. Moreover, unlike supervised learning it is not shown exmaples of desired behaviors,but instead it discovers and learns actions which would yield the maximum reward.Reinforcement learning is also different from unsupervised learning,because the goal of a reinforcement learning problem is to maximize a reward signal and not to find a hidden structure from the data as in supervised learning.&lt;/p&gt;
+&lt;p&gt;One of the challenges exclusive to reinforcement learning problems, is the trade-off between &lt;strong&gt;exploitation&lt;/strong&gt; and &lt;strong&gt;exploration&lt;/strong&gt;.
+To obtain a lot of reward, a reinforcement learning agent must prefer actions that it has tried in the past and found to be effective in producing reward. But to discover such actions it has to explore new actions.In exploring there is always a risk of failing at the task.So neither exploitation nor exploration can be performed exclusively without failing.&lt;/p&gt;
+&lt;h2 id=&#34;key-elements&#34;&gt;Key Elements&lt;/h2&gt;
+&lt;p&gt;A reinforcement learning system consists of the following main elements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt;: A policy defines the learning agent&amp;rsquo;s way of behaving at a given time.Put simply, a policy is a mapping from perceived states of the environment to actions to be taken when in those states.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reward Signal&lt;/strong&gt;: A reward signal is a numeric value which the environment sends to the agent at each step.
+In reinforcement learning an agent&amp;rsquo;s sole objective is to maximize this reward signal over the long run.Reward signals may be stochastic functions of the state of the environment and the actions taken.
+{% highlight note %}
+Note: The processes that generate reward signal must be un-alterable by the agent,
+otherwise the agent may change the problem altogether in its favour.
+{% endhighlight %}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt;: The Value function generates the value of a state. Value of a state is the total amount of reward an agent can expect to accumulate over the future , starting from that state.Values are different from rewards in the sense that rewards are generated directly by the environment, but values must be estimated and re-estimated from the sequences of observation an agent makes over its entire lifetime. Actions are chosen that bring about states of highest value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; : Here model refers to a model of the environment.This is something that mimics the behavior of the environment.Reinforcement learining methods that use models are called model based methods, as opposed to model-free methods that are explicitly trial and error learners viewed as almost the opposite of planning.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;note-this-a-summarization-of-chapter-1-of-the-book-reinforcement-learning-an-introductionhttpincompleteideasnetsuttonbookbookdraft2017nov5pdf&#34;&gt;Note: This a summarization of Chapter 1 of the book: 
+&lt;a href=&#34;http://incompleteideas.net/sutton/book/bookdraft2017nov5.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reinforcement Learning: An Introduction&lt;/a&gt;&lt;/h4&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TensorBoard Basics</title>
+      <link>https://ranarag.github.io/post/tensorboard_basics/</link>
+      <pubDate>Wed, 08 Nov 2017 15:09:44 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/tensorboard_basics/</guid>
+      <description>&lt;h2 id=&#34;what-is-tensorboard&#34;&gt;What is TensorBoard?&lt;/h2&gt;
+&lt;p&gt;TensorBoard is a module of Tensorflow that provides a suite of visualisation tools that help in understanding, debugging and optimize the model created in Tensorflow.&lt;/p&gt;
+&lt;h2 id=&#34;installing-tensorboard&#34;&gt;Installing TensorBoard&lt;/h2&gt;
+&lt;p&gt;TensorBoard is installed along with Tensorflow.
+It can also be installed as a standalone software from 
+&lt;a href=&#34;https://github.com/dmlc/tensorboard&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Standalone TensorBoard&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
+&lt;p&gt;TensorBoard works by reading summary data from Tensorflow event files which is generated by tensorflow.&lt;/p&gt;
+&lt;p&gt;Tensorflow creates a computational graph of the neural network model implemented.This model is then stored as a graph using the &lt;strong&gt;summary&lt;/strong&gt; method.The name field in the Tensorflow &lt;strong&gt;variables&lt;/strong&gt;, &lt;strong&gt;placeholders&lt;/strong&gt;, &lt;strong&gt;operations&lt;/strong&gt;, and &lt;strong&gt;name_scopes&lt;/strong&gt; are used to annotate the nodes in the graph. These graphs are written to files and stored in a directory indicated in the &lt;strong&gt;summary.FileWriter&lt;/strong&gt; method.We can select which nodes to be included in the graph using the &lt;strong&gt;summary.merge&lt;/strong&gt; method. In order to select all the nodes to be included in the graph by using the &lt;strong&gt;summary.merge_all&lt;/strong&gt; method.This summary (in the form of a protocol buffer) is added to the event file using the &lt;strong&gt;add_summary&lt;/strong&gt; method.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+#Although the model in this code-segment will not converge, 
+#this is just to show how tensorflow creates and saves summaries 
+#in event files.
+import tensorflow as tf
+import numpy as np
+N = 5
+x = tf.placeholder(tf.float32, shape=[N,1],name=&#39;X&#39;) 
+y = tf.placeholder(tf.float32, shape=[N,N],name=&#39;y&#39;) 
+with tf.name_scope(&#39;fc_layer&#39;):
+    W = tf.Variable(tf.truncated_normal([1,N], stddev=0.1), name=&#39;W&#39;)
+    b = tf.Variable(tf.constant(0.1,shape=[N]),name=&#39;b&#39;)
+    tf.summary.histogram(&#39;weights&#39;,W) #values of W will be shown as a histogram plot
+    tf.summary.histogram(&#39;biases&#39;,b) #values of W will be shown as a histogram plot
+    y_ = tf.matmul(x,W) + b
+with tf.name_scope(&#39;loss_func&#39;):    
+    
+    tf.summary.scalar(&#39;loss&#39;,0.05)
+
+
+sess = tf.Session()
+merged_summary = tf.summary.merge_all()
+writer = tf.summary.FileWriter(&amp;quot;./graphs/&amp;quot;, graph=sess.graph)
+sess.run(tf.global_variables_initializer())
+s = sess.run(merged_summary,feed_dict={x:np.ones((N,1)),y:np.ones((N,N))})
+i = 1  
+writer.add_summary(s,i)
+```python
+
+## Running TensorBoard
+
+Now that the event files have been created and stored in the directory[./graphs], running tensorboard with logdir pointing to the directory where the event files have been stored will give us a visualization of the model in the web browser.
+```python
+tensorboard --logdir=./graphs
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tensorflow Basics</title>
+      <link>https://ranarag.github.io/post/tensorflow_basics/</link>
+      <pubDate>Wed, 05 Jul 2017 21:25:58 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/tensorflow_basics/</guid>
+      <description>&lt;h1 id=&#34;what-is-tensorflow&#34;&gt;What is Tensorflow?&lt;/h1&gt;
+&lt;p&gt;Tensorflow is an open source software for machine learning developed by Google.Tensorflow, as one can get from its name, mainly handles matrices(or tensors), its mathematical operations and differentiation efficiently.It is just like Theano but with some extra features like  it can be used on distributed systems.&lt;/p&gt;
+&lt;h2 id=&#34;installing-tensorflow&#34;&gt;Installing Tensorflow&lt;/h2&gt;
+&lt;p&gt;Installing tensorflow &amp;gt;= 1.1.0 can be done using python-pip&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip install --upgrade tensorflow # for the CPU only version
+pip install --upgrade tensorflow-gpu # for the GPU version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;key-components&#34;&gt;Key-Components&lt;/h2&gt;
+&lt;p&gt;Tensorflow works by first creating a computational graph resembling the model we wish to run and then executing it.
+A program written using tensorflow must consist of the following components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Variables&lt;/strong&gt;: variables in tensorflow are in memory buffers containing tensors,but unlike normal tensors that live only for a single execution of a graph, variables values live as long as the session exists.Variables value cease to exist after the session is closed. Tensorflow has the option of saving variables&amp;rsquo; value to disk and restoring them for later use.Variables must be initialized before executing a graph for first time.
+During training operation variables get updated by default.Tensorflow variables are created using &lt;strong&gt;tf.Variable()&lt;/strong&gt;.We can keep a variable unchanged by explicitly setting its trainable parameter to false.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
+&amp;gt;&amp;gt;&amp;gt; # Declaring a tensoflow Variable
+&amp;gt;&amp;gt;&amp;gt; W = tf.Variable(tf.random_uniform([2,3],stddev=0.5), # same a numpy.random.uniform
+name=&#39;weight&#39;) # name of the variable in the computational graph
+&amp;gt;&amp;gt;&amp;gt; # Setting variable b to non -trainable
+&amp;gt;&amp;gt;&amp;gt; b = tf.Variable(tf.zeros([1]), # same as numpy.zeros
+name=&#39;b&#39;, trainable=False)
+&amp;gt;&amp;gt;&amp;gt; s = tf.Session() # session created
+&amp;gt;&amp;gt;&amp;gt; s.run(tf.initialize_all_variables()) # To initialize all the variables present in the current session
+&amp;gt;&amp;gt;&amp;gt; s.run(tf.initialize_variables(W)) # To only initialize W and not b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Placeholders&lt;/strong&gt;: A placeholder can be thought of as a variable to which we can assign data at a later step.It is populated every single time a computational graph is run.A placeholder usually holds the input values to a model.Placeholder is created in tensorflow using &lt;strong&gt;tf.placeholder()&lt;/strong&gt;.Values in placeholders are entered using a feed_dict argument.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import tensorflow as tf
+&amp;gt;&amp;gt;&amp;gt; # Declaring a tensoflow Variable
+&amp;gt;&amp;gt;&amp;gt; W = tf.Variable(tf.random_uniform([2,3],stddev=0.5), # same a numpy.random.uniform
+name=&#39;weight&#39;) # name of the variable in the computational graph
+&amp;gt;&amp;gt;&amp;gt; # Setting variable b to non -trainable
+&amp;gt;&amp;gt;&amp;gt; b = tf.Variable(tf.zeros([3]), # same as numpy.zeros
+name=&#39;b&#39;, trainable=False)
+&amp;gt;&amp;gt;&amp;gt; x = tf.placeholder(tf.float32, name=&#39;x&#39;, shape=[None, 2]) # defining a placeholder named x
+&amp;gt;&amp;gt;&amp;gt; # of type float32 and shape [None ,2] (None, i.e. any number of rows)
+&amp;gt;&amp;gt;&amp;gt; y = tf.add(tf.matmul(x,W), b) # operation x.W + b
+&amp;gt;&amp;gt;&amp;gt; s = tf.Session() # session created
+&amp;gt;&amp;gt;&amp;gt; s.run(tf.initialize_all_variables()) # To initialize all the variables present in the current session
+&amp;gt;&amp;gt;&amp;gt; s.run(y,feed_dict={x:[[1., 2.]]} # placeholder x feeded with value
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Operations&lt;/strong&gt;: Operations in tensoflow are functions which applies some transformations to tensors on the computational graph. Like Variables and placeholders tensorflow operations can also be named for easy identification in the computational graph.An operation may consist of multiple kernels, for different types of devices.For example,  an operation may have seperate CPU and GPU kernels so that it can be excuted more efficiently on GPU.In the previous example &lt;strong&gt;tf.matmul()&lt;/strong&gt; and &lt;strong&gt;tf.add()&lt;/strong&gt; are two operations.As it relevant from the above example , tensorflow operations can be nested.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Sessions&lt;/strong&gt;: A tensorflow session is responsible for interacting with the computational graph thus created and make necessary arrangements for execution of the graph.It allocates resources required by the computational graph and holds the values of variables.Tensorflow session object(say sess) is created using the &lt;strong&gt;tf.Session()&lt;/strong&gt; class.Finally we can the computational graph or a subpart of it using the &lt;strong&gt;sess.run()&lt;/strong&gt; method.All sess.run does is identify all the dependencies that compose the relevant subgraph, ensure that all the placeholder variables in the concerned subgraph are filled using feed_dict,and then start executing the subgraph.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programming Guidelines</title>
+      <link>https://ranarag.github.io/post/programming_guidelines/</link>
+      <pubDate>Sat, 03 Sep 2016 10:04:25 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/programming_guidelines/</guid>
+      <description>&lt;p&gt;In the paper 
+&lt;a href=&#34;http://spinroot.com/gerard/pdf/P10.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Power of Ten-Rules for Developing Safety Critical Code&lt;/a&gt;
+the author has stated 10 rules adhering to which will make one a good programmer.&lt;/p&gt;
+&lt;p&gt;The author chosed C as the language for writing safety critical code because of the extensive tool support for this language including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Strong source code analyzers like 
+&lt;a href=&#34;http://valgrind.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;valgrind&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;debuggers like gdb&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;stable compilers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Test support tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Following are the 10 rules the author wants to emphasize upon:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Restrict all code to very simple control flow constructs – do not use goto
+statements, setjmp or longjmp constructs, and direct or indirect recursion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The author says to restrict all code to very simple control flow constructs because
+it enhances code clarity. Now asking not to use recursion might look suprising but
+this is also used to improve code clarity.(Remember that every recursive solution has an
+equivalent iterative solution.)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: All loops must have a fixed upper-bound. It must be trivially possible for a
+checking tool to prove statically that a preset upper-bound on the number of iterations
+of a loop cannot be exceeded. If the loop-bound cannot be proven statically, the rule
+is considered violated.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think this rule does not need any explanations except for the fact that this rule is not applicable to iterations that
+are non-terminating(e.g. in a  process scheduler).In those cases we need to statistically prove that no upper-bound exists for such a problem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Do not use dynamic memory allocation after initialization.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule is given because memory allocators and garbage collectors often have unpredictable behaviour which might cause a coding error.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: No function should be longer than what can be printed on a single sheet of
+paper in a standard reference format with one line per statement and one line per
+declaration. Typically, this means no more than about 60 lines of code per function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule is given to ensure modularity and enhance readability. The author states in his rationale
+that &amp;ldquo;excessively long functions are often a sign of poorly structured code.&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The assertion density of the code should average to a minimum of two
+assertions per function. Assertions are used to check for anomalous conditions that
+should never happen in real-life executions. Assertions must always be side-effect
+free and should be defined as Boolean tests. When an assertion fails, an explicit
+recovery action must be taken, e.g., by returning an error condition to the caller of the
+function that executes the failing assertion. Any assertion for which a static checking
+tool can prove that it can never fail or never hold violates this rule. (I.e., it is not
+possible to satisfy the rule by adding unhelpful “assert(true)” statements.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is because assertions make it easier to find bugs in the code.They are also &amp;ldquo;side effect free&amp;rdquo;
+which means that they can be selectively disabled without changing the behaviour of the code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: Data objects must be declared at the smallest possible level of scope.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This rule uses the principle of data hiding. Many errors occur in programs because of wrong referencing
+of objects in the code. So if we reduce the scope of refer the object we will be able to find mistake in
+referencing in a lesser amount of time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The return value of non-void functions must be checked by each calling
+function, and the validity of parameters must be checked inside each function.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;According to the author this is one of the most important rule because sometimes return value of a function
+helps us to find error in the code.For e.g. lets say we have problem in closing a file in C.We can do two things
+here:
+1. The time consuming one - Put various printf and assertion statements trying to find where
+he error is occurring.
+2. The time saving one - Check the return value of the function close() and lookup it&amp;rsquo;s errno.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The use of the preprocessor must be limited to the inclusion of header files and
+simple macro definitions. Token pasting, variable argument lists (ellipses), and
+recursive macro calls are not allowed. All macros must expand into complete
+syntactic units. The use of conditional compilation directives is often also dubious,
+but cannot always be avoided. This means that there should rarely be justification for
+more than one or two conditional compilation directives even in large software
+development efforts, beyond the standard boilerplate that avoids multiple inclusion of
+the same header file. Each such use should be flagged by a tool-based checker and
+justified in the code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rule: The use of pointers should be restricted. Specifically, no more than one level of
+dereferencing is allowed. Pointer dereference operations may not be hidden in macro
+definitions or inside typedef declarations. Function pointers are not permitted.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pointers often make codes hard to analyze especially by static analyzers.As the author says
+&amp;quot; Function pointers, can seriously restrict the types of checks that can be performed
+by static analyzers and should only be used if there is a strong justification for their use,
+and ideally alternate means are provided to assist tool-based checkers determine flow of
+control and function call hierarchies&amp;rdquo;.Function pointers make it impossible for a tool to
+prove absence of recursion.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; Rule: All code must be compiled, from the first day of development, with all
+&amp;gt; compiler warnings enabled at the compiler’s most pedantic setting. All code must
+&amp;gt; compile with these setting without any warnings. All code must be checked daily with
+&amp;gt; at least one, but preferably more than one, state-of-the-art static source code analyzer
+&amp;gt; and should pass the analyses with zero warnings.&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to determine the Endianness of your PC</title>
+      <link>https://ranarag.github.io/post/endianness_of_your_pc/</link>
+      <pubDate>Sun, 28 Aug 2016 14:54:27 +0530</pubDate>
+      <guid>https://ranarag.github.io/post/endianness_of_your_pc/</guid>
+      <description>&lt;p&gt;While studying networks I came across two system calls namely&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ntoh(s/l)&lt;/li&gt;
+&lt;li&gt;hton(s/l)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Both of the above are related to byte ordering done in the network layer&lt;/p&gt;
+&lt;h2 id=&#34;ntohsl&#34;&gt;ntoh(s/l)&lt;/h2&gt;
+&lt;p&gt;It is used by host to convert a packet from network byte order to host byte order.
+(s for short and l for long).&lt;/p&gt;
+&lt;h2 id=&#34;htonsl&#34;&gt;hton(s/l)&lt;/h2&gt;
+&lt;p&gt;It is used by host before sending a packet to the network.
+This function converts a packet in host byte order to network byte order.
+(s for short and l for long).&lt;/p&gt;
+&lt;p&gt;I am not writing the example syntaxes of the above functions because you can easilly get them
+in the internet.&lt;/p&gt;
+&lt;h2 id=&#34;what-will-happen-if-i-do-not-use-the-above-functions&#34;&gt;What will happen if I do not use the above functions?&lt;/h2&gt;
+&lt;p&gt;Well this depends upon the endianess of  your machine.
+If your machine follows Big Endian then you can do away with the functions,
+but if your pc follows little endian then you may get erroneous results.
+This is because almost all network protocols follow big endian.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-check-endianness-of-your-pc&#34;&gt;How to check endianness of your pc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You can either use the following command&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;lscpu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and check the endianness of your pc&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can also use the following cpp code to check the endianness of your pc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;# include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+   unsigned long i = 1;
+   int *c = (int*)&amp;amp;i;
+   if (c[0]==1)    
+       printf(&amp;quot;Little endian\n&amp;quot;);
+   else if(c[1]==1)
+       printf(&amp;quot;Big endian\n&amp;quot;);
+   else
+    printf(&amp;quot;Unknown Endianness\n&amp;quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
