@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c&#43;&#43; | Anurag Roy</title>
-    <link>https://ranarag.github.io/tag/c-/</link>
-      <atom:link href="https://ranarag.github.io/tag/c-/index.xml" rel="self" type="application/rss+xml" />
+    <title>c&#43;&#43; | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/tag/c-/</link>
+      <atom:link href="https://kiranpurohit.github.io/tag/c-/index.xml" rel="self" type="application/rss+xml" />
     <description>c&#43;&#43;</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 28 Aug 2016 14:54:27 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>c&#43;&#43;</title>
-      <link>https://ranarag.github.io/tag/c-/</link>
+      <link>https://kiranpurohit.github.io/tag/c-/</link>
     </image>
     
     <item>
       <title>How to determine the Endianness of your PC</title>
-      <link>https://ranarag.github.io/post/endianness_of_your_pc/</link>
+      <link>https://kiranpurohit.github.io/post/endianness_of_your_pc/</link>
       <pubDate>Sun, 28 Aug 2016 14:54:27 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/endianness_of_your_pc/</guid>
+      <guid>https://kiranpurohit.github.io/post/endianness_of_your_pc/</guid>
       <description>&lt;p&gt;While studying networks I came across two system calls namely&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;ntoh(s/l)&lt;/li&gt;
