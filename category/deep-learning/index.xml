@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>deep learning | Anurag Roy</title>
-    <link>https://ranarag.github.io/category/deep-learning/</link>
-      <atom:link href="https://ranarag.github.io/category/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <title>deep learning | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/category/deep-learning/</link>
+      <atom:link href="https://kiranpurohit.github.io/category/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>deep learning</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 27 Jun 2020 19:45:20 +0530</lastBuildDate>
     <image>
-      <url>https://ranarag.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>deep learning</title>
-      <link>https://ranarag.github.io/category/deep-learning/</link>
+      <link>https://kiranpurohit.github.io/category/deep-learning/</link>
     </image>
     
     <item>
       <title>MetaSegnet</title>
-      <link>https://ranarag.github.io/post/metasegnet/</link>
+      <link>https://kiranpurohit.github.io/post/metasegnet/</link>
       <pubDate>Sat, 27 Jun 2020 19:45:20 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/metasegnet/</guid>
+      <guid>https://kiranpurohit.github.io/post/metasegnet/</guid>
       <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
 &lt;p&gt;While Existing methods on few-shot image segmentation focus on 1-way segmentation, this paper focuses on k-way segmentation tasks.&lt;/p&gt;
 &lt;h2 id=&#34;existing-few-shot-learning-algorithms-suffer-from&#34;&gt;Existing Few-shot learning algorithms suffer from:&lt;/h2&gt;
@@ -67,9 +67,9 @@
     
     <item>
       <title>TensorBoard Basics</title>
-      <link>https://ranarag.github.io/post/tensorboard_basics/</link>
+      <link>https://kiranpurohit.github.io/post/tensorboard_basics/</link>
       <pubDate>Wed, 08 Nov 2017 15:09:44 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/tensorboard_basics/</guid>
+      <guid>https://kiranpurohit.github.io/post/tensorboard_basics/</guid>
       <description>&lt;h2 id=&#34;what-is-tensorboard&#34;&gt;What is TensorBoard?&lt;/h2&gt;
 &lt;p&gt;TensorBoard is a module of Tensorflow that provides a suite of visualisation tools that help in understanding, debugging and optimize the model created in Tensorflow.&lt;/p&gt;
 &lt;h2 id=&#34;installing-tensorboard&#34;&gt;Installing TensorBoard&lt;/h2&gt;
@@ -119,9 +119,9 @@ tensorboard --logdir=./graphs
     
     <item>
       <title>Tensorflow Basics</title>
-      <link>https://ranarag.github.io/post/tensorflow_basics/</link>
+      <link>https://kiranpurohit.github.io/post/tensorflow_basics/</link>
       <pubDate>Wed, 05 Jul 2017 21:25:58 +0530</pubDate>
-      <guid>https://ranarag.github.io/post/tensorflow_basics/</guid>
+      <guid>https://kiranpurohit.github.io/post/tensorflow_basics/</guid>
       <description>&lt;h1 id=&#34;what-is-tensorflow&#34;&gt;What is Tensorflow?&lt;/h1&gt;
 &lt;p&gt;Tensorflow is an open source software for machine learning developed by Google.Tensorflow, as one can get from its name, mainly handles matrices(or tensors), its mathematical operations and differentiation efficiently.It is just like Theano but with some extra features like  it can be used on distributed systems.&lt;/p&gt;
 &lt;h2 id=&#34;installing-tensorflow&#34;&gt;Installing Tensorflow&lt;/h2&gt;
