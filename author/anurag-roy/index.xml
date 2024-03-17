@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anurag Roy | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/author/anurag-roy/</link>
+      <atom:link href="https://kiranpurohit.github.io/author/anurag-roy/index.xml" rel="self" type="application/rss+xml" />
+    <description>Anurag Roy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 27 Feb 2024 00:00:00 +0530</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Anurag Roy</title>
+      <link>https://kiranpurohit.github.io/author/anurag-roy/</link>
+    </image>
+    
+    <item>
+      <title>Paper on Continual learning using Prompts accepted at CVPR 2024</title>
+      <link>https://kiranpurohit.github.io/news/cpp_to_java/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0530</pubDate>
+      <guid>https://kiranpurohit.github.io/news/cpp_to_java/</guid>
+      <description>&lt;p&gt;Our paper &amp;quot;&amp;rdquo; has been accepted as full paper at AAAI-21 . Joint work with Binny Mathew, Seid Muhie Yimam, Charis Biemann, Pawan Goyal and Animesh mukherjee. Check this 
+&lt;a href=&#34;https://twitter.com/punyajoysaha/status/1334178367956914176&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twitter_link&lt;/a&gt; to know more. Paper and code will be out soon.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
