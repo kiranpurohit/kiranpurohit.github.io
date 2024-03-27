@@ -1,16 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recent &amp; Upcoming Talks | Kiran Purohit</title>
+    <title>Recent Talks | Kiran Purohit</title>
     <link>https://kiranpurohit.github.io/talk/</link>
       <atom:link href="https://kiranpurohit.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
-    <description>Recent &amp; Upcoming Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <description>Recent Talks</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Recent &amp; Upcoming Talks</title>
+      <title>Recent Talks</title>
       <link>https://kiranpurohit.github.io/talk/</link>
     </image>
+    
+    <item>
+      <title>When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_5/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scalable and Accurate Channel pruning @CNeRG Mini Retreat</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_mini_retreat/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_mini_retreat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Winning the Lottery Ahead of Time: Efficient Early Network Pruning @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_4/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Practical Adversarial Robustness in Deep Learning: Problems and Solutions @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_3/</link>
+      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate and efficient channel pruning via orthogonal matching pursuit @AIMLSystems 2022</title>
+      <link>https://kiranpurohit.github.io/talk/aimlsys22/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/aimlsys22/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LearnDefend: Learning to Defend against Backdoor Attacks on Federated Learning @AIMLSystems Doctoral Symposium 2022</title>
+      <link>https://kiranpurohit.github.io/talk/aimlsys22_doctoral/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/aimlsys22_doctoral/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>When-To-Post on Social Networks @CNeRG Reading Group @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_2/</link>
+      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SummEval: Re-evaluating Summarization Evaluation @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_1/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID-19 Detection on Chest X-Ray and CT Scan Images Using Multi-image Augmented Deep Learning Model @ICMC 2021</title>
+      <link>https://kiranpurohit.github.io/talk/icmc21/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/icmc21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Some Applications of First and Second Order Derivative Operators in Machine Learning and Clinical Diagnosis @M.Tech Thesis, NIT Durgapur</title>
+      <link>https://kiranpurohit.github.io/talk/mtech_thesis/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/mtech_thesis/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

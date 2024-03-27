@@ -5,7 +5,7 @@
     <link>https://kiranpurohit.github.io/authors/</link>
       <atom:link href="https://kiranpurohit.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 27 Feb 2024 00:00:00 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Authors</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>Anurag Roy</title>
-      <link>https://kiranpurohit.github.io/author/anurag-roy/</link>
-      <pubDate>Tue, 27 Feb 2024 00:00:00 +0530</pubDate>
-      <guid>https://kiranpurohit.github.io/author/anurag-roy/</guid>
+      <title>Kiran Purohit</title>
+      <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/kiran-purohit/</guid>
       <description></description>
     </item>
     
@@ -25,14 +25,6 @@
       <link>https://kiranpurohit.github.io/author/anurag-parvathgari/</link>
       <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/author/anurag-parvathgari/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kiran Purohit</title>
-      <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
-      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://kiranpurohit.github.io/author/kiran-purohit/</guid>
       <description></description>
     </item>
     
@@ -53,29 +45,57 @@
     </item>
     
     <item>
+      <title>Abhishek Kesarwani</title>
+      <link>https://kiranpurohit.github.io/author/abhishek-kesarwani/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/abhishek-kesarwani/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dakshina Ranjan Kisku</title>
+      <link>https://kiranpurohit.github.io/author/dakshina-ranjan-kisku/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/dakshina-ranjan-kisku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mamata Dalui</title>
+      <link>https://kiranpurohit.github.io/author/mamata-dalui/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/mamata-dalui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Kiran Purohit</title>
       <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/author/kiran-purohit/</guid>
-      <description>&lt;p&gt;I am currently pursuing my Ph.D. in the Department of Computer Science and Engineering at IIT Kharagpur, under the guidance of 
-&lt;a href=&#34;https://cse.iitkgp.ac.in/~sourangshu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Sourangshu Bhattacharya&lt;/a&gt;, a member of the  
-&lt;a href=&#34;http://www.cnergres.iitkgp.ac.in/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Complex Networks Research Group(CNERG)&lt;/a&gt;.
-I earned my M.Tech degree in Computer Science and Technology from the Department of Computer Science and Technology at NIT Durgapur in 2020.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;News&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;01/2024: Got 
-&lt;a href=&#34;https://ai4icps.in/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AI4ICPS Chanakya PhD Fellowship&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;09/2022: &lt;strong&gt;AIMLSystems 2022&lt;/strong&gt; paper on 
-&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/3564121.3564139&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;11/2021: Invited to attend 
-&lt;a href=&#34;https://amazonard2021.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Amazon Research Days&lt;/a&gt; in India&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+      <description>&lt;p&gt;I am currently pursuing my Ph.D. in the Department of Computer Science and Engineering at 
+&lt;a href=&#34;http://www.iitkgp.ac.in/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IIT Kharagpur&lt;/a&gt;, under the supervision of 
+&lt;a href=&#34;https://cse.iitkgp.ac.in/~sourangshu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Sourangshu Bhattacharya&lt;/a&gt;. I am also a member of the  
+&lt;a href=&#34;https://cnerg-iitkgp.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Complex Networks Research Group&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Research&lt;/strong&gt; - I am broadly interested in Machine Learning, with specific interests in Scalability, Explainability and Data-centric AI. I have applied these techniques on problems in Computer Vision and Natural Language Processing. My research involves subset selection for efficient and robust deep learning. I would be happy to talk about recent advancements around LLMs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Teaching Assistantship&lt;/strong&gt; - Scalable Data Mining, Autumn 2023, 2022 &amp;amp; 2021 
+&lt;a href=&#34;https://panuragreddy.github.io/SDM_2023/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS60021)&lt;/a&gt;, Software Engineering Lab &amp;amp; Theory, Spring 2024 &amp;amp; 2023 
+&lt;a href=&#34;https://cs20202sp22.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS29202)&lt;/a&gt;, Foundations of Algorithm Design and Machine Learning, Spring 2022 
+&lt;a href=&#34;https://cse.iitkgp.ac.in/~sourangshu/coursefiles/cs60020_22S.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS60020)&lt;/a&gt;, Programming &amp;amp; Data Structures Theory, Spring 2021 
+&lt;a href=&#34;https://cse.iitkgp.ac.in/pds/semester/2021s/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS10003)&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- **News**:
+
+  - 01/2024: Got [AI4ICPS Chanakya PhD Fellowship](https://ai4icps.in/).
+
+  - 12/2023-09/2024: Teaching Assistant at [Virginia Tech - IIT Kharagpur Joint Certification Program In Business Analytics and AI](https://international.iitkgp.ac.in/admission/virginia-admission/).
+
+  - 12/2022: Attended [Indian Symposium on Machine Learning (IndoML)](https://indoml.in/2022/) by IIT Gandhinagar.
+
+  - 09/2022: **AIMLSystems 2022** paper on [Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit](https://dl.acm.org/doi/pdf/10.1145/3564121.3564139).
+
+  - 12/2021: Attended [Indian Symposium on Machine Learning (IndoML)](https://indoml.in/2021/) by IIT Gandhinagar.
+
+  - 11/2021: Invited to attend [Amazon Research Days](https://amazonard2021.com/) in India. --&gt;
 </description>
     </item>
     
