@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abhishek Kesarwani | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/author/abhishek-kesarwani/</link>
+      <atom:link href="https://kiranpurohit.github.io/author/abhishek-kesarwani/index.xml" rel="self" type="application/rss+xml" />
+    <description>Abhishek Kesarwani</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Abhishek Kesarwani</title>
+      <link>https://kiranpurohit.github.io/author/abhishek-kesarwani/</link>
+    </image>
+    
+    <item>
+      <title>COVID-19 Detection on Chest X-Ray and CT Scan Images Using Multi-image Augmented Deep Learning Model</title>
+      <link>https://kiranpurohit.github.io/publication/icmc21/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icmc21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Measuring the Degree of Suitability of Edge Detection Operators Prior to an Application</title>
+      <link>https://kiranpurohit.github.io/publication/aspcon20/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/aspcon20/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

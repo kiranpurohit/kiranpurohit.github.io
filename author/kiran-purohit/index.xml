@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
+      <atom:link href="https://kiranpurohit.github.io/author/kiran-purohit/index.xml" rel="self" type="application/rss+xml" />
+    <description>Kiran Purohit</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <image>
+      <url>https://kiranpurohit.github.io/author/kiran-purohit/avatar_hu68bb01a255b870649adbf383ae7662ca_50015_270x270_fill_q90_lanczos_center.jpg</url>
+      <title>Kiran Purohit</title>
+      <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
+    </image>
+    
+  </channel>
+</rss>
