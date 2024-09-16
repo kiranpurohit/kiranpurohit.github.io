@@ -5,12 +5,112 @@
     <link>https://kiranpurohit.github.io/</link>
       <atom:link href="https://kiranpurohit.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Kiran Purohit</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Kiran Purohit</title>
       <link>https://kiranpurohit.github.io/</link>
     </image>
+    
+    <item>
+      <title>[Oct 2024] Invited to attend Amazon Research Days (ARD 2024) in India.</title>
+      <link>https://kiranpurohit.github.io/news/2024_ard/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_ard/</guid>
+      <description>&lt;p&gt;10/2024: Invited to attend 
+&lt;a href=&#34;&#34;&gt;Amazon Research Days&lt;/a&gt; in India.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[Sep 2024] Paper on EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning accepted at (EMNLP 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_emnlp/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_emnlp/</guid>
+      <description>&lt;p&gt;09/2024: &lt;strong&gt;EMNLP 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;&#34;&gt;EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>
+      <link>https://kiranpurohit.github.io/publication/emnlp24/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Application of Subset Selection in Efficient Machine Learning @IBM Maitreyee Research Showcase 2024</title>
+      <link>https://kiranpurohit.github.io/talk/ibm24/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/ibm24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs @TMLR 2024</title>
+      <link>https://kiranpurohit.github.io/talk/tmlr24/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/tmlr24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Aug 2024] Paper on A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs accepted at (TMLR 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_tmlr/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_tmlr/</guid>
+      <description>&lt;p&gt;08/2024: &lt;strong&gt;TMLR 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://www.arxiv.org/pdf/2409.03777&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs</title>
+      <link>https://kiranpurohit.github.io/publication/tmlr24/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/tmlr24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Jul 2024] Paper on A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning accepted at (ECAI 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_ecai/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_ecai/</guid>
+      <description>&lt;p&gt;07/2024: &lt;strong&gt;ECAI 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://arxiv.org/pdf/2305.02022v2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning</title>
+      <link>https://kiranpurohit.github.io/publication/ecai24/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/ecai24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Jul 2024] Selected as a Teaching Assistant at (AICTE QIP PG Certificate Programme) for Core Engineering Faculty.</title>
+      <link>https://kiranpurohit.github.io/news/2024_teaching_aicte/</link>
+      <pubDate>Mon, 01 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_teaching_aicte/</guid>
+      <description>&lt;p&gt;7/2024 - 09/2024: Teaching Assistant at 
+&lt;a href=&#34;https://facilities.aicte-india.org/QIP-PG/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AICTE QIP PG Certificate Programme for Core Engineering Faculty&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[Jun 2024] Got selected for (ACM India Grad Cohort 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_acm_grad_cohort/</link>
+      <pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_acm_grad_cohort/</guid>
+      <description>&lt;p&gt;06/2024: Got selected for 
+&lt;a href=&#34;https://event.india.acm.org/gradcohort/home/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ACM India Grad Cohort 2024&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories @CNeRG Reading Group</title>
@@ -21,7 +121,7 @@
     </item>
     
     <item>
-      <title>[Jan 2024] Got AI4ICPS Chanakya PhD Fellowship.</title>
+      <title>[Jan 2024] Got (AI4ICPS Chanakya PhD Fellowship).</title>
       <link>https://kiranpurohit.github.io/news/2024_chanakya/</link>
       <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/news/2024_chanakya/</guid>
@@ -31,10 +131,10 @@
     </item>
     
     <item>
-      <title>[Dec 2023] Selected as a Teaching Assistant at Virginia Tech - IIT Kharagpur Joint Certification Program In Business Analytics and AI.</title>
-      <link>https://kiranpurohit.github.io/news/2023_teaching_assistant/</link>
+      <title>[Dec 2023] Selected as a Teaching Assistant at (Virginia Tech - IIT Kharagpur) Joint Certification Program In Business Analytics and AI.</title>
+      <link>https://kiranpurohit.github.io/news/2023_teaching_virginia-iitkgp/</link>
       <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://kiranpurohit.github.io/news/2023_teaching_assistant/</guid>
+      <guid>https://kiranpurohit.github.io/news/2023_teaching_virginia-iitkgp/</guid>
       <description>&lt;p&gt;12/2023 - 09/2024: Teaching Assistant at 
 &lt;a href=&#34;https://international.iitkgp.ac.in/admission/virginia-admission/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Virginia Tech - IIT Kharagpur Joint Certification Program In Business Analytics and AI&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -91,7 +191,7 @@
     </item>
     
     <item>
-      <title>[Sep 2022] Paper on Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit accepted at AIMLSystems 2022.</title>
+      <title>[Sep 2022] Paper on Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit accepted at (AIMLSystems 2022).</title>
       <link>https://kiranpurohit.github.io/news/2022_aiml/</link>
       <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/news/2022_aiml/</guid>
@@ -117,7 +217,7 @@
     </item>
     
     <item>
-      <title>[Dec 2021] Attended ATAL, AICTE FDP on Explainable Artificial Intelligence and Future by IIIT Kota.</title>
+      <title>[Dec 2021] Attended ATAL, (AICTE FDP) on Explainable Artificial Intelligence and Future by IIIT Kota.</title>
       <link>https://kiranpurohit.github.io/news/2021_atal/</link>
       <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/news/2021_atal/</guid>

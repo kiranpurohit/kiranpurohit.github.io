@@ -5,7 +5,7 @@
     <link>https://kiranpurohit.github.io/authors/</link>
       <atom:link href="https://kiranpurohit.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Authors</title>
@@ -15,32 +15,72 @@
     <item>
       <title>Kiran Purohit</title>
       <link>https://kiranpurohit.github.io/author/kiran-purohit/</link>
-      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/author/kiran-purohit/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Anurag Parvathgari</title>
-      <link>https://kiranpurohit.github.io/author/anurag-parvathgari/</link>
-      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://kiranpurohit.github.io/author/anurag-parvathgari/</guid>
+      <title>Avishek Anand</title>
+      <link>https://kiranpurohit.github.io/author/avishek-anand/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/avishek-anand/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Soumi Das</title>
-      <link>https://kiranpurohit.github.io/author/soumi-das/</link>
-      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://kiranpurohit.github.io/author/soumi-das/</guid>
+      <title>Krishna Mohan Yerragorla</title>
+      <link>https://kiranpurohit.github.io/author/krishna-mohan-yerragorla/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/krishna-mohan-yerragorla/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raghuram Devalla</title>
+      <link>https://kiranpurohit.github.io/author/raghuram-devalla/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/raghuram-devalla/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sourangshu Bhattacharya</title>
       <link>https://kiranpurohit.github.io/author/sourangshu-bhattacharya/</link>
-      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/author/sourangshu-bhattacharya/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Venktesh V</title>
+      <link>https://kiranpurohit.github.io/author/venktesh-v/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/venktesh-v/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anurag Parvathgari</title>
+      <link>https://kiranpurohit.github.io/author/anurag-parvathgari/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/anurag-parvathgari/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Santu Rana</title>
+      <link>https://kiranpurohit.github.io/author/santu-rana/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/santu-rana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Soumi Das</title>
+      <link>https://kiranpurohit.github.io/author/soumi-das/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/author/soumi-das/</guid>
       <description></description>
     </item>
     
@@ -78,11 +118,7 @@
 &lt;a href=&#34;https://cse.iitkgp.ac.in/~sourangshu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Sourangshu Bhattacharya&lt;/a&gt;. I am also a member of the  
 &lt;a href=&#34;https://cnerg-iitkgp.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Complex Networks Research Group&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Research&lt;/strong&gt; - I am broadly interested in Machine Learning, with specific interests in Scalability, Explainability and Data-centric AI. I have applied these techniques on problems in Computer Vision and Natural Language Processing. My research involves subset selection for efficient and robust deep learning. I would be happy to talk about recent advancements around LLMs.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Teaching Assistantship&lt;/strong&gt; - Scalable Data Mining, Autumn 2023, 2022 &amp;amp; 2021 
-&lt;a href=&#34;https://panuragreddy.github.io/SDM_2023/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS60021)&lt;/a&gt;, Software Engineering Lab &amp;amp; Theory, Spring 2024 &amp;amp; 2023 
-&lt;a href=&#34;https://cs20202sp22.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS29202)&lt;/a&gt;, Foundations of Algorithm Design and Machine Learning, Spring 2022 
-&lt;a href=&#34;https://cse.iitkgp.ac.in/~sourangshu/coursefiles/cs60020_22S.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS60020)&lt;/a&gt;, Programming &amp;amp; Data Structures Theory, Spring 2021 
-&lt;a href=&#34;https://cse.iitkgp.ac.in/pds/semester/2021s/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;(CS10003)&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- **Teaching Assistantship** - Scalable Data Mining, Autumn 2023, 2022 &amp; 2021 [(CS60021)](https://panuragreddy.github.io/SDM_2023/), Software Engineering Lab &amp; Theory, Spring 2024 &amp; 2023 [(CS29202)](https://cs20202sp22.github.io/), Foundations of Algorithm Design and Machine Learning, Spring 2022 [(CS60020)](https://cse.iitkgp.ac.in/~sourangshu/coursefiles/cs60020_22S.html), Programming &amp; Data Structures Theory, Spring 2021 [(CS10003)](https://cse.iitkgp.ac.in/pds/semester/2021s/). --&gt;
 &lt;!-- **News**:
 
   - 01/2024: Got [AI4ICPS Chanakya PhD Fellowship](https://ai4icps.in/).
