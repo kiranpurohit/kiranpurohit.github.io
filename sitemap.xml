@@ -3,27 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kiranpurohit.github.io/news/2024_ard/</loc>
-    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <loc>https://kiranpurohit.github.io/news/2024_ibm/</loc>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/authors/</loc>
-    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/</loc>
-    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/author/kiran-purohit/</loc>
-    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/news/</loc>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/news/2024_ard/</loc>
     <lastmod>2024-09-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -363,12 +368,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/tag/systems/</loc>
+    <loc>https://kiranpurohit.github.io/category/systems/</loc>
     <lastmod>2019-09-12T20:41:53+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/category/systems/</loc>
+    <loc>https://kiranpurohit.github.io/tag/systems/</loc>
     <lastmod>2019-09-12T20:41:53+05:30</lastmod>
   </url>
   
@@ -383,12 +388,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/tag/reinforcement-learning-an-introduction/</loc>
+    <loc>https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/</loc>
     <lastmod>2017-11-09T16:36:20+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/</loc>
+    <loc>https://kiranpurohit.github.io/tag/reinforcement-learning-an-introduction/</loc>
     <lastmod>2017-11-09T16:36:20+05:30</lastmod>
   </url>
   

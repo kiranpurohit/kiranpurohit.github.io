@@ -5,12 +5,22 @@
     <link>https://kiranpurohit.github.io/</link>
       <atom:link href="https://kiranpurohit.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Kiran Purohit</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 21 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Kiran Purohit</title>
       <link>https://kiranpurohit.github.io/</link>
     </image>
+    
+    <item>
+      <title>[Sep 2024] Won second price at IBM Maitreyee Research Showcase 2024.</title>
+      <link>https://kiranpurohit.github.io/news/2024_ibm/</link>
+      <pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_ibm/</guid>
+      <description>&lt;p&gt;09/2024: Won second price at 
+&lt;a href=&#34;https://research.ibm.com/events/maitreyee-2024&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IBM Maitreyee Research Showcase 2024&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>[Oct 2024] Invited to attend Amazon Research Days (ARD 2024) in India.</title>
