@@ -5,12 +5,36 @@
     <link>https://kiranpurohit.github.io/talk/</link>
       <atom:link href="https://kiranpurohit.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Recent Talks</title>
       <link>https://kiranpurohit.github.io/talk/</link>
     </image>
+    
+    <item>
+      <title>Retrieval-based Language Models and Applications @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_6/</link>
+      <pubDate>Thu, 14 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning @EMNLP 2024</title>
+      <link>https://kiranpurohit.github.io/talk/emnlp24/</link>
+      <pubDate>Tue, 12 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning @ECAI 2024</title>
+      <link>https://kiranpurohit.github.io/talk/ecai24/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/ecai24/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Application of Subset Selection in Efficient Machine Learning @IBM Maitreyee Research Showcase 2024</title>

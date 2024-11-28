@@ -3,33 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kiranpurohit.github.io/news/2024_ibm/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kiranpurohit.github.io/authors/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/author/kiran-purohit/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/news/</loc>
-    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
+    <loc>https://kiranpurohit.github.io/talk/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/talk/cnerg_rg_6/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/talk/emnlp24/</loc>
+    <lastmod>2024-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/talk/ecai24/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/news/2024_ard/</loc>
-    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/news/</loc>
+    <lastmod>2024-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/news/2024_ibm/</loc>
+    <lastmod>2024-09-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -84,11 +104,6 @@
   
   <url>
     <loc>https://kiranpurohit.github.io/talk/ibm24/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/talk/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -328,12 +343,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/tag/statistics/</loc>
+    <loc>https://kiranpurohit.github.io/category/statistics/</loc>
     <lastmod>2019-12-04T19:50:36+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/category/statistics/</loc>
+    <loc>https://kiranpurohit.github.io/tag/statistics/</loc>
     <lastmod>2019-12-04T19:50:36+05:30</lastmod>
   </url>
   
