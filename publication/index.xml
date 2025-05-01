@@ -5,12 +5,20 @@
     <link>https://kiranpurohit.github.io/publication/</link>
       <atom:link href="https://kiranpurohit.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 15 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Publications</title>
       <link>https://kiranpurohit.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>

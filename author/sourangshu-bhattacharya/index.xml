@@ -5,7 +5,7 @@
     <link>https://kiranpurohit.github.io/author/sourangshu-bhattacharya/</link>
       <atom:link href="https://kiranpurohit.github.io/author/sourangshu-bhattacharya/index.xml" rel="self" type="application/rss+xml" />
     <description>Sourangshu Bhattacharya</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 15 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Sourangshu Bhattacharya</title>
@@ -13,11 +13,49 @@
     </image>
     
     <item>
+      <title>[May 2025] Paper on Sample Efficient Demonstration Selection for In-Context Learning accepted at (ICML 2025).</title>
+      <link>https://kiranpurohit.github.io/news/2025_icml/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2025_icml/</guid>
+      <description>&lt;p&gt;05/2025: &lt;strong&gt;ICML 2025&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://openreview.net/pdf?id=cuqvlLBQK6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sample Efficient Demonstration Selection for In-Context Learning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Sep 2024] Paper on EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning accepted at (EMNLP 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_emnlp/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_emnlp/</guid>
+      <description>&lt;p&gt;09/2024: &lt;strong&gt;EMNLP 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://aclanthology.org/2024.emnlp-main.307.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>
       <link>https://kiranpurohit.github.io/publication/emnlp24/</link>
       <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/publication/emnlp24/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>[Aug 2024] Paper on A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs accepted at (TMLR 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_tmlr/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_tmlr/</guid>
+      <description>&lt;p&gt;08/2024: &lt;strong&gt;TMLR 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://openreview.net/pdf?id=WzHuebRSgQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -29,11 +67,31 @@
     </item>
     
     <item>
+      <title>[Jul 2024] Paper on A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning accepted at (ECAI 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_ecai/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_ecai/</guid>
+      <description>&lt;p&gt;07/2024: &lt;strong&gt;ECAI 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://arxiv.org/pdf/2305.02022v2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning</title>
       <link>https://kiranpurohit.github.io/publication/ecai24/</link>
       <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/publication/ecai24/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>[Sep 2022] Paper on Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit accepted at (AIMLSystems 2022).</title>
+      <link>https://kiranpurohit.github.io/news/2022_aiml/</link>
+      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2022_aiml/</guid>
+      <description>&lt;p&gt;09/2022: &lt;strong&gt;AIMLSystems 2022&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/3564121.3564139&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>

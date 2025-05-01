@@ -5,12 +5,20 @@
     <link>https://kiranpurohit.github.io/talk/</link>
       <atom:link href="https://kiranpurohit.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Recent Talks</title>
       <link>https://kiranpurohit.github.io/talk/</link>
     </image>
+    
+    <item>
+      <title>Application of Subset Selection in Robust and Efficient Machine Learning @ C. V. Raman Global University (CGU), Odisha 2025</title>
+      <link>https://kiranpurohit.github.io/talk/cv_raman25/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cv_raman25/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Retrieval-based Language Models and Applications @CNeRG Reading Group</title>

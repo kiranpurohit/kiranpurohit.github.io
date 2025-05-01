@@ -13,11 +13,31 @@
     </image>
     
     <item>
+      <title>[Aug 2024] Paper on A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs accepted at (TMLR 2024).</title>
+      <link>https://kiranpurohit.github.io/news/2024_tmlr/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2024_tmlr/</guid>
+      <description>&lt;p&gt;08/2024: &lt;strong&gt;TMLR 2024&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://openreview.net/pdf?id=WzHuebRSgQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs</title>
       <link>https://kiranpurohit.github.io/publication/tmlr24/</link>
       <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/publication/tmlr24/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>[Sep 2022] Paper on Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit accepted at (AIMLSystems 2022).</title>
+      <link>https://kiranpurohit.github.io/news/2022_aiml/</link>
+      <pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2022_aiml/</guid>
+      <description>&lt;p&gt;09/2022: &lt;strong&gt;AIMLSystems 2022&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/3564121.3564139&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Accurate and Efficient Channel pruning via Orthogonal Matching Pursuit&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>

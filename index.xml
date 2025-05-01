@@ -5,12 +5,57 @@
     <link>https://kiranpurohit.github.io/</link>
       <atom:link href="https://kiranpurohit.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Kiran Purohit</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://kiranpurohit.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Kiran Purohit</title>
       <link>https://kiranpurohit.github.io/</link>
     </image>
+    
+    <item>
+      <title>[May 2025] Paper on Sample Efficient Demonstration Selection for In-Context Learning accepted at (ICML 2025).</title>
+      <link>https://kiranpurohit.github.io/news/2025_icml/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2025_icml/</guid>
+      <description>&lt;p&gt;05/2025: &lt;strong&gt;ICML 2025&lt;/strong&gt; paper on 
+&lt;a href=&#34;https://openreview.net/pdf?id=cuqvlLBQK6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sample Efficient Demonstration Selection for In-Context Learning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[April 2025] Invited to attend Walmart Global Tech’s flagship AI conference—AI @ Walmart 2025.</title>
+      <link>https://kiranpurohit.github.io/news/2025_walmart/</link>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2025_walmart/</guid>
+      <description>&lt;p&gt;04/2025: Invited to attend 
+&lt;a href=&#34;https://tech.walmart.com/content/walmart-global-tech/en_us/flagship-conferences/ai-at-walmart.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Walmart Global Tech’s flagship AI conference—AI @ Walmart 2025&lt;/a&gt; in India.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[March 2025] Invited as a guest speaker at C. V. Raman Global University (CGU), Odisha 2025.</title>
+      <link>https://kiranpurohit.github.io/news/2025_cv_raman_talk/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/news/2025_cv_raman_talk/</guid>
+      <description>&lt;p&gt;03/2025: Invited as a guest speaker during the 6-Day Online Research Development Program on “Exploring AI and ML Applications: Insights and Opportunities” organized by C. V. Raman Global University (CGU), Odisha.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Application of Subset Selection in Robust and Efficient Machine Learning @ C. V. Raman Global University (CGU), Odisha 2025</title>
+      <link>https://kiranpurohit.github.io/talk/cv_raman25/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cv_raman25/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>[Feb 2025] Invited to attend ACM Pingala Interactions in Computing (PIC) 2025.</title>
@@ -82,7 +127,7 @@
       <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/news/2024_emnlp/</guid>
       <description>&lt;p&gt;09/2024: &lt;strong&gt;EMNLP 2024&lt;/strong&gt; paper on 
-&lt;a href=&#34;&#34;&gt;EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://aclanthology.org/2024.emnlp-main.307.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -116,7 +161,7 @@
       <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://kiranpurohit.github.io/news/2024_tmlr/</guid>
       <description>&lt;p&gt;08/2024: &lt;strong&gt;TMLR 2024&lt;/strong&gt; paper on 
-&lt;a href=&#34;https://www.arxiv.org/pdf/2409.03777&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://openreview.net/pdf?id=WzHuebRSgQ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
