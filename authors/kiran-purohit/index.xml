@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/authors/kiran-purohit/</link>
+      <atom:link href="https://kiranpurohit.github.io/authors/kiran-purohit/index.xml" rel="self" type="application/rss+xml" />
+    <description>Kiran Purohit</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/img/icon.png</url>
+      <title>Kiran Purohit</title>
+      <link>https://kiranpurohit.github.io/authors/kiran-purohit/</link>
+    </image>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Application of Subset Selection in Robust and Efficient Machine Learning @ C. V. Raman Global University (CGU), Odisha 2025</title>
+      <link>https://kiranpurohit.github.io/talk/cv_raman25/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cv_raman25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Retrieval-based Language Models and Applications @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_6/</link>
+      <pubDate>Thu, 14 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning @EMNLP 2024</title>
+      <link>https://kiranpurohit.github.io/talk/emnlp24/</link>
+      <pubDate>Tue, 12 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning @ECAI 2024</title>
+      <link>https://kiranpurohit.github.io/talk/ecai24/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/ecai24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>
+      <link>https://kiranpurohit.github.io/publication/emnlp24/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Application of Subset Selection in Efficient Machine Learning @IBM Maitreyee Research Showcase 2024</title>
+      <link>https://kiranpurohit.github.io/talk/ibm24/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/ibm24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs @TMLR 2024</title>
+      <link>https://kiranpurohit.github.io/talk/tmlr24/</link>
+      <pubDate>Mon, 02 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/tmlr24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs</title>
+      <link>https://kiranpurohit.github.io/publication/tmlr24/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/tmlr24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning</title>
+      <link>https://kiranpurohit.github.io/publication/ecai24/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/ecai24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_5/</link>
+      <pubDate>Thu, 18 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scalable and Accurate Channel pruning @CNeRG Mini Retreat</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_mini_retreat/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_mini_retreat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Winning the Lottery Ahead of Time: Efficient Early Network Pruning @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_4/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Practical Adversarial Robustness in Deep Learning: Problems and Solutions @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_3/</link>
+      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate and efficient channel pruning via orthogonal matching pursuit @AIMLSystems 2022</title>
+      <link>https://kiranpurohit.github.io/talk/aimlsys22/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/aimlsys22/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LearnDefend: Learning to Defend against Backdoor Attacks on Federated Learning @AIMLSystems Doctoral Symposium 2022</title>
+      <link>https://kiranpurohit.github.io/talk/aimlsys22_doctoral/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/aimlsys22_doctoral/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate and efficient channel pruning via orthogonal matching pursuit</title>
+      <link>https://kiranpurohit.github.io/publication/aimlsys22/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/aimlsys22/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>When-To-Post on Social Networks @CNeRG Reading Group @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_2/</link>
+      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SummEval: Re-evaluating Summarization Evaluation @CNeRG Reading Group</title>
+      <link>https://kiranpurohit.github.io/talk/cnerg_rg_1/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/cnerg_rg_1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID-19 Detection on Chest X-Ray and CT Scan Images Using Multi-image Augmented Deep Learning Model @ICMC 2021</title>
+      <link>https://kiranpurohit.github.io/talk/icmc21/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/icmc21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COVID-19 Detection on Chest X-Ray and CT Scan Images Using Multi-image Augmented Deep Learning Model</title>
+      <link>https://kiranpurohit.github.io/publication/icmc21/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icmc21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Measuring the Degree of Suitability of Edge Detection Operators Prior to an Application</title>
+      <link>https://kiranpurohit.github.io/publication/aspcon20/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/aspcon20/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Some Applications of First and Second Order Derivative Operators in Machine Learning and Clinical Diagnosis @M.Tech Thesis, NIT Durgapur</title>
+      <link>https://kiranpurohit.github.io/talk/mtech_thesis/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/talk/mtech_thesis/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

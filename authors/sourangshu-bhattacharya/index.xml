@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sourangshu Bhattacharya | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/authors/sourangshu-bhattacharya/</link>
+      <atom:link href="https://kiranpurohit.github.io/authors/sourangshu-bhattacharya/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sourangshu Bhattacharya</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/img/icon.png</url>
+      <title>Sourangshu Bhattacharya</title>
+      <link>https://kiranpurohit.github.io/authors/sourangshu-bhattacharya/</link>
+    </image>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>
+      <link>https://kiranpurohit.github.io/publication/emnlp24/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Greedy Hierarchical Approach to Whole-Network Filter-Pruning in CNNs</title>
+      <link>https://kiranpurohit.github.io/publication/tmlr24/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/tmlr24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning</title>
+      <link>https://kiranpurohit.github.io/publication/ecai24/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/ecai24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate and efficient channel pruning via orthogonal matching pursuit</title>
+      <link>https://kiranpurohit.github.io/publication/aimlsys22/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/aimlsys22/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Soumi Das | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/authors/soumi-das/</link>
+      <atom:link href="https://kiranpurohit.github.io/authors/soumi-das/index.xml" rel="self" type="application/rss+xml" />
+    <description>Soumi Das</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/img/icon.png</url>
+      <title>Soumi Das</title>
+      <link>https://kiranpurohit.github.io/authors/soumi-das/</link>
+    </image>
+    
+    <item>
+      <title>A Data-Driven Defense against Edge-case Model Poisoning Attacks on Federated Learning</title>
+      <link>https://kiranpurohit.github.io/publication/ecai24/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/ecai24/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate and efficient channel pruning via orthogonal matching pursuit</title>
+      <link>https://kiranpurohit.github.io/publication/aimlsys22/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/aimlsys22/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

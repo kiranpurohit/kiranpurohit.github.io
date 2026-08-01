@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kiranpurohit.github.io/publication-type/1/</loc>
+    <loc>https://kiranpurohit.github.io/publication_types/1/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,17 +18,22 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/avishek-anand/</loc>
+    <loc>https://kiranpurohit.github.io/authors/avishek-anand/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/kiran-purohit/</loc>
+    <loc>https://kiranpurohit.github.io/authors/kiran-purohit/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/</loc>
+    <lastmod>2025-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kiranpurohit.github.io/authors/admin/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,12 +58,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/sourangshu-bhattacharya/</loc>
+    <loc>https://kiranpurohit.github.io/authors/sourangshu-bhattacharya/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/venktesh-v/</loc>
+    <loc>https://kiranpurohit.github.io/authors/venktesh-v/</loc>
     <lastmod>2025-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -128,12 +133,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/krishna-mohan-yerragorla/</loc>
+    <loc>https://kiranpurohit.github.io/authors/krishna-mohan-yerragorla/</loc>
     <lastmod>2024-09-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/raghuram-devalla/</loc>
+    <loc>https://kiranpurohit.github.io/authors/raghuram-devalla/</loc>
     <lastmod>2024-09-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -148,7 +153,7 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/publication-type/2/</loc>
+    <loc>https://kiranpurohit.github.io/publication_types/2/</loc>
     <lastmod>2024-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,7 +168,7 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/anurag-parvathgari/</loc>
+    <loc>https://kiranpurohit.github.io/authors/anurag-parvathgari/</loc>
     <lastmod>2024-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,12 +183,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/santu-rana/</loc>
+    <loc>https://kiranpurohit.github.io/authors/santu-rana/</loc>
     <lastmod>2024-07-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/soumi-das/</loc>
+    <loc>https://kiranpurohit.github.io/authors/soumi-das/</loc>
     <lastmod>2024-07-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -243,12 +248,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/news/2022_aiml/</loc>
-    <lastmod>2022-09-05T00:00:00+00:00</lastmod>
+    <loc>https://kiranpurohit.github.io/publication/aimlsys22/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/publication/aimlsys22/</loc>
+    <loc>https://kiranpurohit.github.io/news/2022_aiml/</loc>
     <lastmod>2022-09-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -283,7 +288,7 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/abhishek-kesarwani/</loc>
+    <loc>https://kiranpurohit.github.io/authors/abhishek-kesarwani/</loc>
     <lastmod>2021-03-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -293,12 +298,12 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/dakshina-ranjan-kisku/</loc>
+    <loc>https://kiranpurohit.github.io/authors/dakshina-ranjan-kisku/</loc>
     <lastmod>2021-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/author/mamata-dalui/</loc>
+    <loc>https://kiranpurohit.github.io/authors/mamata-dalui/</loc>
     <lastmod>2021-03-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -313,222 +318,11 @@
   </url>
   
   <url>
-    <loc>https://kiranpurohit.github.io/tag/c/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kiranpurohit.github.io/categories/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/coding/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/cpp/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/cpp-to-java-cheatsheet/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/cpp_to_java/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/java/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
   </url>
   
   <url>
     <loc>https://kiranpurohit.github.io/tags/</loc>
-    <lastmod>2020-04-30T12:01:04+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/hypothesis-testing/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/mathematics/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/probability/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/samples/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/statistics/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/statistics/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/stat-101/</loc>
-    <lastmod>2019-12-04T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/sampling_theory_and_dist/</loc>
-    <lastmod>2019-11-05T19:50:36+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/hacks/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/how_to_install_packages_locally_in_linux/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/linux/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/server-accounts/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/systems/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/systems/</loc>
-    <lastmod>2019-09-12T20:41:53+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/rl_chapter2/</loc>
-    <lastmod>2017-11-09T16:36:20+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/reinforcement-learning/</loc>
-    <lastmod>2017-11-09T16:36:20+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/reinforcement-learning-an-introduction/</loc>
-    <lastmod>2017-11-09T16:36:20+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/reinforcement-learning-an-introduction/</loc>
-    <lastmod>2017-11-09T16:36:20+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/rl_chapter1/</loc>
-    <lastmod>2017-11-09T12:47:09+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/deep-learning/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/deep-learning/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/neural-networks/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/python/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/tensorboard/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/tensorboard_basics/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/tensorflow/</loc>
-    <lastmod>2017-11-08T15:09:44+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/tensorflow_basics/</loc>
-    <lastmod>2017-07-05T21:25:58+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/coding-guidelines-by-nasa-programmer/</loc>
-    <lastmod>2016-09-03T10:04:25+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/programming_guidelines/</loc>
-    <lastmod>2016-09-03T10:04:25+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/techniques/</loc>
-    <lastmod>2016-09-03T10:04:25+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/category/byte-ordering-in-the-network-layer/</loc>
-    <lastmod>2016-08-28T14:54:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/c-/</loc>
-    <lastmod>2016-08-28T14:54:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/post/endianness_of_your_pc/</loc>
-    <lastmod>2016-08-28T14:54:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/tag/networks/</loc>
-    <lastmod>2016-08-28T14:54:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kiranpurohit.github.io/author/kiran-purohit/</loc>
   </url>
   
 </urlset>

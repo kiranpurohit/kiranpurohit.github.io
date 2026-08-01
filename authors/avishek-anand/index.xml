@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Avishek Anand | Kiran Purohit</title>
+    <link>https://kiranpurohit.github.io/authors/avishek-anand/</link>
+      <atom:link href="https://kiranpurohit.github.io/authors/avishek-anand/index.xml" rel="self" type="application/rss+xml" />
+    <description>Avishek Anand</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 01 May 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://kiranpurohit.github.io/img/icon.png</url>
+      <title>Avishek Anand</title>
+      <link>https://kiranpurohit.github.io/authors/avishek-anand/</link>
+    </image>
+    
+    <item>
+      <title>Sample Efficient Demonstration Selection for In-Context Learning</title>
+      <link>https://kiranpurohit.github.io/publication/icml25/</link>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/icml25/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXPLORA: Efficient Exemplar Subset Selection for Complex Reasoning</title>
+      <link>https://kiranpurohit.github.io/publication/emnlp24/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://kiranpurohit.github.io/publication/emnlp24/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
