@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow Matching, Explained Simply</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="topnav">
+  <div class="brand">🌊 Flow Matching</div>
+  <div class="links">
+    <a href="#intro">Idea</a>
+    <a href="#demo1">See It</a>
+    <a href="#how">How</a>
+    <a href="#why">Why</a>
+    <a href="#field">Field</a>
+    <a href="#compare">Vs Diffusion</a>
+    <a href="#uses">Uses</a>
+    <a href="#recap">Recap</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <h1>Flow Matching</h1>
+    <p class="tagline">Turning random noise into real things — explained without scary math.</p>
+    <a href="#intro" class="scroll-cue">↓ scroll to learn ↓</a>
+  </div>
+</header>
+
+<main>
+
+  <section id="intro" class="section reveal">
+    <h2>The Big Idea, In One Sentence</h2>
+    <p class="lead">
+      Flow Matching teaches a computer to gently <strong>flow</strong> a cloud of random noise
+      into something meaningful — like a photo, a sound, or a 3D shape — by learning,
+      step by step, which direction each point should move.
+    </p>
+
+    <div class="analogy-grid">
+      <div class="analogy-card">
+        <div class="emoji">🌫️</div>
+        <h3>Start: Pure Noise</h3>
+        <p>Imagine a puff of smoke — totally random, no shape at all.</p>
+      </div>
+      <div class="analogy-card arrow-card">
+        <div class="emoji">🌊</div>
+        <h3>The Flow</h3>
+        <p>A gentle "current" nudges every speck of smoke in a useful direction.</p>
+      </div>
+      <div class="analogy-card">
+        <div class="emoji">🖼️</div>
+        <h3>End: Real Data</h3>
+        <p>After following the current, the smoke has arranged itself into something real.</p>
+      </div>
+    </div>
+
+    <p class="lead">
+      That "current" is called a <strong>vector field</strong> — just a fancy way of saying
+      "an arrow at every point in space, telling you which way to go and how fast."
+      Flow Matching is simply a recipe for teaching a neural network to draw those arrows correctly.
+    </p>
+  </section>
+
+  <section id="problem" class="section reveal">
+    <h2>Why Do We Even Need This?</h2>
+    <p class="lead">
+      Modern AI models like image generators (e.g. Stable Diffusion) start from
+      <strong>random noise</strong> and need a reliable way to turn that noise into a
+      coherent picture, sound, or video. The question is:
+    </p>
+    <blockquote>"Given a point of pure randomness, where should it go to become something real — and how do we get there efficiently?"</blockquote>
+    <p class="lead">Flow Matching is one of the simplest, most direct answers to that question.</p>
+  </section>
+
+  <section id="demo1" class="section reveal">
+    <h2>Watch It Happen</h2>
+    <p class="lead">
+      Below, ~180 random points start as scattered "noise." Drag the slider (or hit Play)
+      to move time <code>t</code> from 0 → 1, and watch every point flow along its own
+      straight little path until the noise rearranges itself into a heart shape.
+    </p>
+
+    <div class="demo-box">
+      <canvas id="demoCanvas" width="700" height="500"></canvas>
+      <div class="demo-controls">
+        <button id="playBtn">▶ Play</button>
+        <button id="resetBtn">⟲ Reshuffle</button>
+        <label class="slider-label">
+          t = <span id="tValue">0.00</span>
+          <input type="range" id="tSlider" min="0" max="1" step="0.001" value="0">
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="arrowsToggle" checked>
+          show velocity arrows
+        </label>
+      </div>
+      <p class="caption">
+        Each little arrow is the point's <strong>velocity</strong>: the fixed direction and
+        speed it needs to travel in a straight line to reach its target. Flow Matching trains a
+        network to predict exactly this arrow, for <em>any</em> point, at <em>any</em> time <code>t</code>.
+      </p>
+    </div>
+  </section>
+
+  <section id="how" class="section reveal">
+    <h2>The Training Pipeline, Step by Step</h2>
+    <p class="lead">
+      It's easy to blur two very different things together: the process that <strong>teaches</strong>
+      the network, and the process that <strong>uses</strong> it to create something new. They happen
+      at completely different times, need different ingredients, and look different. Here's both, side by side.
+    </p>
+
+    <div class="phase-grid">
+      <div class="phase-card phase-training">
+        <div class="phase-badge">Phase 1</div>
+        <h3>🏋️ Training <span class="phase-when">— happens once, offline, needs real data</span></h3>
+        <div class="loop-diagram" id="loopDiagram">
+          <div class="loop-step"><span class="loop-num">1</span><span>🌫️ Sample a random noise point</span></div>
+          <div class="loop-step"><span class="loop-num">2</span><span>🖼️ Sample one real example from the dataset</span></div>
+          <div class="loop-step"><span class="loop-num">3</span><span>🎲 Pick a random time <code>t</code> between 0 and 1</span></div>
+          <div class="loop-step"><span class="loop-num">4</span><span>📍 Mix them: get the blurry in-between point at time <code>t</code></span></div>
+          <div class="loop-step"><span class="loop-num">5</span><span>🧠 Ask the network to guess the velocity there</span></div>
+          <div class="loop-step"><span class="loop-num">6</span><span>⚖️ Compare its guess to the true straight-line velocity</span></div>
+          <div class="loop-step"><span class="loop-num">7</span><span>🔧 Nudge the network's weights to reduce that error</span></div>
+        </div>
+        <div class="loop-repeat">↺ repeat this — millions of times, over the whole dataset</div>
+      </div>
+
+      <div class="phase-card phase-generation">
+        <div class="phase-badge">Phase 2</div>
+        <h3>✨ Generating <span class="phase-when">— happens every time, no data needed</span></h3>
+        <div class="gen-diagram" id="genDiagram">
+          <div class="gen-step">🌫️<br>random noise</div>
+          <div class="gen-arrow">→</div>
+          <div class="gen-step">ask network<br>take small step</div>
+          <div class="gen-arrow">→</div>
+          <div class="gen-step">ask network<br>take small step</div>
+          <div class="gen-arrow">→</div>
+          <div class="gen-step">⋯</div>
+          <div class="gen-arrow">→</div>
+          <div class="gen-step">🖼️<br>new sample!</div>
+        </div>
+        <p class="phase-note">
+          Notice what's <em>missing</em> here: no real photo is used at all. Only random noise
+          and the network's learned instincts, applied one small step at a time.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Why split it like this?</strong> During training, the network never gets to see the
+      final answer directly during generation — it only ever practiced on straight lines between
+      noise and real examples. At generation time, it has to rely purely on what it internalized
+      from that practice to find its own way from fresh noise to something realistic.
+    </div>
+  </section>
+
+  <section id="why" class="section reveal">
+    <h2>Why Are the Equations Designed This Way?</h2>
+    <p class="lead">
+      The formulas from the "optional peek" further down aren't arbitrary — every choice exists to make
+      the network's job as easy as possible. Here's the reasoning behind each one, in plain terms.
+    </p>
+
+    <div class="why-card">
+      <h3>🧵 Why a straight line, specifically?</h3>
+      <p>
+        A straight line is the simplest possible path between two points — no curving, no
+        speeding up or slowing down, no surprises along the way. If the "noise → data" path were
+        allowed to wander, the network would have to learn a <em>different</em> direction at every
+        instant. By forcing a straight line, it only ever has to learn <strong>one fixed
+        direction</strong> per pair — a dramatically easier problem to solve well.
+      </p>
+    </div>
+
+    <div class="why-card">
+      <h3>🚶 Why is the velocity just "data − noise", with no time in it?</h3>
+      <p>
+        Picture walking from your house to a café in a perfectly straight line at a constant pace.
+        Your direction and speed never change — not at the start, not halfway, not near the end.
+        That's exactly what <code>data − noise</code> represents: one fixed arrow that stays valid
+        for the entire trip. The network never has to chase a "moving target" — just one direction
+        per pair — which makes training far more stable than something with a constantly shifting goal.
+      </p>
+    </div>
+
+    <div class="why-card">
+      <h3>🌐 Why does it still work when many different pairs overlap?</h3>
+      <p>
+        At almost any blurry in-between point, many different noise→data pairs could plausibly have
+        passed through it. The network can never know exactly which pair produced this particular
+        point — so instead it learns something like the <strong>average direction</strong> of every
+        pair that could plausibly be there. Remarkably, just following this "average of everyone
+        passing through here" field is enough to reliably carry brand-new noise all the way to
+        realistic data, even though no single training path is being followed exactly.
+      </p>
+    </div>
+
+    <div class="why-card">
+      <h3>🎯 Why does this generalize instead of just memorizing?</h3>
+      <p>
+        The network never memorizes specific noise→data pairs — it only ever sees the
+        <em>direction</em> implied by one pair, blended in with millions of directions from other
+        pairs during training. What it ends up learning is the general shape of "where data tends
+        to be," not any individual example. That's why, starting from noise it has never seen
+        before, it can still flow toward something new and realistic.
+      </p>
+    </div>
+  </section>
+
+  <section id="field" class="section reveal">
+    <h2>What the Network Actually Learns</h2>
+    <p class="lead">
+      Once trained, the network has effectively learned a full "map of currents" —
+      an arrow at <em>every</em> point in space. Below is a simplified visualization:
+      arrows show the learned direction of flow, and glowing particles ride the current
+      toward the target shape, forever looping.
+    </p>
+    <div class="demo-box">
+      <canvas id="fieldCanvas" width="700" height="460"></canvas>
+      <p class="caption">This is the <strong>vector field</strong> — the AI's internal compass for turning noise into data.</p>
+    </div>
+  </section>
+
+  <section id="compare" class="section reveal">
+    <h2>Flow Matching vs. Diffusion (Simplified)</h2>
+    <p class="lead">
+      Diffusion models (the technique behind the first wave of AI image generators) solve a
+      similar problem, but historically needed many small, noisy correction steps.
+      Flow Matching favors straighter, smoother paths — often needing far fewer steps.
+      <em>The animations below are simplified analogies, not literal diffusion math.</em>
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-box">
+        <h3>🌊 Flow Matching</h3>
+        <canvas id="flowMiniCanvas" width="320" height="200"></canvas>
+        <p>A straight, direct path. Few steps needed.</p>
+      </div>
+      <div class="compare-box">
+        <h3>🌀 Diffusion (typical)</h3>
+        <canvas id="diffMiniCanvas" width="320" height="200"></canvas>
+        <p>A noisy, winding path. Many small steps needed.</p>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <tr><th></th><th>Flow Matching</th><th>Typical Diffusion</th></tr>
+      <tr><td>Path shape</td><td>Mostly straight</td><td>Winding / stochastic</td></tr>
+      <tr><td>Steps to generate</td><td>Can be very few</td><td>Often many</td></tr>
+      <tr><td>Core idea</td><td>Learn a direct velocity field</td><td>Learn to gradually denoise</td></tr>
+      <tr><td>Used in</td><td>Stable Diffusion 3, many video/audio models</td><td>DDPM, early Stable Diffusion</td></tr>
+    </table>
+  </section>
+
+  <section id="math-peek" class="section reveal">
+    <h2>Curious About the Formula? (Totally Optional)</h2>
+    <details class="math-details">
+      <summary>Peek under the hood — full step-by-step derivation →</summary>
+      <div class="math-content">
+        <p>
+          Nothing here is memorized from a textbook — every line below is <em>built</em> from the
+          previous one. Let's construct both equations from scratch, exactly the way you'd build
+          them yourself.
+        </p>
+
+        <div class="derivation-step">
+          <div class="derivation-tag">Step 1</div>
+          <h4>Name the two points</h4>
+          <p>
+            Call a random noise point <code>x₀</code> (this is where a particle starts — same
+            <code>x0</code> in the interactive demo above) and a real data example <code>x₁</code>
+            (where it needs to end up). Both are just lists of numbers — pixel values for an image,
+            for instance — so all the "arithmetic" below is really just vector addition, done
+            per-number.
+          </p>
+        </div>
+
+        <div class="derivation-step">
+          <div class="derivation-tag">Step 2</div>
+          <h4>Connect them with the standard "line between two points" formula</h4>
+          <p>
+            From basic geometry (the same formula used to draw any line in computer graphics):
+            to move a fraction <code>t</code> of the way from a point <code>A</code> to a point
+            <code>B</code>, you take <code>A</code> and add <code>t</code> times the direction
+            <code>(B − A)</code>:
+          </p>
+          <div class="derivation-box">
+            <div class="deriv-line">point(t) &nbsp;=&nbsp; A + t·(B − A)</div>
+          </div>
+          <p>Now just substitute <code>A = x₀</code> (start) and <code>B = x₁</code> (end):</p>
+          <div class="derivation-box">
+            <div class="deriv-line">x(t) &nbsp;=&nbsp; x₀ + t·(x₁ − x₀)</div>
+            <div class="deriv-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; x₀ − t·x₀ + t·x₁</div>
+            <div class="deriv-line deriv-final">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; (1 − t)·x₀ + t·x₁</div>
+          </div>
+          <p class="deriv-note">
+            That last line is just regrouping terms — it's the exact same equation, only
+            rearranged. It's usually written this way because it makes one thing obvious at a
+            glance: plug in <code>t = 0</code> and you get pure noise; plug in <code>t = 1</code>
+            and you get the pure data point.
+          </p>
+          <div class="formula-card">
+            <div class="formula">x(t) = (1 − t) · x₀ + t · x₁</div>
+            <p>"Mix noise and data together — how much of each depends on t." This is exactly the lerp driving the slider in the heart demo above.</p>
+          </div>
+        </div>
+
+        <div class="derivation-step">
+          <div class="derivation-tag">Step 3</div>
+          <h4>Read off the velocity — differentiate with respect to time</h4>
+          <p>
+            "Velocity" just means <em>how fast <code>x(t)</code> changes as <code>t</code>
+            ticks forward</em> — in calculus terms, its derivative <code>dx/dt</code>. Since
+            <code>x₀</code> and <code>x₁</code> are fixed numbers for this particular pair (they
+            don't change as <code>t</code> moves), differentiating is simple: the constant term
+            <code>x₀</code> vanishes, and <code>t·(x₁ − x₀)</code> differentiates to just its
+            coefficient, <code>(x₁ − x₀)</code>:
+          </p>
+          <div class="derivation-box">
+            <div class="deriv-line">dx/dt &nbsp;=&nbsp; d/dt [ x₀ + t·(x₁ − x₀) ]</div>
+            <div class="deriv-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; 0 + (x₁ − x₀)</div>
+            <div class="deriv-line deriv-final">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp; x₁ − x₀</div>
+          </div>
+          <p class="deriv-note">
+            This is exactly why the arrows in the demo above never change length or direction as
+            you drag the slider — a straight line has one constant slope, the same way
+            <code>y = mx + b</code> always has slope <code>m</code>, no matter which <code>x</code>
+            you plug in.
+          </p>
+          <div class="formula-card">
+            <div class="formula">velocity = x₁ − x₀</div>
+            <p>"The straight-line direction and speed — the same at every point along the path."</p>
+          </div>
+        </div>
+
+        <div class="derivation-step">
+          <div class="derivation-tag">Step 4</div>
+          <h4>Turn it into something a network can be trained on</h4>
+          <p>
+            Every time we randomly sample a noise point, a data point, and a time <code>t</code>,
+            Steps 2 and 3 hand us a matched pair for free: an <strong>input</strong>
+            <code>(x(t), t)</code> and the <strong>correct answer</strong>
+            <code>(x₁ − x₀)</code>. Training just means: show the network many, many such inputs,
+            and push its guess closer to the correct answer each time. Written as a loss function
+            (a single number measuring "how wrong" the network currently is):
+          </p>
+          <div class="derivation-box">
+            <div class="deriv-line">L(θ) = average over many (x₀, x₁, t) of&nbsp; ‖ v_θ(x(t), t) − (x₁ − x₀) ‖²</div>
+          </div>
+          <p class="deriv-note">
+            <code>v_θ</code> is the network (θ = its adjustable weights); the double bars mean
+            "distance between the two arrows, squared" — the standard way to measure numeric
+            error. Smaller <code>L</code> means the network's guessed arrow is closer to the true
+            one. This one formula <em>is</em> steps 5–7 of the training loop from the section
+            above: guess, compare, and — via gradient descent — nudge <code>θ</code> to shrink
+            <code>L</code>.
+          </p>
+        </div>
+
+        <div class="derivation-step">
+          <div class="derivation-tag">Step 5</div>
+          <h4>Use it to actually generate something (solving the ODE)</h4>
+          <p>
+            After training, swap the true velocity for the network's learned approximation and
+            treat it as a rule for motion:
+          </p>
+          <div class="derivation-box">
+            <div class="deriv-line">dx/dt = v_θ(x, t) ,&nbsp; starting from x(0) = fresh random noise</div>
+          </div>
+          <p class="deriv-note">
+            This is an "ODE" (ordinary differential equation) — a fancy name for "a rule telling
+            you your rate of motion, given where you currently are." Computers solve it the same
+            simple way you'd approximate any motion: take a small time step
+            <code>Δt</code>, nudge your position by <code>velocity × Δt</code>, then ask again:
+          </p>
+          <div class="derivation-box">
+            <div class="deriv-line">x(t + Δt) &nbsp;=&nbsp; x(t) + Δt · v_θ(x(t), t)</div>
+          </div>
+          <p class="deriv-note">
+            Repeat that update from <code>t = 0</code> to <code>t = 1</code> and you've just
+            reconstructed, in one formula, the entire "ask network → small step → ask network →
+            small step" Generation phase from the pipeline section above.
+          </p>
+        </div>
+
+        <p class="deriv-note">
+          One last thread to pull: at generation time you start from noise that was <em>never</em>
+          paired with any specific data point during training, so no single straight line applies
+          anymore. That's the "why does it still work" question answered in the <a href="#why">Why</a>
+          section above — the network was really learning the average direction across every
+          pair that could plausibly pass through each point, and following that averaged field
+          turns out to be enough.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <section id="uses" class="section reveal">
+    <h2>Where This Shows Up In Real Life</h2>
+    <div class="uses-grid">
+      <div class="use-card"><div class="emoji">🖼️</div><h3>Image Generation</h3><p>Stable Diffusion 3 and other modern image models use Flow Matching to turn noise into pictures.</p></div>
+      <div class="use-card"><div class="emoji">🎬</div><h3>Video Generation</h3><p>Text-to-video models use it to generate smooth, coherent frames.</p></div>
+      <div class="use-card"><div class="emoji">🔊</div><h3>Audio & Speech</h3><p>Speech and music generators flow noise into waveforms.</p></div>
+      <div class="use-card"><div class="emoji">🧬</div><h3>Science</h3><p>Used to generate plausible molecules and protein structures.</p></div>
+    </div>
+  </section>
+
+  <section id="recap" class="section reveal">
+    <h2>Quick Recap — Flip the Cards</h2>
+    <p class="lead">Click any card to reveal a plain-English definition.</p>
+    <div class="flip-grid">
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Noise</div>
+        <div class="flip-back">Pure randomness — the messy starting point, like TV static.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Data</div>
+        <div class="flip-back">A real example the model wants to learn to recreate — a real photo, sound, etc.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Vector Field</div>
+        <div class="flip-back">An arrow at every point in space telling you which way to move and how fast.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Velocity</div>
+        <div class="flip-back">The direction + speed a specific point should travel right now.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Sampling</div>
+        <div class="flip-back">Generating something new: start at noise, follow the arrows, arrive at data.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Training</div>
+        <div class="flip-back">Teaching the network to correctly predict the velocity arrows, using many noise→data pairs.</div>
+      </div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Made to help build intuition for Flow Matching — simplified on purpose, for beginners. 🌊</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
