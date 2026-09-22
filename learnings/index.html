@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learnings — Kiran Purohit</title>
+<style>
+  :root {
+    --bg: #0b0d17;
+    --card: #151832;
+    --card-border: #262b4d;
+    --text: #e8e9f5;
+    --text-dim: #a8adc9;
+    --accent: #7c9bff;
+    --accent2: #ff8ab8;
+    --accent3: #6ee7c8;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 70px 24px 100px;
+  }
+  .back-link {
+    display: inline-block;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin-bottom: 30px;
+  }
+  .back-link:hover { color: var(--accent); }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    margin: 0 0 12px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin-bottom: 44px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 26px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+  .card .emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+  .card h2 { margin: 0 0 8px; font-size: 1.2rem; }
+  .card p { margin: 0 0 14px; color: var(--text-dim); font-size: 0.92rem; }
+  .card .open {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .card.soon {
+    opacity: 0.45;
+    cursor: default;
+  }
+  .card.soon:hover { transform: none; border-color: var(--card-border); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back-link" href="/">← Back to kiranpurohit.github.io</a>
+  <h1>Learnings</h1>
+  <p class="tagline">
+    Small interactive explainers I build to understand things better — with animations
+    and demos instead of dense equations. Each one opens in a new tab.
+  </p>
+
+  <div class="grid">
+    <a class="card" href="/learnings/flow-matching/" target="_blank" rel="noopener">
+      <span class="emoji">🌊</span>
+      <h2>Flow Matching</h2>
+      <p>An interactive, beginner-friendly walkthrough of how Flow Matching turns
+      random noise into real data — with animations, a live demo, and a full,
+      step-by-step equation derivation.</p>
+      <span class="open">Open →</span>
+    </a>
+
+    <div class="card soon">
+      <span class="emoji">✨</span>
+      <h2>More coming soon</h2>
+      <p>New learnings get added here as I build them.</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>
