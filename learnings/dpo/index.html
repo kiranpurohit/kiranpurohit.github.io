@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPO for Image Models: the Math, Animated</title>
+<meta name="description" content="A beginner-friendly, animated walkthrough of the math behind DPO for diffusion/flow image models: the per-image diffusion loss, shared noise, reward and margin, the loss, where it comes from, and what the gradient says about beta.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="topnav">
+  <div class="brand"><a class="home-link" href="/learnings/">← Learnings</a> <span>⚖️ DPO</span></div>
+  <div class="links">
+    <a href="#intro">Idea</a>
+    <a href="#notation">0 Notation</a>
+    <a href="#diffloss">1 Diffusion loss</a>
+    <a href="#noise">2 Shared noise</a>
+    <a href="#reward">3 Reward</a>
+    <a href="#loss">4 Loss</a>
+    <a href="#origin">5 Origin</a>
+    <a href="#gradient">6 Gradient &amp; β</a>
+    <a href="#step">7 One step</a>
+    <a href="#recap">Recap</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <h1>DPO</h1>
+    <p class="hero-sub">Direct Preference Optimization for image models</p>
+    <p class="tagline">The math, as implemented, one animation at a time.</p>
+    <a href="#intro" class="scroll-cue">↓ scroll to learn ↓</a>
+  </div>
+</header>
+
+<main>
+
+  <section id="intro" class="section reveal">
+    <h2>The Big Idea</h2>
+    <p class="lead">
+      We have an image generator and lots of <strong>pairs</strong> of images for the same caption:
+      <span class="good">one we like 👍</span> (say, a real photo) and
+      <span class="bad">one we don't 👎</span> (say, an image with a plastic, “AI-looking” finish).
+      DPO nudges the model to get <em>better</em> at the 👍 image and <em>worse</em> at the 👎
+      image, always measured against a frozen copy of where it started.
+    </p>
+
+    <div class="demo-box pair-demo" id="pairDemo">
+      <div class="prompt-card">
+        <span class="tag">Caption <i>c</i></span>
+        <p id="pairPrompt"></p>
+      </div>
+      <div class="resp-grid">
+        <div class="resp-card" id="respA">
+          <div class="resp-badge" id="respABadge">Image A</div>
+          <div class="resp-body" id="respABody"></div>
+        </div>
+        <div class="judge" id="judge"><span class="judge-emoji">🧑‍⚖️</span><span class="judge-text" id="judgeText">which is better?</span></div>
+        <div class="resp-card" id="respB">
+          <div class="resp-badge" id="respBBadge">Image B</div>
+          <div class="resp-body" id="respBBody"></div>
+        </div>
+      </div>
+      <div class="demo-controls">
+        <button id="pairReplay">⟲ Replay</button>
+      </div>
+      <p class="caption" id="pairCaption"></p>
+    </div>
+
+    <div class="callout">
+      <strong>The plan.</strong> Below we follow the math <em>exactly as a real training loop
+      computes it</em>, one small idea per section: <b>0</b> notation → <b>1</b> the per-image
+      diffusion loss → <b>2</b> four numbers per pair → <b>3</b> reward and margin → <b>4</b> the
+      loss → <b>5</b> where it comes from → <b>6</b> what the gradient says about β →
+      <b>7</b> one full training step.
+    </div>
+  </section>
+
+  <section id="notation" class="section reveal">
+    <h2><span class="sec-num">0</span> Notation: Meet the Cast</h2>
+    <p class="lead">Only six symbols. Every equation on this page is built from these.</p>
+
+    <div class="cast-grid" id="castGrid">
+      <div class="cast-card" style="--i:0">
+        <div class="cast-sym">\(c\)</div>
+        <div class="cast-emoji">📝</div>
+        <h3>Caption</h3>
+        <p>The text prompt. Both images in a pair share the same caption.</p>
+      </div>
+      <div class="cast-card good-card" style="--i:1">
+        <div class="cast-sym">\(x^w\)</div>
+        <div class="cast-emoji">👍</div>
+        <h3>Winner</h3>
+        <p>The preferred image (e.g. a real photo), stored as VAE <em>latents</em>.</p>
+      </div>
+      <div class="cast-card bad-card" style="--i:2">
+        <div class="cast-sym">\(x^l\)</div>
+        <div class="cast-emoji">👎</div>
+        <h3>Loser</h3>
+        <p>The rejected image, resized to exactly the winner's size.</p>
+      </div>
+      <div class="cast-card" style="--i:3">
+        <div class="cast-sym">\(\theta\)</div>
+        <div class="cast-emoji">🧠</div>
+        <h3>Student</h3>
+        <p>The model being trained. It starts as a copy of the base model.</p>
+      </div>
+      <div class="cast-card" style="--i:4">
+        <div class="cast-sym">\(\text{ref}\)</div>
+        <div class="cast-emoji">🧊</div>
+        <h3>Reference</h3>
+        <p>A <em>frozen</em> copy of that same base model (often called the “teacher” in code). It is never updated.</p>
+      </div>
+      <div class="cast-card" style="--i:5">
+        <div class="cast-sym">\(\beta\)</div>
+        <div class="cast-emoji">🎚️</div>
+        <h3>Beta</h3>
+        <p>One number that sets how hard, and for how long, DPO pushes. Section 6 is all about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="diffloss" class="section reveal">
+    <h2><span class="sec-num">1</span> The Per-Image Diffusion Loss</h2>
+    <p class="lead">
+      Before any DPO, we need one number per image: <strong>how well can the model clean up a
+      noisy version of it?</strong> This is the ordinary training loss of a rectified-flow
+      (flow-matching) image model.
+    </p>
+
+    <div class="formula-hero">
+      <div class="formula-hero-label">Noise the image, then ask for the velocity</div>
+      \[
+      x_t = (1-t)\,x_0 + t\,\varepsilon,
+      \qquad
+      v = x_0 - \varepsilon
+      \]
+      \[
+      \ell_\theta(x_0, c;\,t,\varepsilon) = \operatorname{mean}_{\text{tokens, channels}}\;\big\|\,v_\theta(x_t, t, c) - v\,\big\|^2
+      \]
+      <p>Pick a time \(t\in(0,1)\) and Gaussian noise \(\varepsilon\sim\mathcal N(0,I)\). Mix them in a
+      straight line, ask the model for the velocity \(v\), and score it with the mean squared error.
+      Lower \(\ell\) means the model “understands” this image better.</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="flow-grid">
+        <figure><canvas id="flX0" width="200" height="136"></canvas><figcaption>clean image \(x_0\)</figcaption></figure>
+        <figure><canvas id="flEps" width="200" height="136"></canvas><figcaption>noise \(\varepsilon\)</figcaption></figure>
+        <figure><canvas id="flXt" width="200" height="136"></canvas><figcaption>noisy input \(x_t\) (what the model sees)</figcaption></figure>
+        <figure><canvas id="flV" width="200" height="136"></canvas><figcaption>true velocity \(v = x_0 - \varepsilon\)</figcaption></figure>
+        <figure><canvas id="flPred" width="200" height="136"></canvas><figcaption>model's guess \(v_\theta\)</figcaption></figure>
+        <figure><canvas id="flErr" width="200" height="136"></canvas><figcaption>squared error \((v_\theta - v)^2\)</figcaption></figure>
+      </div>
+      <div class="demo-controls">
+        <label class="slider-label">
+          t = <span id="flTVal">0.50</span>
+          <input type="range" id="flT" min="0" max="1" step="0.01" value="0.5">
+        </label>
+        <label class="slider-label">
+          model error = <span id="flQVal">0.30</span>
+          <input type="range" id="flQ" min="0" max="1" step="0.01" value="0.3">
+        </label>
+        <button id="flNoise">🎲 New noise</button>
+      </div>
+      <div class="readouts">
+        <div class="readout"><span>per-image loss ℓ (mean of the error map)</span><b id="flLoss">0</b></div>
+      </div>
+      <p class="caption">
+        Slide <b>t</b> to move between the clean image (t = 0) and pure noise (t = 1). The
+        <b>model error</b> slider plays the role of a better or worse model: a perfect model (0)
+        gives a black error map and ℓ = 0. In real training, images are VAE latents rather than
+        pixels, but the arithmetic is identical. This is the same straight-line idea as the
+        <a href="/learnings/flow-matching/">Flow Matching</a> explainer, with time running the other way.
+      </p>
+    </div>
+
+    <h3 class="sub-h">🎲 Which t gets picked?</h3>
+    <p class="lead">
+      \(t\) is not uniform. It's drawn from a <strong>logit-normal(0, 1)</strong> distribution
+      (\(t = \sigma(n)\) with \(n\sim\mathcal N(0,1)\)), which favors the middle, where denoising is
+      hardest and most informative. It is then <strong>shifted</strong> toward noisier \(t\) by a
+      factor that depends on resolution, because bigger images need more noise to hide their content.
+    </p>
+    <div class="demo-box">
+      <canvas id="tCanvas" width="700" height="230"></canvas>
+      <div class="demo-controls">
+        <label class="slider-label">
+          shift s = <span id="shiftVal">1.0</span>
+          <input type="range" id="shiftSlider" min="1" max="4" step="0.1" value="1">
+        </label>
+        <button id="tReset">⟲ Restart sampling</button>
+      </div>
+      <p class="caption">
+        Each falling dot is one sampled \(t\). The curve is the exact density. A common form of the
+        shift is \(t' = \dfrac{s\,t}{1 + (s-1)\,t}\) (used in Stable Diffusion 3). At \(s = 1\) nothing
+        changes; larger \(s\) slides the mass toward \(t = 1\), i.e. more noise.
+      </p>
+    </div>
+  </section>
+
+  <section id="noise" class="section reveal">
+    <h2><span class="sec-num">2</span> Shared Noise: Four Numbers per Pair</h2>
+    <p class="lead">
+      For each pair, draw <strong>one</strong> \(t\) and <strong>one</strong> \(\varepsilon\), and reuse
+      them for <em>both</em> the winner and the loser. Then run the frozen reference on exactly the
+      same inputs, with no gradients. That gives four losses per pair. Step through it:
+    </p>
+
+    <div class="demo-box diff-demo" id="diffDemo">
+      <div class="diff-grid">
+        <div class="diff-head"></div>
+        <div class="diff-head">clean \(x_0\)</div>
+        <div class="diff-head" data-stage="1">noise \(\varepsilon\)</div>
+        <div class="diff-head" data-stage="2">noisy \(x_t\)</div>
+
+        <div class="diff-label good">👍 \(x^w\)</div>
+        <canvas class="diff-canvas" id="winClean" width="220" height="150"></canvas>
+        <div class="diff-cell" data-stage="1"><canvas class="diff-canvas" id="noiseW" width="220" height="150"></canvas><span class="same-badge">same ε</span></div>
+        <canvas class="diff-canvas" id="winNoisy" width="220" height="150" data-stage="2"></canvas>
+
+        <div class="diff-label bad">👎 \(x^l\)</div>
+        <canvas class="diff-canvas" id="loseClean" width="220" height="150"></canvas>
+        <div class="diff-cell" data-stage="1"><canvas class="diff-canvas" id="noiseL" width="220" height="150"></canvas><span class="same-badge">same ε</span></div>
+        <canvas class="diff-canvas" id="loseNoisy" width="220" height="150" data-stage="2"></canvas>
+      </div>
+
+      <div class="demo-controls">
+        <button id="diffPrev">◀ Back</button>
+        <button id="diffNext">Next ▶</button>
+        <button id="diffAuto">▶ Auto-play</button>
+        <label class="slider-label" data-stage="2">
+          shared t = <span id="tVal">0.40</span>
+          <input type="range" id="tSlider" min="0" max="1" step="0.01" value="0.4">
+        </label>
+      </div>
+
+      <div class="stage-box">
+        <div class="stage-dots" id="stageDots"></div>
+        <p class="stage-text" id="stageText"></p>
+      </div>
+
+      <table class="loss-table">
+        <tr><th></th><th class="good">👍 winner \(x^w\)</th><th class="bad">👎 loser \(x^l\)</th></tr>
+        <tr data-stage="3"><td>🧠 student \(\theta\) (trainable)</td><td>\(L^\theta_w = 0.30\)</td><td>\(L^\theta_l = 0.50\)</td></tr>
+        <tr data-stage="4"><td>🧊 reference (frozen, no gradients)</td><td>\(L^{\text{ref}}_w = 0.40\)</td><td>\(L^{\text{ref}}_l = 0.40\)</td></tr>
+      </table>
+      <div class="result-line" data-stage="5">
+        \(L^\theta_w = \ell_\theta(x^w),\;\; L^{\text{ref}}_w = \ell_{\text{ref}}(x^w),\;\; L^\theta_l = \ell_\theta(x^l),\;\; L^{\text{ref}}_l = \ell_{\text{ref}}(x^l)\), all at the same \((t, \varepsilon)\)
+      </div>
+    </div>
+
+    <div class="why-card">
+      <h3>🎲 Why share the noise?</h3>
+      <p>
+        A denoising loss depends heavily on luck: which \(t\) and which \(\varepsilon\) were drawn.
+        If the winner and the loser got different noise, comparing their losses would mostly compare
+        dice rolls. With the same \((t,\varepsilon)\) for both images <em>and</em> for both models,
+        every difference we compute next reflects the <strong>models</strong>, not the noise.
+        (Training logs often report <code>winner_loss</code> and <code>loser_loss</code>: these are
+        the batch averages of \(L^\theta_w\) and \(L^\theta_l\).)
+      </p>
+    </div>
+  </section>
+
+  <section id="reward" class="section reveal">
+    <h2><span class="sec-num">3</span> Reward and Margin</h2>
+    <p class="lead">
+      Compare the student with the reference on each image, then compare the two images:
+    </p>
+
+    <div class="formula-hero">
+      \[
+      r_w = L^\theta_w - L^{\text{ref}}_w,
+      \qquad
+      r_l = L^\theta_l - L^{\text{ref}}_l,
+      \qquad
+      \Delta = r_w - r_l
+      \]
+      <p>\(r &lt; 0\) means the student fits that image <em>better</em> than the reference does.
+      <b>The goal:</b> fit the winner better (\(r_w\downarrow\)) and the loser worse
+      (\(r_l\uparrow\)), so \(\Delta\) becomes strongly <b>negative</b>.</p>
+    </div>
+
+    <div class="demo-box">
+      <canvas id="rewardCanvas" width="700" height="300"></canvas>
+      <div class="slider-grid">
+        <label class="slider-label good">\(L^\theta_w\) <span id="lwsVal">0.30</span>
+          <input type="range" id="lws" min="0.05" max="1" step="0.01" value="0.30"></label>
+        <label class="slider-label good">\(L^{\text{ref}}_w\) <span id="lwrVal">0.40</span>
+          <input type="range" id="lwr" min="0.05" max="1" step="0.01" value="0.40"></label>
+        <label class="slider-label bad">\(L^\theta_l\) <span id="llsVal">0.50</span>
+          <input type="range" id="lls" min="0.05" max="1" step="0.01" value="0.50"></label>
+        <label class="slider-label bad">\(L^{\text{ref}}_l\) <span id="llrVal">0.40</span>
+          <input type="range" id="llr" min="0.05" max="1" step="0.01" value="0.40"></label>
+      </div>
+      <div class="demo-controls">
+        <button id="rwStart">⟲ Step 0 (student = reference)</button>
+        <button id="rwPlay">▶ Simulate learning</button>
+      </div>
+      <div class="readouts">
+        <div class="readout"><span>\(r_w\) (winner vs reference)</span><b id="rwVal">−0.10</b></div>
+        <div class="readout"><span>\(r_l\) (loser vs reference)</span><b id="rlVal">+0.10</b></div>
+        <div class="readout"><span>margin \(\Delta = r_w - r_l\)</span><b id="dVal">−0.20</b></div>
+      </div>
+      <p class="caption" id="rwCaption"></p>
+    </div>
+
+    <div class="callout">
+      <strong>Why measure against a reference at all?</strong> Some images are simply easier to
+      denoise than others. If we compared raw losses, the model could look “good” just because
+      the 👍 image happens to be easy. Subtracting the reference's loss on the <em>same</em> image,
+      with the <em>same</em> noise, cancels out that built-in difficulty. Only the change the
+      student has made since training began is left.
+    </div>
+  </section>
+
+  <section id="loss" class="section reveal">
+    <h2><span class="sec-num">4</span> The Loss</h2>
+    <p class="lead">One line turns the margin into something to minimize:</p>
+
+    <div class="formula-hero">
+      <div class="formula-hero-label">The DPO loss for one pair (averaged over the batch)</div>
+      \[
+      \mathcal{L} = -\log\sigma(-\beta\,\Delta)
+      \]
+      <p>\(\sigma(z) = \frac{1}{1+e^{-z}}\) is the sigmoid, which squashes any number into (0, 1).</p>
+    </div>
+
+    <div class="why-card">
+      <h3>🧮 A friendlier way to write it: softplus</h3>
+      <p>Since \(\sigma(-z) = \frac{1}{1+e^{z}}\), taking \(-\log\) gives</p>
+      <div class="build-formula">\[
+        -\log\sigma(-z) = \log\big(1 + e^{z}\big) = \operatorname{softplus}(z)
+        \quad\Longrightarrow\quad
+        \mathcal{L} = \operatorname{softplus}(\beta\,\Delta) = \log\big(1 + e^{\beta\Delta}\big)
+      \]</div>
+      <p>Softplus is a smooth version of \(\max(0, z)\): almost 0 when \(z\) is very negative, almost
+      \(z\) when it's very positive. So the loss is near 0 once \(\beta\Delta\) is well below 0, and
+      it grows when the margin goes the wrong way.</p>
+    </div>
+
+    <div class="demo-box">
+      <canvas id="lossCanvas" width="700" height="320"></canvas>
+      <div class="demo-controls">
+        <button id="lossPlay">▶ Watch training lower Δ</button>
+        <label class="slider-label">
+          Δ = <span id="lossDVal">0.00</span>
+          <input type="range" id="lossD" min="-1.5" max="1.5" step="0.01" value="0">
+        </label>
+        <label class="slider-label">
+          β = <span id="lossBVal">2.0</span>
+          <input type="range" id="lossB" min="0" max="100" step="1" value="77">
+        </label>
+      </div>
+      <div class="readouts">
+        <div class="readout"><span>loss \(\operatorname{softplus}(\beta\Delta)\)</span><b id="lossVal">0.693</b></div>
+        <div class="readout"><span>slope \(d\mathcal{L}/d\Delta = \beta\,\sigma(\beta\Delta)\)</span><b id="slopeVal">1.000</b></div>
+      </div>
+      <p class="caption" id="lossCaption"></p>
+    </div>
+
+    <div class="gotcha-grid">
+      <div class="why-card">
+        <h3>🧪 Every run starts at 0.693</h3>
+        <p>At step 0 the student <em>is</em> the reference, so every \(r = 0\), \(\Delta = 0\), and
+        \(\mathcal L = \log(1 + e^0) = \ln 2 \approx 0.693\). If your first logged DPO loss isn't
+        0.693, your reference is not the checkpoint you started from.</p>
+      </div>
+      <div class="why-card">
+        <h3>🧊 β = 0 means no learning</h3>
+        <p>With \(\beta = 0\) the loss is the constant \(\ln 2\) no matter what \(\Delta\) is: a flat
+        curve, zero gradient. Drag β to 0 in the plot above to see it flatten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="origin" class="section reveal">
+    <h2><span class="sec-num">5</span> Where This Comes From (Diffusion-DPO)</h2>
+    <p class="lead">
+      DPO was first written for language models, which can compute exact log-probabilities.
+      Image diffusion models can't, but their training loss stands in for one. Step through the
+      substitution:
+    </p>
+
+    <div class="demo-box">
+      <div class="derive-steps" id="deriveSteps">
+        <div class="derive-line">
+          <div class="derive-tag">① DPO for language models</div>
+          \[
+          \mathcal L = -\log\sigma\!\Big(\beta_0\Big[\log\frac{\pi_\theta(y_w)}{\pi_{\text{ref}}(y_w)} - \log\frac{\pi_\theta(y_l)}{\pi_{\text{ref}}(y_l)}\Big]\Big)
+          \]
+          <p>Compare how much more likely the student makes the winner vs. the loser, relative to the reference.</p>
+        </div>
+        <div class="derive-line">
+          <div class="derive-tag">② Problem: no exact likelihood for images</div>
+          \[
+          \log p_\theta(x\mid c) \;\approx\; -k\;\mathbb{E}_{t,\varepsilon}\big[\ell_\theta(x)\big] + \text{const}
+          \]
+          <p>The evidence lower bound (ELBO) says: <em>log-likelihood ≈ minus a constant times the denoising loss</em>. Lower loss means more likely.</p>
+        </div>
+        <div class="derive-line">
+          <div class="derive-tag">③ So a log-ratio becomes a loss difference</div>
+          \[
+          \log\frac{p_\theta(x)}{p_{\text{ref}}(x)} \;\approx\; -k\,\big(L^\theta - L^{\text{ref}}\big) = -k\,r
+          \]
+          <p>The “const” is the same for both models, so it cancels. What's left is exactly our reward \(r\) from section 3.</p>
+        </div>
+        <div class="derive-line">
+          <div class="derive-tag">④ Substitute into ①</div>
+          \[
+          \beta_0\big[(-k\,r_w) - (-k\,r_l)\big] = -\beta_0 k\,(r_w - r_l) = -\beta\,\Delta,
+          \qquad \beta = k\,\beta_0
+          \]
+        </div>
+        <div class="derive-line">
+          <div class="derive-tag">⑤ Result: the loss from section 4</div>
+          \[
+          \mathcal L = -\log\sigma(-\beta\,\Delta)
+          \]
+          <p>In code it's one line: <code>-logsigmoid(-beta * reward_diff)</code>. This is <b>Diffusion-DPO</b> (Wallace et al., 2023).</p>
+        </div>
+      </div>
+      <div class="demo-controls">
+        <button id="drvPrev">◀ Back</button>
+        <button id="drvNext">Next ▶</button>
+        <button id="drvAuto">▶ Auto-play</button>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <h3>⚠️ Why your β won't match the paper's</h3>
+      <p>
+        Constant factors (the ½ and the number of timesteps) get folded into β, and losses are
+        <em>averaged</em> over tokens and channels instead of summed. Both rescale β. So a β value
+        from one implementation can't be copied into another; it has to be re-tuned.
+      </p>
+    </div>
+
+    <details class="math-details">
+      <summary>Optional: why does language-model DPO (step ①) look like that? →</summary>
+      <div class="math-content">
+        <div class="derivation-step">
+          <div class="derivation-tag">Step A</div>
+          <h4>A model of “A beats B” (Bradley–Terry)</h4>
+          <p>Give every output a hidden score \(r(y)\) and assume people prefer \(y_w\) over \(y_l\) with probability</p>
+          \[P(y_w \succ y_l) = \sigma\big(r(y_w) - r(y_l)\big)\]
+        </div>
+        <div class="derivation-step">
+          <div class="derivation-tag">Step B</div>
+          <h4>The goal: high score, but stay near the reference</h4>
+          \[\max_{\pi}\; \mathbb{E}_{y\sim\pi}\big[r(y)\big] - \beta_0\,\mathrm{KL}\big(\pi\,\|\,\pi_{\text{ref}}\big)\]
+        </div>
+        <div class="derivation-step">
+          <div class="derivation-tag">Step C</div>
+          <h4>It has an exact solution</h4>
+          <p>Rewrite the objective as \(-\beta_0\,\mathrm{KL}(\pi\,\|\,\pi^*) + \beta_0\log Z\). A KL divergence is smallest (zero) when the two distributions match, so the best model is</p>
+          \[\pi^*(y) = \frac{1}{Z}\,\pi_{\text{ref}}(y)\,e^{\,r(y)/\beta_0},\qquad Z = \sum_y \pi_{\text{ref}}(y)\,e^{\,r(y)/\beta_0}\]
+        </div>
+        <div class="derivation-step">
+          <div class="derivation-tag">Step D</div>
+          <h4>Flip it: the reward hides inside the model</h4>
+          \[r(y) = \beta_0\log\frac{\pi^*(y)}{\pi_{\text{ref}}(y)} + \beta_0\log Z\]
+        </div>
+        <div class="derivation-step">
+          <div class="derivation-tag">Step E</div>
+          <h4>Plug into Bradley–Terry: \(Z\) cancels</h4>
+          \[P(y_w\succ y_l) = \sigma\Big(\beta_0\log\frac{\pi^*(y_w)}{\pi_{\text{ref}}(y_w)} - \beta_0\log\frac{\pi^*(y_l)}{\pi_{\text{ref}}(y_l)}\Big)\]
+          <p class="deriv-note">Replace the unknown \(\pi^*\) by the student \(\pi_\theta\) and minimize the negative log-likelihood of the observed preferences. That's exactly step ①. No separate reward model is needed.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="gradient" class="section reveal">
+    <h2><span class="sec-num">6</span> The Gradient Explains Everything About β</h2>
+    <p class="lead">
+      The reference losses are constants (no gradients flow through the frozen model), so
+      \(\nabla\Delta = \nabla L^\theta_w - \nabla L^\theta_l\). With the chain rule and
+      \(\frac{d}{dz}\operatorname{softplus}(z) = \sigma(z)\):
+    </p>
+
+    <div class="formula-hero">
+      \[
+      \nabla_\theta \mathcal L = w\,\big(\nabla_\theta L^\theta_w - \nabla_\theta L^\theta_l\big),
+      \qquad
+      w = \beta\,\sigma(\beta\Delta)
+      \]
+      <p>Gradient descent moves <em>against</em> this: the winner's loss is pulled <span class="good">down</span>
+      and the loser's loss is pushed <span class="bad">up</span>, both with strength \(w\).</p>
+    </div>
+
+    <div class="gotcha-grid">
+      <div class="why-card">
+        <h3>🚀 The push starts at β/2</h3>
+        <p>At step 0, \(\Delta = 0\) and \(\sigma(0) = \tfrac12\), so \(w = \beta/2\).</p>
+      </div>
+      <div class="why-card">
+        <h3>🔌 The push switches itself off</h3>
+        <p>As \(\Delta\) goes negative, \(\sigma(\beta\Delta)\to 0\). Once \(\beta\Delta\approx -5\),
+        \(\sigma \approx 0.007\) and the push is essentially off. That happens at
+        \(|\Delta| \approx 5/\beta\).</p>
+      </div>
+    </div>
+
+    <div class="demo-box">
+      <canvas id="gradCanvas" width="700" height="340"></canvas>
+      <div class="demo-controls">
+        <button id="gradPlay">▶ Play training</button>
+        <label class="slider-label">
+          β = <span id="gBVal">1.00</span>
+          <input type="range" id="gB" min="-3" max="1" step="0.01" value="0">
+        </label>
+        <label class="slider-label">
+          |Δ| = <span id="gDVal">0.001</span>
+          <input type="range" id="gD" min="-3" max="4" step="0.01" value="-3">
+        </label>
+      </div>
+      <div class="tug">
+        <div class="tug-row good">
+          <span class="tug-label">👍 pull \(L^\theta_w\) down</span>
+          <div class="tug-track"><div class="tug-bar" id="gUp"></div></div>
+        </div>
+        <div class="tug-row bad">
+          <span class="tug-label">👎 push \(L^\theta_l\) up</span>
+          <div class="tug-track"><div class="tug-bar" id="gDown"></div></div>
+        </div>
+      </div>
+      <div class="readouts">
+        <div class="readout"><span>initial push β/2</span><b id="gInit">0.5</b></div>
+        <div class="readout"><span>switch-off point |Δ| ≈ 5/β</span><b id="gOff">5</b></div>
+        <div class="readout"><span>current push w</span><b id="gW">0.5</b></div>
+        <div class="readout"><span>push left (% of start)</span><b id="gPct">100%</b></div>
+      </div>
+      <p class="caption" id="gradCaption"></p>
+    </div>
+
+    <div class="callout">
+      <strong>So what is β?</strong> It's the <em>“stay near the reference”</em> knob, the role the
+      KL coefficient plays in standard DPO.
+      <b>Large β</b> gives a strong but short push: the model separates winner from loser with a
+      <em>small</em> change, and then the push stops on its own.
+      <b>Small β</b> gives a gentle push that stays on until \(|\Delta|\) is huge (≈ 5/β). The
+      loser's loss can be driven up enormously before anything stops it. Making realistic-looking
+      images “bad” can damage the model's own outputs, so a too-small β can wreck a model.
+      <br><br>
+      <b>What about gradient clipping?</b> Clipping (e.g. to a max norm of 1.0) limits how
+      <em>big</em> each step is, not which <em>direction</em> it goes. It slows a runaway push but
+      doesn't stop it.
+    </div>
+  </section>
+
+  <section id="step" class="section reveal">
+    <h2><span class="sec-num">7</span> One Training Step, Animated</h2>
+    <p class="lead">Everything above, in the order the computer actually does it. The highlighted step and the matching line of code move together.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-badge">The loop</div>
+        <div class="loop-diagram" id="stepLoop" data-interval="1100">
+          <div class="loop-step"><span class="loop-num">1</span><span>📦 Load a batch of (caption, 👍, 👎) pairs and encode both images with the VAE. <em>E.g. 16 pairs = 32 images.</em></span></div>
+          <div class="loop-step"><span class="loop-num">2</span><span>🎲 For each pair, draw <b>one</b> t and <b>one</b> ε, and noise <b>both</b> images with them.</span></div>
+          <div class="loop-step"><span class="loop-num">3</span><span>🧠 Run the student on all noisy images: \(L^\theta_w,\ L^\theta_l\).</span></div>
+          <div class="loop-step"><span class="loop-num">4</span><span>🧊 Run the frozen reference on the same inputs, same t and ε, no gradients: \(L^{\text{ref}}_w,\ L^{\text{ref}}_l\).</span></div>
+          <div class="loop-step"><span class="loop-num">5</span><span>➖ Compute Δ, then \(\mathcal L = \operatorname{mean}\big[\operatorname{softplus}(\beta\Delta)\big]\).</span></div>
+          <div class="loop-step"><span class="loop-num">6</span><span>🔧 Backpropagate, clip the gradient norm (e.g. 1.0), and take an optimizer step (e.g. AdamW with a small learning rate). Only the student changes.</span></div>
+        </div>
+        <div class="loop-repeat">↺ repeat; the reference never changes</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-badge badge-pink">The code (PyTorch-style)</div>
+<pre class="code-block" id="stepCode"><span class="code-line" data-step="0">x_w, x_l = vae.encode(real), vae.encode(neg)</span><span class="code-line" data-step="1">t, eps = sample_t(), randn_like(x_w)  <span class="c"># shared!</span></span><span class="code-line" data-step="2">L_w = loss(student, x_w, c, t, eps)</span><span class="code-line" data-step="2">L_l = loss(student, x_l, c, t, eps)</span><span class="code-line" data-step="3">with torch.no_grad():</span><span class="code-line" data-step="3">    R_w = loss(reference, x_w, c, t, eps)</span><span class="code-line" data-step="3">    R_l = loss(reference, x_l, c, t, eps)</span><span class="code-line" data-step="4">delta = (L_w - R_w) - (L_l - R_l)</span><span class="code-line" data-step="4">dpo = F.softplus(beta * delta).mean()</span><span class="code-line" data-step="4"><span class="c">#   = -logsigmoid(-beta * delta)</span></span><span class="code-line" data-step="5">dpo.backward()</span><span class="code-line" data-step="5">clip_grad_norm_(student.parameters(), 1.0)</span><span class="code-line" data-step="5">optimizer.step(); optimizer.zero_grad()</span></pre>
+      </div>
+    </div>
+
+    <h3 class="sub-h">🎛️ Same equation, three knobs</h3>
+    <p class="lead">Every DPO variant you'll meet uses this exact equation. Only three things change:</p>
+    <div class="knob-grid">
+      <div class="why-card"><h3>🏁 The starting checkpoint</h3><p>The student starts here, and the frozen reference is a copy of it.</p></div>
+      <div class="why-card"><h3>👎 Where \(x^l\) comes from</h3><p>Which images serve as losers: another model's outputs, an older checkpoint's, or the model's own.</p></div>
+      <div class="why-card"><h3>🎚️ β</h3><p>How hard and how long the push lasts (section 6).</p></div>
+    </div>
+  </section>
+
+  <section id="gotchas" class="section reveal">
+    <h2>Sanity Checks</h2>
+    <div class="gotcha-grid">
+      <div class="why-card">
+        <h3>🧪 First loss = 0.693?</h3>
+        <p>If not, the reference and the starting checkpoint differ, so Δ isn't 0 at step 0. Use the same checkpoint for both.</p>
+      </div>
+      <div class="why-card">
+        <h3>🎲 Same t and ε everywhere?</h3>
+        <p>Winner, loser, student and reference must all see identical \((t,\varepsilon)\) within a pair. Otherwise Δ is mostly noise.</p>
+      </div>
+      <div class="why-card">
+        <h3>📉 Watch winner and loser losses separately</h3>
+        <p>The DPO loss can drop just because the loser's loss shoots up. Check that <code>winner_loss</code> isn't rising too, and always look at generated images.</p>
+      </div>
+      <div class="why-card">
+        <h3>🎯 Pairs teach whatever differs</h3>
+        <p>If 👍 images are also brighter or bigger, the model learns “brighter” or “bigger”. Keep the main difference the one you care about.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="recap" class="section reveal">
+    <h2>Quick Recap: Flip the Cards</h2>
+    <p class="lead">Click any card to reveal a plain-English definition.</p>
+    <div class="flip-grid">
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">x<sup>w</sup> / x<sup>l</sup></div>
+        <div class="flip-back">Winner 👍 and loser 👎: two images for the same caption, as VAE latents.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Reference</div>
+        <div class="flip-back">A frozen copy of the starting model. Every change is measured against it.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">ℓ (diffusion loss)</div>
+        <div class="flip-back">Mean squared error between the predicted and true velocity on a noised image. Lower = model finds it more likely.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Shared noise</div>
+        <div class="flip-back">One t and one ε per pair, reused for both images and both models, so differences reflect the models.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Reward r</div>
+        <div class="flip-back">Student loss minus reference loss on one image. Negative = student is better on it.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">Margin Δ</div>
+        <div class="flip-back">r<sub>w</sub> − r<sub>l</sub>. Training drives it negative: better on 👍, worse on 👎.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">softplus(βΔ)</div>
+        <div class="flip-back">The DPO loss, log(1 + e<sup>βΔ</sup>), the same as −log σ(−βΔ).</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">ln 2 ≈ 0.693</div>
+        <div class="flip-back">The loss at step 0, when student = reference. A great sanity check.</div>
+      </div></div>
+      <div class="flip-card"><div class="flip-inner">
+        <div class="flip-front">w = βσ(βΔ)</div>
+        <div class="flip-back">Push strength. Starts at β/2 and switches off once |Δ| ≈ 5/β.</div>
+      </div></div>
+    </div>
+
+    <div class="refs">
+      <h3>Want to go deeper?</h3>
+      <ul>
+        <li>Rafailov et al., 2023: <a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">Direct Preference Optimization: Your Language Model is Secretly a Reward Model</a></li>
+        <li>Wallace et al., 2023: <a href="https://arxiv.org/abs/2311.12908" target="_blank" rel="noopener">Diffusion Model Alignment Using Direct Preference Optimization</a></li>
+        <li>Esser et al., 2024: <a href="https://arxiv.org/abs/2403.03206" target="_blank" rel="noopener">Scaling Rectified Flow Transformers for High-Resolution Image Synthesis</a> (logit-normal t sampling and the resolution shift)</li>
+        <li>Companion explainer: <a href="/learnings/flow-matching/">Flow Matching</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Made to help build intuition for DPO on image models, simplified on purpose for beginners. ⚖️</p>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="script.js"></script>
+</body>
+</html>
