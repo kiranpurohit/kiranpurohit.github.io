@@ -33,7 +33,6 @@
   <div class="hero-content">
     <h1>DPO</h1>
     <p class="hero-sub">Direct Preference Optimization for image models</p>
-    <p class="tagline">The math, as implemented, one animation at a time.</p>
     <a href="#intro" class="scroll-cue">↓ scroll to learn ↓</a>
   </div>
 </header>
@@ -72,12 +71,19 @@
       <p class="caption" id="pairCaption"></p>
     </div>
 
-    <div class="callout">
-      <strong>The plan.</strong> Below we follow the math <em>exactly as a real training loop
-      computes it</em>, one small idea per section: <b>0</b> notation → <b>1</b> the per-image
-      diffusion loss → <b>2</b> four numbers per pair → <b>3</b> reward and margin → <b>4</b> the
-      loss → <b>5</b> where it comes from → <b>6</b> what the gradient says about β →
-      <b>7</b> one full training step.
+    <div class="callout plan">
+      <p class="plan-intro"><strong>The plan.</strong> We follow the math <em>exactly as a real
+      training loop computes it</em>, one small idea per section:</p>
+      <ol class="plan-list">
+        <li><a href="#notation"><span class="sec-num">0</span>Notation</a></li>
+        <li><a href="#diffloss"><span class="sec-num">1</span>The per-image diffusion loss</a></li>
+        <li><a href="#noise"><span class="sec-num">2</span>Four numbers per pair</a></li>
+        <li><a href="#reward"><span class="sec-num">3</span>Reward and margin</a></li>
+        <li><a href="#loss"><span class="sec-num">4</span>The loss</a></li>
+        <li><a href="#origin"><span class="sec-num">5</span>Where it comes from</a></li>
+        <li><a href="#gradient"><span class="sec-num">6</span>What the gradient says about β</a></li>
+        <li><a href="#step"><span class="sec-num">7</span>One full training step</a></li>
+      </ol>
     </div>
   </section>
 
@@ -102,7 +108,7 @@
         <div class="cast-sym">\(x^l\)</div>
         <div class="cast-emoji">👎</div>
         <h3>Loser</h3>
-        <p>The rejected image, resized to exactly the winner's size.</p>
+        <p>The rejected image.</p>
       </div>
       <div class="cast-card" style="--i:3">
         <div class="cast-sym">\(\theta\)</div>
@@ -114,7 +120,7 @@
         <div class="cast-sym">\(\text{ref}\)</div>
         <div class="cast-emoji">🧊</div>
         <h3>Reference</h3>
-        <p>A <em>frozen</em> copy of that same base model (often called the “teacher” in code). It is never updated.</p>
+        <p>A <em>frozen</em> copy of that same base model (often called the “teacher”). It is never updated.</p>
       </div>
       <div class="cast-card" style="--i:5">
         <div class="cast-sym">\(\beta\)</div>
@@ -433,15 +439,6 @@
       </div>
     </div>
 
-    <div class="why-card">
-      <h3>⚠️ Why your β won't match the paper's</h3>
-      <p>
-        Constant factors (the ½ and the number of timesteps) get folded into β, and losses are
-        <em>averaged</em> over tokens and channels instead of summed. Both rescale β. So a β value
-        from one implementation can't be copied into another; it has to be re-tuned.
-      </p>
-    </div>
-
     <details class="math-details">
       <summary>Optional: why does language-model DPO (step ①) look like that? →</summary>
       <div class="math-content">
@@ -615,40 +612,40 @@
     <p class="lead">Click any card to reveal a plain-English definition.</p>
     <div class="flip-grid">
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">x<sup>w</sup> / x<sup>l</sup></div>
-        <div class="flip-back">Winner 👍 and loser 👎: two images for the same caption, as VAE latents.</div>
+        <div class="flip-front"><span>\(x^w\) / \(x^l\)</span></div>
+        <div class="flip-back"><span>Winner 👍 and loser 👎: two images for the same caption, as VAE latents.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">Reference</div>
-        <div class="flip-back">A frozen copy of the starting model. Every change is measured against it.</div>
+        <div class="flip-front"><span>Reference</span></div>
+        <div class="flip-back"><span>A frozen copy of the starting model. Every change is measured against it.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">ℓ (diffusion loss)</div>
-        <div class="flip-back">Mean squared error between the predicted and true velocity on a noised image. Lower = model finds it more likely.</div>
+        <div class="flip-front"><span>\(\ell\) (diffusion loss)</span></div>
+        <div class="flip-back"><span>Mean squared error between the predicted and true velocity on a noised image. Lower = model finds it more likely.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">Shared noise</div>
-        <div class="flip-back">One t and one ε per pair, reused for both images and both models, so differences reflect the models.</div>
+        <div class="flip-front"><span>Shared noise</span></div>
+        <div class="flip-back"><span>One \(t\) and one \(\varepsilon\) per pair, reused for both images and both models, so differences reflect the models.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">Reward r</div>
-        <div class="flip-back">Student loss minus reference loss on one image. Negative = student is better on it.</div>
+        <div class="flip-front"><span>Reward \(r\)</span></div>
+        <div class="flip-back"><span>Student loss minus reference loss on one image. Negative = student is better on it.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">Margin Δ</div>
-        <div class="flip-back">r<sub>w</sub> − r<sub>l</sub>. Training drives it negative: better on 👍, worse on 👎.</div>
+        <div class="flip-front"><span>Margin \(\Delta\)</span></div>
+        <div class="flip-back"><span>\(\Delta = r_w - r_l\). Training drives it negative: better on 👍, worse on 👎.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">softplus(βΔ)</div>
-        <div class="flip-back">The DPO loss, log(1 + e<sup>βΔ</sup>), the same as −log σ(−βΔ).</div>
+        <div class="flip-front"><span>\(\operatorname{softplus}(\beta\Delta)\)</span></div>
+        <div class="flip-back"><span>The DPO loss, <span class="nowrap">\(\log(1 + e^{\beta\Delta})\),</span> the same as \(-\log\sigma(-\beta\Delta)\).</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">ln 2 ≈ 0.693</div>
-        <div class="flip-back">The loss at step 0, when student = reference. A great sanity check.</div>
+        <div class="flip-front"><span>\(\ln 2 \approx 0.693\)</span></div>
+        <div class="flip-back"><span>The loss at step 0, when student = reference. A great sanity check.</span></div>
       </div></div>
       <div class="flip-card"><div class="flip-inner">
-        <div class="flip-front">w = βσ(βΔ)</div>
-        <div class="flip-back">Push strength. Starts at β/2 and switches off once |Δ| ≈ 5/β.</div>
+        <div class="flip-front"><span>\(w = \beta\,\sigma(\beta\Delta)\)</span></div>
+        <div class="flip-back"><span>Push strength. Starts at \(\beta/2\) and switches off once \(|\Delta| \approx 5/\beta\).</span></div>
       </div></div>
     </div>
 

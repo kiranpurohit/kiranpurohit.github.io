@@ -95,12 +95,6 @@ body {
   letter-spacing: -0.02em;
 }
 
-.tagline {
-  color: var(--text-dim);
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  margin-top: 10px;
-}
-
 .scroll-cue {
   display: inline-block;
   margin-top: 40px;
@@ -797,6 +791,39 @@ a { color: var(--accent); }
 /* ---------- shared bits ---------- */
 .badge-pink { background: linear-gradient(135deg, var(--accent2), #b07cff); }
 .callout { margin-top: 28px; }
+.plan-intro { margin: 0 0 14px; }
+.plan-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+@media (max-width: 860px) {
+  .plan-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .plan-list { grid-template-columns: 1fr; }
+}
+.plan-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: rgba(11, 13, 23, 0.45);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.plan-list a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.plan-list .sec-num { flex: none; margin-right: 0; vertical-align: 0; }
 .build-formula { color: var(--text); }
 .build-formula .katex-display { margin: 0.4em 0; }
 
@@ -1089,8 +1116,7 @@ a { color: var(--accent); }
 
 .math-content > p { color: var(--text-dim); }
 .derivation-step .katex-display { color: var(--text); }
-
-.flip-back sub { font-size: 0.7em; }
+.nowrap { white-space: nowrap; }
 
 .refs {
   margin-top: 50px;
